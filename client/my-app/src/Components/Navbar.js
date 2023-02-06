@@ -1,4 +1,5 @@
 import React from 'react'
+import "./Navbar.css";
 
 export default function Navbar() {
   return (
@@ -15,7 +16,13 @@ export default function Navbar() {
           <a className="nav-link active" aria-current="page" href="#">Login</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Sign Up</a>
+          <a className="nav-link active" aria-current="page" href="#">About us</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#">Contact us</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link active" href="#">Sign Up</a>
         </li>
         {/* <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

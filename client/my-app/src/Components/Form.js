@@ -33,8 +33,8 @@ export default function form() {
          <label for="formFile" class="form-label">Upload your image</label>
          <input class="form-control" type="file" id="formFile"/>
         </div>
-        <div className="mb-3">
-           <input type="submit"  />
+        <div className="mb-3" >
+           <input type="submit" id="button" />
         </div>
 
         

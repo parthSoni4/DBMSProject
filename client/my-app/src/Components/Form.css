@@ -2,6 +2,8 @@ form {
     /* border: 2px solid yellow; */
     margin: auto;
     box-shadow: 2px 2px 7px 2px grey;
+    margin-top: 1.9rem;
+    padding-top: 0.9rem;
 }
 input {
     margin: 0.5rem;

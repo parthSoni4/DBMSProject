@@ -1,9 +1,11 @@
 import React from "react";
+import "./Form.css"
 
 export default function form() {
   return (
     <>
       <form>
+        <h2 class="my-3">Farmer's Login</h2>
         <div class="input-group">
           {/* <span class="input-group-text">First and last name</span>
            */}

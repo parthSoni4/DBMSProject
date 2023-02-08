@@ -31,6 +31,26 @@ export default function form() {
           <label htmlFor="" className="form-label">Enter your phone no</label>
           <input type="text" className="form-control" />
         </div>
+        <div className="input-group">
+          <label htmlFor="" className="form-label">Enter your city</label>
+          <input type="text" className="form-control" />
+        </div>
+        <div className="input-group">
+          <label htmlFor="" className="form-label">Enter your state</label>
+          <input type="text" className="form-control" />
+        </div>
+        <div className="input-group">
+          <label htmlFor="" className="form-label">Pincode</label>
+          <input type="text" className="form-control" />
+        </div>
+        <div className="input-group">
+          <label htmlFor="" className="form-label">Enter your password</label>
+          <input type="text" className="form-control" />
+        </div>
+        <div className="input-group">
+          <label htmlFor="" className="form-label">Confirm password</label>
+          <input type="text" className="form-control" />
+        </div>
         <div class="mb-3">
          <label for="formFile" class="form-label">Upload your image</label>
          <input class="form-control" type="file" id="formFile"/>

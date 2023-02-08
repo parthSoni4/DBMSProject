@@ -26,7 +26,8 @@ input#formFile.form-control {
 }
 
 .input-group {
-    width: 80%;
+    width: 70%;
+    margin: 0.2rem;
 }
 form {
     border: 2px solid grey;

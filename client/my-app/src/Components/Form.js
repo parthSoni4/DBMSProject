@@ -22,6 +22,12 @@ export default function Form() {
       lname: lname,
       aadhar_no: aadhar_no,
       age: age,
+      phone_no: phone_no,
+      city: city,
+      state: state,
+      password: password,
+      pincode: pincode,
+      unique_id: unique_id
       
 
     }).then((response)=>{
@@ -76,15 +82,12 @@ export default function Form() {
           <input type="text" className="form-control" onChange={(e)=>{changePassword(e.target.value);}}/>
         </div>
         <div className="input-group">
+          <label htmlFor="" className="form-label">Confirm password</label>
           <input type="text" className="form-control" />
         </div>
         <div className="mb-3">
-          <label htmlFor="" className="form-label">Confirm password</label>
-         <label htmlFor="formFile" className="form-label">Upload your image</label>
-         <input className="form-control" type="file" id="formFile" onChange={(e)=>{this.handleFile(e)}}/>
-        </div>
-        <div>
-          <button onClick={(e)=>this.handleUpload(e)}></button>
+          {/* <input type="text" className="form-control" /> */}
+
         </div>
         <div className="mb-3" >
            <button onClick={farmer_login}>Farmer login</button>

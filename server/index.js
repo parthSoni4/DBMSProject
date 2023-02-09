@@ -25,10 +25,10 @@ conn.connect(function(err)
     if(err) throw err;
     console.log("Connected!");
 })
-// conn.query("create table farmer(fname varchar(15), lname varchar(15),age int, aadhar_no varchar(15), unique_id int, phone_no varchar(15), city varchar(15), state varchar(15), pincode int, password int, image BLOB)", function(err,result)
+// conn.query("create table farmer(fname varchar(15), lname varchar(15),age int, aadhar_no varchar(15), unique_id int, phone_no varchar(15), city varchar(15), state varchar(15), pincode int, password int)", function(err,result)
 // {
-    // if(err) throw err;
-    // console.log("result"+result);
+//     if(err) throw err;
+//     console.log("result"+result);
 // })
 
 
@@ -39,6 +39,10 @@ conn.connect(function(err)
 app.post("/farmer_login",function(req,res){
     console.log(req.body);
     console.log("Hi");
+    conn.query("insert into farmer(fname,lname,aadhar_no,age,phone_no,city,state,password,pincode,unique_id)values('"+req.body.fname+"','"+req.body.lname+"','"+req.body.aadhar_no+"',"+req.body.age+",'"+req.body.phone_no+"','"+req.body.city+"','"+req.body.state+"',"+req.body.password+","+req.body.pincode+",'"+req.body.unique_id+"');",function(err,result){
+        if(err)throw err;
+        console.log(result);
+    });
     res.send("got this");
 })
 

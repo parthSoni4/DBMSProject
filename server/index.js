@@ -51,6 +51,15 @@ app.get("/",function(req,res){
     res.send("hello");
 })
 
+app.get("/AllFarmer",function(req,res){
+    conn.query("Select * from farmer;",function(err,Result){
+        if(err) throw err;
+        console.log(Result);
+        res.send(Result);
+    })
+})
+
+
 app.listen(PORT, function(err)
 {
     if(err) console.log(err);

@@ -1,4 +1,4 @@
-form {
+form,main {
     /* border: 2px solid yellow; */
     margin: auto;
     box-shadow: 2px 2px 7px 2px grey;
@@ -8,7 +8,7 @@ form {
 input {
     margin: 0.5rem;
 }
-form:hover {
+main:hover {
     box-shadow: 2px 2px 14px 3px grey;
 
 }
@@ -29,10 +29,11 @@ input#formFile.form-control {
     width: 70%;
     margin: 0.2rem;
 }
-form {
+form , main{
     border: 2px solid grey;
     width: 70%;
     display: flex;
+    margin: auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;

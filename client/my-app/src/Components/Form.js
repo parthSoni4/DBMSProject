@@ -38,59 +38,59 @@ export default function Form() {
     <>
     <main>
       
-        <h2 className="my-3">Farmer's Login</h2>
+        <h2 className="my-3">Farmer SignUp!</h2>
         <div className="input-group">
           {/* <span className="input-group-text">First and last name</span>
            */}
-           <label htmlFor="" className="form-label">Enter your first and last name</label>
-          <input type="text" aria-label="First name" className="our-form form-control" onChange={(e)=>{ChangefName(e.target.value);}} />
-          <input type="text" aria-label="Last name" className="form-control" onChange={(e)=>{ChangelName(e.target.value);}}/>
+           {/*<label htmlFor="" className="form-label">Enter your first and last name</label>*/}
+          <input type="text" placeholder="Enter your first name ..." aria-label="First name" className="our-form form-control" onChange={(e)=>{ChangefName(e.target.value);}} />
+          <input type="text" placeholder="Enter your last name ..." aria-label="Last name" className="form-control" onChange={(e)=>{ChangelName(e.target.value);}}/>
         </div>
         <div className="input-group">
           {/* <span className="input-group-text">Enter age</span> */}
-          <label htmlFor="" className="form-label">Enter your age</label>
-          <input type="number" className="form-control" onChange={(e)=>{ChangeAge(e.target.value);}} />
+          {/*<label htmlFor="" className="form-label">Enter your age</label>*/}
+          <input type="number" placeholder="Enter your age ..." className="form-control" onChange={(e)=>{ChangeAge(e.target.value);}} />
         </div>
 
         <div className="input-group">
-          <label htmlFor="" className="form-label">Enter your aadhar card no</label>
-          <input type="text" className="form-control" onChange={(e)=>{changeAadhar_no(e.target.value);}}/>
+         {/* <label htmlFor="" className="form-label">Enter your aadhar card no</label>*/}
+          <input type="text" placeholder="Enter your aadhar number ..." className="form-control" onChange={(e)=>{changeAadhar_no(e.target.value);}}/>
         </div>
         <div className="input-group">
-          <label htmlFor="" className="form-label">Enter your unique ID</label>
-          <input type="text" className="form-control" onChange={(e)=>{changeUnique_id(e.target.value);}}/>
+          {/*<label htmlFor="" className="form-label">Enter your unique ID</label>*/}
+          <input type="text" placeholder="Enter your unique id ..." className="form-control" onChange={(e)=>{changeUnique_id(e.target.value);}}/>
       {/* <form action="farmer_login" method="POST"> */}
         </div>
         <div className="input-group">
-          <label htmlFor="" className="form-label">Enter your phone no</label>
-          <input type="text" className="form-control"onChange={(e)=>{changePhone_no(e.target.value);}} />
+          {/*<label htmlFor="" className="form-label">Enter your phone no</label>*/}
+          <input type="text" placeholder="Enter your phone number ..." className="form-control"onChange={(e)=>{changePhone_no(e.target.value);}} />
         </div>
         <div className="input-group">
-        <label htmlFor="" className="form-label">Enter your city</label>
+        <label htmlFor="" className="form-label">Select your state</label>
           <input type="text" className="form-control" onChange={(e)=>{changeCity(e.target.value);}}/>
         </div>
         <div className="input-group">
-          <label htmlFor="" className="form-label">Enter your state</label>
+          <label htmlFor="" className="form-label">Select your city</label>
           <input type="text" className="form-control" onChange={(e)=>{changeState(e.target.value);}}/>
         </div>
         <div className="input-group">
-          <label htmlFor="" className="form-label">Pincode</label>
-          <input type="text" className="form-control" onChange={(e)=>{changePincode(e.target.value);}}/>
+          {/*<label htmlFor="" className="form-label">Pincode</label>*/}
+          <input type="text" placeholder="Enter your pincode ..." className="form-control" onChange={(e)=>{changePincode(e.target.value);}}/>
         </div>
         <div className="input-group">
-          <label htmlFor="" className="form-label">Enter your password</label>
-          <input type="text" className="form-control" onChange={(e)=>{changePassword(e.target.value);}}/>
+          {/*<label htmlFor="" className="form-label">Enter your password</label>*/}
+          <input type="text" placeholder="Enter password ..." className="form-control" onChange={(e)=>{changePassword(e.target.value);}}/>
         </div>
         <div className="input-group">
-          <label htmlFor="" className="form-label">Confirm password</label>
-          <input type="text" className="form-control" />
+          {/*<label htmlFor="" className="form-label">Confirm password</label>*/}
+          <input type="text" placeholder="Confirm password ..." className="form-control" />
         </div>
         <div className="mb-3">
           {/* <input type="text" className="form-control" /> */}
 
         </div>
-        <div className="mb-3" >
-           <button onClick={farmer_login}>Farmer login</button>
+        <div class="mb-3">
+           <button class="buton" onClick={farmer_login}>Sign Up</button>
         </div>
 
         

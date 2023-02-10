@@ -33,44 +33,45 @@ export default function CustomerSignup() {
   return (
     <>
        <main>
-        <h2 className="my-3">Customer login</h2>
+        <h2 className="my-3">Customer SignUp!</h2>
         <div className="input-group">
 
-        <label htmlFor="" className="form-label">Enter your name</label>
-        <input type="text" className="form-control" onChange={(e)=>{changefname(e.target.value);}} />
-        <input type="text" className="form-control" onChange={(e)=>{changeLname(e.target.value);}}/>
+        {/*<label htmlFor="" className="form-label">Enter your name</label>*/}
+        <input type="text" placeholder="Enter your first name" className="form-control" onChange={(e)=>{changefname(e.target.value);}} />
+        <input type="text" placeholder="Enter your last name" className="form-control" onChange={(e)=>{changeLname(e.target.value);}}/>
         </div>
         <div className="input-group">
-            <label htmlFor="" className="form-label">Enter your address</label>
-            <input type="text" className="form-control" onChange={(e)=>{changeAddress(e.target.value);}} />
+            {/*<label htmlFor="" className="form-label">Enter your contact no</label>*/}
+            <input type="text" placeholder="Enter your Phone number"  className="form-control" onChange={(e)=>{changeContact_no(e.target.value);}} />
         </div>
         <div className="input-group">
-            <label htmlFor="" className="form-label">Enter your city</label>
+            {/*<label htmlFor="" className="form-label">Enter your email</label>*/}
+            <input type="email" placeholder="Enter your email id"  className="form-control" onChange={(e)=>{changeEmail(e.target.value);}} />
+        </div>
 
-            <input type="text" className='form-control' onChange={(e)=>{changeCity(e.target.value);}}/>
+        <div className="input-group">
+            {/*<label htmlFor="" className="form-label">Enter your address</label>*/}
+            <input type="text" placeholder="Enter your address" className="form-control" onChange={(e)=>{changeAddress(e.target.value);}} />
         </div>
         <div className="input-group">
             <label htmlFor="" className="form-label">Enter your state</label>
+            <input type="text" className='form-control' onChange={(e)=>{changeCity(e.target.value);}}/>
+        </div>
+        <div className="input-group">
+            <label htmlFor="" className="form-label">Enter your city</label>
             <input type="text" className="form-control" onChange={(e)=>{changeState(e.target.value);}}/>
         </div>
-        <div className="input-group">
-            <label htmlFor="" className="form-label">Enter your contact no</label>
-            <input type="text" className="form-control" onChange={(e)=>{changeContact_no(e.target.value);}} />
-        </div>
-        <div className="input-group">
-            <label htmlFor="" className="form-label">Enter your email</label>
-            <input type="email" className="form-control" onChange={(e)=>{changeEmail(e.target.value);}} />
-        </div>
+        
         <div  className="input-group">
-            <label htmlFor="" className="form-label">Enter your password</label>
-            <input type="text" className="form-control" onChange={(e)=>{changePassword(e.target.value);}}/>
+            {/*<label htmlFor="" className="form-label">Enter your password</label>*/}
+            <input type="text" placeholder="Enter password" className="form-control" onChange={(e)=>{changePassword(e.target.value);}}/>
         </div>
         <div className="input-group">
-            <label htmlFor="" className="form-label">Confirm your password</label>
-            <input type="text" className="form-control" />
+            {/*<label htmlFor="" className="form-label">Confirm your password</label>*/}
+            <input type="text" placeholder="Confirm password"  className="form-control" />
         </div>
-        <div className="input-group">
-            <button onClick={customer_login}>Customer login</button>
+        <div className="mb-3">
+            <button class="buton" onClick={customer_login}>Sign Up</button>
         </div>
        </main>
     </>

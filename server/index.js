@@ -45,7 +45,10 @@ app.post("/farmer_login",function(req,res){
     });
     res.send("got this");
 })
-
+app.post("/customer_login",function(req,res){
+    console.log(req.body);
+    res.send("we did it");
+})
 app.get("/",function(req,res){
     console.log("user called us");
     res.send("hello");

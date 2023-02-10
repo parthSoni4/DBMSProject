@@ -1,18 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 import Navbar from "./Components/Navbar";
 import Form from "./Components/Form";
 import Home from "./Components/Home";
-import AllFarmer from './Components/AllFarmer';
+import AllFarmer from "./Components/AllFarmer";
+import CustomerSignup from "./Components/CustomerSignup";
+import { BrowserRouter , Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-   <>
-   <Navbar></Navbar>
-   {/* <Home></Home> */}
-   <Form></Form>
-   <AllFarmer></AllFarmer>
-   </>
+    <>
+
+    <BrowserRouter>
+      <Navbar/>
+      <Routes>
+        <Route path="/"  element={<Home/>}/>
+        <Route path="/Form" element={<Form/>}/> 
+        <Route path="/customer_login" element={<CustomerSignup></CustomerSignup>}/>
+      </Routes>
+    </BrowserRouter>
+    
+   {/* <AllFarmer></AllFarmer>
+   <CustomerSignup></CustomerSignup> 
+   <Form></Form> */}
+    </>
   );
 }
 

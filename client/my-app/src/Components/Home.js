@@ -1,7 +1,9 @@
 import React from 'react'
-import one from "../Images/one.webp";
-import two from "../Images/two.webp";
-import three from "../Images/three.webp";
+import one from "../Images/one.jpg";
+import two from "../Images/two.jpg";
+import three from "../Images/three.jpg";
+
+
 import "./Home.css"
 
 export default function Home() {

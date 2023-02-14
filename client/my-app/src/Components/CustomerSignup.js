@@ -71,7 +71,7 @@ export default function CustomerSignup() {
             <input type="text" placeholder="Confirm password"  className="form-control" />
         </div>
         <div className="mb-3">
-            <button class="buton" onClick={customer_login}>Sign Up</button>
+            <button className="buton" onClick={customer_login}>Sign Up</button>
         </div>
        </main>
     </>

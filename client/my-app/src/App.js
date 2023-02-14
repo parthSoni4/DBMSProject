@@ -7,6 +7,8 @@ import AllFarmer from "./Components/AllFarmer";
 import CustomerSignup from "./Components/CustomerSignup";
 import { BrowserRouter , Routes, Route, Link } from "react-router-dom";
 import AdminLogin from "./Components/AdminLogin";
+import AdminOption from "./Components/AdminOption";
+
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/Form" element={<Form/>}/> 
         <Route path="/customer_login" element={<CustomerSignup></CustomerSignup>}/>
         <Route path="/admin_login"  element={<AdminLogin></AdminLogin>}/>
+        <Route path="/AdminOption"  element={<AdminOption></AdminOption>}/>
+
       </Routes>
     </BrowserRouter>
     

@@ -45,6 +45,16 @@ conn.connect(function(err)
 //     console.log("Middleware called");
 //     next();
 // })
+
+// ***** admin table creation ******
+// conn.query("Create table admin(username varchar(15), password varchar(15));",function(err,result)
+// {
+//     if(err)throw err;
+//     console.log(result);
+// })
+
+
+
 app.post("/farmer_login",function(req,res){
     console.log(req.body);
     console.log("Hi");
@@ -65,7 +75,19 @@ app.post("/customer_login",function(req,res){
 })
 app.post("/admin_login",function(req,res){
     console.log(req.body);
-    res.send("admin here");
+    conn.query("select * from admin where ( username='"+req.body.username+"') & ( password='"+req.body.password+"');",function(err,result){
+        console.log(result);
+        if(result=="")
+        {
+            console.log("wrong");
+            res.send("wrong");
+        }
+        else{
+            console.log("right");
+            res.send("right");
+        }
+    })
+    // res.send("admin here");
 })
 
 app.get("/",function(req,res){

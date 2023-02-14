@@ -6,6 +6,7 @@ import Home from "./Components/Home";
 import AllFarmer from "./Components/AllFarmer";
 import CustomerSignup from "./Components/CustomerSignup";
 import { BrowserRouter , Routes, Route, Link } from "react-router-dom";
+import AdminLogin from "./Components/AdminLogin";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/"  element={<Home/>}/>
         <Route path="/Form" element={<Form/>}/> 
         <Route path="/customer_login" element={<CustomerSignup></CustomerSignup>}/>
+        <Route path="/admin_login"  element={<AdminLogin></AdminLogin>}/>
       </Routes>
     </BrowserRouter>
     

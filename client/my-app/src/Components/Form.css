@@ -54,7 +54,7 @@ input {
     border: 1px solid green;
     width:15em;
     height: 5.5vh;
-    border-radius: 2em;
+    border-radius: 0.5em;
     background-color: white;
     color:green;
 }
@@ -65,3 +65,21 @@ input {
 main{
     margin-top: 3rem;
 }
+.butonadmin {
+    margin-top: 1.3rem;
+    margin-bottom: 1rem;
+    font-size: 20px;
+    border: 1px solid blue;
+    width:15em;
+    height: 5.5vh;
+    border-radius: 0.5em;
+    background-color: rgba(30, 30, 243, 0.895);
+    color: white;
+    box-shadow: 2px 2px 5px 2px;
+}
+.butonadmin:hover{
+    background-color: blue;
+    color: white;
+   
+}
+

@@ -21,14 +21,14 @@ export default function AdminLogin() {
         <main>
             <h2>Admin login</h2>
             <div className="input-group">
-                Enter your username
-                <input type="text" className="form-control" onChange={(e)=>{changeUsername(e.target.value);}}/>
+                {/*Enter your username*/}
+                <input type="text" placeholder="Username" className="form-control" onChange={(e)=>{changeUsername(e.target.value);}}/>
             </div>
             <div className="input-group">
-                Enter your password
-                <input type="text" className="form-control" onChange={(e)=>{changePassword(e.target.value);}}/>
+                {/*Enter your password*/}
+                <input type="text" placeholder="Password" className="form-control" onChange={(e)=>{changePassword(e.target.value);}}/>
             </div>
-            <button onClick={admin_login}>Submit</button>
+            <button class="butonadmin" onClick={admin_login}>Submit</button>
 
         </main>
     </>

@@ -66,12 +66,12 @@ export default function Form() {
           <input type="text" placeholder="Enter your phone number ..." className="form-control"onChange={(e)=>{changePhone_no(e.target.value);}} />
         </div>
         <div className="input-group">
-        <label htmlFor="" className="form-label">Select your state</label>
-          <input type="text" className="form-control" onChange={(e)=>{changeCity(e.target.value);}}/>
+        {/*<label htmlFor="" className="form-label">Select your state</label>*/}
+          <input type="text" placeholder="Enter your state" className="form-control" onChange={(e)=>{changeCity(e.target.value);}}/>
         </div>
         <div className="input-group">
-          <label htmlFor="" className="form-label">Select your city</label>
-          <input type="text" className="form-control" onChange={(e)=>{changeState(e.target.value);}}/>
+          {/*<label htmlFor="" className="form-label">Select your city</label>*/}
+          <input type="text" placeholder="Enter your city" className="form-control" onChange={(e)=>{changeState(e.target.value);}}/>
         </div>
         <div className="input-group">
           {/*<label htmlFor="" className="form-label">Pincode</label>*/}

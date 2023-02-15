@@ -58,7 +58,7 @@ conn.connect(function(err)
 app.post("/farmer_login",function(req,res){
     console.log(req.body);
     console.log("Hi");
-    conn.query("insert into farmer(fname,lname,aadhar_no,age,phone_no,city,state,password,pincode,unique_id)values('"+req.body.fname+"','"+req.body.lname+"','"+req.body.aadhar_no+"',"+req.body.age+",'"+req.body.phone_no+"','"+req.body.city+"','"+req.body.state+"',"+req.body.password+","+req.body.pincode+",'"+req.body.unique_id+"');",function(err,result){
+    conn.query("insert into farmer(fname,lname,aadhar_no,age,phone_no,city,state,password,pincode,unique_id)values('"+req.body.fname+"','"+req.body.lname+"','"+req.body.aadhar_no+"',"+req.body.age+",'"+req.body.phone_no+"','"+req.body.city+"','"+req.body.state+"',"+req.body.password+","+req.body.pincode+","+req.body.unique_id+");",function(err,result){
         if(err)throw err;
         console.log(result);
     });

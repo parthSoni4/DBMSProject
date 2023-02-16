@@ -8,7 +8,7 @@ import CustomerSignup from "./Components/CustomerSignup";
 import { BrowserRouter , Routes, Route, Link } from "react-router-dom";
 import AdminLogin from "./Components/AdminLogin";
 import AdminOption from "./Components/AdminOption";
-
+import AllCustomer from "./Components/AllCustomer";
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
         <Route path="/admin_login"  element={<AdminLogin></AdminLogin>}/>
         <Route path="/AdminOption"  element={<AdminOption></AdminOption>}/>
         <Route path="/AllFarmer" element={<AllFarmer></AllFarmer>}/>
+        <Route path="/AllCustomer" element={<AllCustomer></AllCustomer>}></Route>
       </Routes>
     </BrowserRouter>
     

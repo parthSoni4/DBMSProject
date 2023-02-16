@@ -103,6 +103,13 @@ app.get("/AllFarmer",function(req,res){
     })
 })
 
+app.get("/AllCustomer",function(req,res){
+    conn.query("select * from customer;",function(err,Result){
+        if(err)throw err;
+        console.log(Result);
+        res.send(Result);
+    })
+})
 
 app.listen(PORT, function(err)
 {

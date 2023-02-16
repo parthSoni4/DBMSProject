@@ -90,6 +90,13 @@ app.post("/admin_login",function(req,res){
     // res.send("admin here");
 })
 
+
+app.post("/create_admin",function(req,res){
+    conn.query("insert into admin (username, password) values ('"+req.body.username+"','"+req.body.password+"');",function(err,result){
+        if(err)throw err;
+        console.log(result);
+    })
+})
 app.get("/",function(req,res){
     console.log("user called us");
     res.send("hello");

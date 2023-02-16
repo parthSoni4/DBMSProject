@@ -3,12 +3,13 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import Form from "./Components/Form";
 import Home from "./Components/Home";
-import AllFarmer from "./Components/AllFarmer";
+import AllFarmer from "./Components/Admin/AllFarmer";
 import CustomerSignup from "./Components/CustomerSignup";
 import { BrowserRouter , Routes, Route, Link } from "react-router-dom";
-import AdminLogin from "./Components/AdminLogin";
-import AdminOption from "./Components/AdminOption";
-import AllCustomer from "./Components/AllCustomer";
+import AdminLogin from "./Components/Admin/AdminLogin";
+import AdminOption from "./Components/Admin/AdminOption";
+import AllCustomer from "./Components/Admin/AllCustomer";
+import CreateAdmin from "./Components/Admin/CreateAdmin";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/AdminOption"  element={<AdminOption></AdminOption>}/>
         <Route path="/AllFarmer" element={<AllFarmer></AllFarmer>}/>
         <Route path="/AllCustomer" element={<AllCustomer></AllCustomer>}></Route>
+        <Route path="/CreateAdmin" element={<CreateAdmin></CreateAdmin>}/>
       </Routes>
     </BrowserRouter>
     

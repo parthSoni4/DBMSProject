@@ -10,6 +10,7 @@ import AdminLogin from "./Components/Admin/AdminLogin";
 import AdminOption from "./Components/Admin/AdminOption";
 import AllCustomer from "./Components/Admin/AllCustomer";
 import CreateAdmin from "./Components/Admin/CreateAdmin";
+import ProductInsert from "./Components/ProductInsert";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/AllFarmer" element={<AllFarmer></AllFarmer>}/>
         <Route path="/AllCustomer" element={<AllCustomer></AllCustomer>}></Route>
         <Route path="/CreateAdmin" element={<CreateAdmin></CreateAdmin>}/>
+        <Route path="/ProductInsert" element={<ProductInsert></ProductInsert>}/>
       </Routes>
     </BrowserRouter>
     

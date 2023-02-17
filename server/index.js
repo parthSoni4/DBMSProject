@@ -2,8 +2,12 @@ var express=require("express");
 var mysql=require("mysql2");
 var app=express();
 const cors=require("cors");
+const multer=require("multer");
 var PORT=3001;
+const bodyParser=require("body-parser");
 
+
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use(
@@ -20,6 +24,17 @@ const conn=mysql.createConnection({
     password: "parth",
     database: "DBMS"
 })
+
+// const storage=multer.diskStorage({
+//     destination:(req,file,callback)=>{
+//         callback(null,"./uploads");
+//     },
+//     filename: (req,file,callback)=>{
+//         callback(null,file.originalname);
+//     }
+// })
+
+// const upload=multer({storage: storage});
 conn.connect(function(err)
 {
     if(err) throw err;
@@ -90,6 +105,39 @@ app.post("/admin_login",function(req,res){
     // res.send("admin here");
 })
 
+// app.post("/insertProduct",upload.fields([{name:"text"},{name:"file"}]),function(req,res){
+//     const{text,file}=req.body;
+//     const{originalname,buffer}=req.files.file[0];
+//     console.log(text);
+//     console.log(originalname);
+//     console.log(buffer);
+//     // console.log(req.files.file);
+//     res.send("got it");
+//     // const imageFile=req.files.file;
+//     // const imageBuffer=Buffer.from(imageFile.data);
+// })
+
+const upload=multer();
+app.post("/insertProduct",upload.single('file'),(req,res)=>{
+    const textInput=req.body.text;
+    const imageFile=req.file;
+    const imageBuffer=Buffer.from(imageFile.buffer);
+    const sql="insert into demo (text, file) values (?,?);";
+    const values=[textInput,imageBuffer];
+
+    conn.query(sql,values,(err,results,fields)=>{
+        if(err)
+        {
+            res.status(500).json({error:"uploading image and text"});
+        }else{
+            res.json({message: "successful"});
+        }
+    });
+
+
+    // res.send("hi");
+    console.log(imageBuffer);
+})
 
 app.post("/create_admin",function(req,res){
     conn.query("insert into admin (username, password) values ('"+req.body.username+"','"+req.body.password+"');",function(err,result){

@@ -54,12 +54,12 @@ export default function CustomerSignup() {
             <input type="text" placeholder="Enter your address" className="form-control" onChange={(e)=>{changeAddress(e.target.value);}} />
         </div>
         <div className="input-group">
-            {/*<label htmlFor="" className="form-label">Enter your state</label>*/}
-            <input type="text" placeholder="Enter your state" className='form-control' onChange={(e)=>{changeCity(e.target.value);}}/>
+            {/*<label htmlFor="" className="form-label">Enter your city</label>*/}
+            <input type="text" placeholder="Enter your city" className='form-control' onChange={(e)=>{changeCity(e.target.value);}}/>
         </div>
         <div className="input-group">
-            {/*<label htmlFor="" className="form-label">Enter your city</label>*/}
-            <input type="text" placeholder="Enter your city" className="form-control" onChange={(e)=>{changeState(e.target.value);}}/>
+            {/*<label htmlFor="" className="form-label">Enter your state</label>*/}
+            <input type="text" placeholder="Enter your state" className="form-control" onChange={(e)=>{changeState(e.target.value);}}/>
         </div>
         
         <div  className="input-group">

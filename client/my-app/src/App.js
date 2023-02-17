@@ -11,6 +11,7 @@ import AdminOption from "./Components/Admin/AdminOption";
 import AllCustomer from "./Components/Admin/AllCustomer";
 import CreateAdmin from "./Components/Admin/CreateAdmin";
 import ProductInsert from "./Components/ProductInsert";
+import ProductDisplay from "./Components/ProductDisplay";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/AllCustomer" element={<AllCustomer></AllCustomer>}></Route>
         <Route path="/CreateAdmin" element={<CreateAdmin></CreateAdmin>}/>
         <Route path="/ProductInsert" element={<ProductInsert></ProductInsert>}/>
+        <Route path="/ProductDisplay" element={<ProductDisplay></ProductDisplay>}/>
       </Routes>
     </BrowserRouter>
     

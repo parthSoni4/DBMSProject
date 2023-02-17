@@ -4,10 +4,10 @@ var app=express();
 const cors=require("cors");
 const multer=require("multer");
 var PORT=3001;
-const bodyParser=require("body-parser");
+// const bodyParser=require("body-parser");
 
 
-app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use(
@@ -137,6 +137,27 @@ app.post("/insertProduct",upload.single('file'),(req,res)=>{
 
     // res.send("hi");
     console.log(imageBuffer);
+})
+
+app.get("/product_display",(req,res)=>{
+    const sql="Select text,file from demo;"
+    conn.query(sql,(error,results,fields)=>{
+        if(error){
+            console.error(error);
+            res.status(500).json({error:"error in fetching"});
+        } else{
+            const imageData=results.map(row=>{
+                const imageBase64=Buffer.from(row.file).toString("base64");
+                const imageUrl=`data:image/jpeg;base64,${imageBase64}`;
+                return{
+                    id: row.id,
+                    imageData: imageUrl,
+                    textData: row.text_data
+                };
+            });
+            res.json(imageData);
+        }
+    })
 })
 
 app.post("/create_admin",function(req,res){

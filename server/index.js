@@ -152,9 +152,10 @@ app.get("/product_display",(req,res)=>{
                 return{
                     id: row.id,
                     imageData: imageUrl,
-                    textData: row.text_data
+                    textData: row.text
                 };
             });
+            console.log(imageData);
             res.json(imageData);
         }
     })

@@ -1,10 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./Components/Navbar";
-import Form from "./Components/Form";
+import Form from "./Components/Farmer/Form";
 import Home from "./Components/Home";
 import AllFarmer from "./Components/Admin/AllFarmer";
-import CustomerSignup from "./Components/CustomerSignup";
+import CustomerSignup from "./Components/Customer/CustomerSignup";
 import { BrowserRouter , Routes, Route, Link } from "react-router-dom";
 import AdminLogin from "./Components/Admin/AdminLogin";
 import AdminOption from "./Components/Admin/AdminOption";
@@ -12,6 +12,8 @@ import AllCustomer from "./Components/Admin/AllCustomer";
 import CreateAdmin from "./Components/Admin/CreateAdmin";
 import ProductInsert from "./Components/ProductInsert";
 import ProductDisplay from "./Components/ProductDisplay";
+import CustomerLogin from "./Components/Customer/CustomerLogin";
+import FarmerLoginPage from "./Components/Farmer/FarmerLoginPage";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <Route path="/CreateAdmin" element={<CreateAdmin></CreateAdmin>}/>
         <Route path="/ProductInsert" element={<ProductInsert></ProductInsert>}/>
         <Route path="/ProductDisplay" element={<ProductDisplay></ProductDisplay>}/>
+        <Route path="/CustomerLogin" element={<CustomerLogin></CustomerLogin>}/>
+        <Route path="/FarmerLoginPage" element={<FarmerLoginPage></FarmerLoginPage>}/>      
       </Routes>
     </BrowserRouter>
     

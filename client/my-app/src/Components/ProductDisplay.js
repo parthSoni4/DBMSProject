@@ -14,7 +14,8 @@ export default function ProductDisplay() {
     .then(response=>{
         setImageData(response.data);
         setError('');
-        console.log(response.data);
+        // console.log(response.data);
+        console.log(response.data.textData);
     })
   .catch(error=>{
     setError("error retrieving image and text data");

@@ -1,8 +1,18 @@
 import React, { useEffect,useState } from "react";
-import "./Form.css";
+import "../Form.css";
 import Axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
+  const navigate=useNavigate("/root");
+
+  const FarmerLoginPage=()=>{
+    navigate("../FarmerLoginPage");
+  }
+
+
+
+
   const [fname,ChangefName]=useState("");
   const[lname,ChangelName]=useState("");
   const[age,ChangeAge]=useState("");
@@ -37,7 +47,7 @@ export default function Form() {
   return (
     <>
     <main>
-      
+      <button onClick={FarmerLoginPage}>Login page</button>
         <h2 className="my-3">Farmer SignUp!</h2>
         <div className="input-group">
           {/* <span className="input-group-text">First and last name</span>

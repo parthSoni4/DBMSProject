@@ -1,10 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import "./Form.css";
+import "../Form.css";
 import Axios from "axios";
-
+import {useNavigate} from "react-router-dom";
 
 
 export default function CustomerSignup() {
+    const navigate=useNavigate("/root");
+    const Customer_login=()=>{
+        navigate("../CustomerLogin");
+
+    }
+
+
+
     const[fname,changefname]=useState("");
     const[lname,changeLname]=useState("");
     const[address,changeAddress]=useState("");
@@ -33,6 +41,7 @@ export default function CustomerSignup() {
   return (
     <>
        <main>
+        <button onClick={Customer_login}>Customer Login</button>
         <h2 className="my-3">Customer SignUp!</h2>
         <div className="input-group">
 

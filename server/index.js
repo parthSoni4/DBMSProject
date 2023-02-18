@@ -105,6 +105,28 @@ app.post("/admin_login",function(req,res){
     // res.send("admin here");
 })
 
+
+app.post("/check_customer",function(req,res){
+    console.log(req.body);
+    const sql="select * from customer where fname='"+req.body.name+"' && password="+req.body.password+";";
+    const values=[req.body.name];
+    conn.query(sql,function(err,result){
+
+        if(err)console.error(err);
+        console.log(sql);
+        console.log(result);
+        res.send("safe");
+    })
+})
+app.post("/check_farmer",function(req,res){
+    console.log(req.body);
+    conn.query("select * from farmer where fname='"+req.body.name+"' && password="+req.body.password+";",function(err,result){
+        if(err) console.log(err);
+        console.log(result);
+    })
+})
+
+
 // app.post("/insertProduct",upload.fields([{name:"text"},{name:"file"}]),function(req,res){
 //     const{text,file}=req.body;
 //     const{originalname,buffer}=req.files.file[0];

@@ -115,7 +115,16 @@ app.post("/check_customer",function(req,res){
         if(err)console.error(err);
         console.log(sql);
         console.log(result);
-        res.send("safe");
+        if(result=="")
+        {
+            console.log("wrong");
+            res.send("wrong");
+        }
+        else{
+            console.log("right");
+            res.send("right");
+        }
+        // res.send("safe");
     })
 })
 app.post("/check_farmer",function(req,res){
@@ -123,6 +132,16 @@ app.post("/check_farmer",function(req,res){
     conn.query("select * from farmer where fname='"+req.body.name+"' && password="+req.body.password+";",function(err,result){
         if(err) console.log(err);
         console.log(result);
+        if(result=="")
+        {
+            console.log("wrong");
+            res.send("wrong");
+        }
+        else{
+            console.log("right");
+            res.send("right");
+        }
+        
     })
 })
 

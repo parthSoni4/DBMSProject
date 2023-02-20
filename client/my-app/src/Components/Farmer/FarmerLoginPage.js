@@ -5,6 +5,7 @@ import axios from "axios";
 export default function FarmerLoginPage() {
     const[name,changeName]=useState("");
     const[password,changePassword]=useState("");
+    const[status,changeStatus]=useState("");
 
     const check_farmer=()=>{
         axios.post("http://localhost:3001/check_farmer",{
@@ -12,6 +13,13 @@ export default function FarmerLoginPage() {
             password: password
         }).then((response)=>{
             console.log(response);
+            if(response.data==="wrong")
+            {
+                changeStatus("wrong username or password");
+            }
+            else{
+                changeStatus("welcome");
+            }
         })
     }
   return (
@@ -27,6 +35,7 @@ export default function FarmerLoginPage() {
         <div className="input-group">
             <button className="btn btn-default btn-primary" onClick={check_farmer}>Submit</button>
         </div>
+        <h3>{status}</h3>
     </main>
     </>
   )

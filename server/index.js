@@ -122,7 +122,8 @@ app.post("/check_customer",function(req,res){
         }
         else{
             console.log("right");
-            res.send("right");
+            console.log(result);
+            res.send(result);
         }
         // res.send("safe");
     })

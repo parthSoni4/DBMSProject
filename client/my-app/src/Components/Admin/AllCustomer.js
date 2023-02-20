@@ -17,7 +17,7 @@ export default function AllCustomer() {
         <div>
             {
                 data.map(item=>(
-                    <div key={item.fname}>
+                    <div key={item.customer_id}>
                         <div>
                             {item.fname}
                         </div>

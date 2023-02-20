@@ -1,8 +1,11 @@
 import React, {useState} from 'react'
 import "../Form.css";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 export default function FarmerLoginPage() {
+    const navigate=useNavigate("/root");
+
     const[name,changeName]=useState("");
     const[password,changePassword]=useState("");
     const[status,changeStatus]=useState("");
@@ -19,6 +22,7 @@ export default function FarmerLoginPage() {
             }
             else{
                 changeStatus("welcome");
+                navigate("../FarmerOption");
             }
         })
     }

@@ -21,7 +21,7 @@ export default function AllFarmer()
            <div>
             {
                 data.map(item=>(
-                    <div key={item.fname}>
+                    <div key={item.farmer_id}>
                     <div> {item.fname}   {item.lname}  {item.age}</div>
                     <div> {item.aadhar_no}  {item.unique_id} {item.phone_no} </div>
                     <div>  {item.city}  {item.state} {item.pincode}  {item.password}</div>

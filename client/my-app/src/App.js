@@ -14,6 +14,8 @@ import ProductInsert from "./Components/ProductInsert";
 import ProductDisplay from "./Components/ProductDisplay";
 import CustomerLogin from "./Components/Customer/CustomerLogin";
 import FarmerLoginPage from "./Components/Farmer/FarmerLoginPage";
+import CustomerOption from "./Components/Customer/CustomerOption";
+import FarmerOption from "./Components/Farmer/FarmerOption.";
 
 function App() {
   return (
@@ -33,7 +35,9 @@ function App() {
         <Route path="/ProductInsert" element={<ProductInsert></ProductInsert>}/>
         <Route path="/ProductDisplay" element={<ProductDisplay></ProductDisplay>}/>
         <Route path="/CustomerLogin" element={<CustomerLogin></CustomerLogin>}/>
-        <Route path="/FarmerLoginPage" element={<FarmerLoginPage></FarmerLoginPage>}/>      
+        <Route path="/FarmerLoginPage" element={<FarmerLoginPage></FarmerLoginPage>}/>
+        <Route path="/CustomerOption" element={<CustomerOption></CustomerOption>}/>
+        <Route path="/FarmerOption" element={<FarmerOption></FarmerOption>}/>      
       </Routes>
     </BrowserRouter>
     

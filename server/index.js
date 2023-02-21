@@ -170,6 +170,7 @@ app.post("/insertProduct",upload.single('file'),(req,res)=>{
     conn.query(sql,values,(err,results,fields)=>{
         if(err)
         {
+            console.log(err);
             res.status(500).json({error:"uploading image and text"});
         }else{
             res.json({message: "successful"});

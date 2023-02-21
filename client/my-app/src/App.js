@@ -36,7 +36,7 @@ function App() {
         <Route path="/ProductDisplay" element={<ProductDisplay></ProductDisplay>}/>
         <Route path="/CustomerLogin" element={<CustomerLogin></CustomerLogin>}/>
         <Route path="/FarmerLoginPage" element={<FarmerLoginPage></FarmerLoginPage>}/>
-        <Route path="/CustomerOption" element={<CustomerOption></CustomerOption>}/>
+        <Route path="/CustomerOption/customer_id/:customer_id" element={<CustomerOption></CustomerOption>}/>
         <Route path="/FarmerOption" element={<FarmerOption></FarmerOption>}/>      
       </Routes>
     </BrowserRouter>

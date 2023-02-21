@@ -25,7 +25,7 @@ export default function CustomerLogin() {
                 changeStatus("Welcome");
                 console.log(response.data[0].fname);
                 const customer_id=response.data[0].customer_id;
-                navigate(`../CustomerOption?customer_id=${customer_id}`);
+                navigate(`../CustomerOption/customer_id/${customer_id}`);
             }
         })
     }

@@ -58,6 +58,9 @@ export default function ProductInsert() {
               Non-organic  <input type="radio" name="Category" value="non-organic" />
             </div>
             <div className="input-group">
+                Enter the quantity<input type="text" className="form-control" />
+            </div>
+            <div className="input-group">
 
 
             <textarea name="Description" id="" cols="30" rows="10" className="form-control" placeholder='Enter the product description'></textarea>

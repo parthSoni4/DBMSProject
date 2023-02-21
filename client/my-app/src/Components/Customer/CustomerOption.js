@@ -5,6 +5,9 @@ export default function CustomerOption() {
   let {customer_id}=useParams();
   console.log(customer_id);
   return (
-    <div>CustomerOption</div>
+    <>
+    <button>View all your purchase</button>
+    {/* <button></button> */}
+    </>
   )
 }

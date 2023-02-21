@@ -164,7 +164,7 @@ app.post("/insertProduct",upload.single('file'),(req,res)=>{
     const textInput=req.body.text;
     const imageFile=req.file;
     const imageBuffer=Buffer.from(imageFile.buffer);
-    const sql="insert into demo (text, file) values (?,?);";
+    const sql="insert into product (text, file) values (?,?);";
     const values=[textInput,imageBuffer];
 
     conn.query(sql,values,(err,results,fields)=>{
@@ -182,7 +182,7 @@ app.post("/insertProduct",upload.single('file'),(req,res)=>{
 })
 
 app.get("/product_display",(req,res)=>{
-    const sql="Select text,file from demo;"
+    const sql="Select text,file from product;"
     conn.query(sql,(error,results,fields)=>{
         if(error){
             console.error(error);

@@ -140,7 +140,7 @@ app.post("/check_farmer",function(req,res){
         }
         else{
             console.log("right");
-            res.send("right");
+            res.send(result);
         }
         
     })

@@ -37,7 +37,7 @@ function App() {
         <Route path="/CustomerLogin" element={<CustomerLogin></CustomerLogin>}/>
         <Route path="/FarmerLoginPage" element={<FarmerLoginPage></FarmerLoginPage>}/>
         <Route path="/CustomerOption/customer_id/:customer_id" element={<CustomerOption></CustomerOption>}/>
-        <Route path="/FarmerOption" element={<FarmerOption></FarmerOption>}/>      
+        <Route path="/FarmerOption/farmer_id/:farmer_id" element={<FarmerOption></FarmerOption>}/>      
       </Routes>
     </BrowserRouter>
     

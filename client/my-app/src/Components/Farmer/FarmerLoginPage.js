@@ -22,7 +22,9 @@ export default function FarmerLoginPage() {
             }
             else{
                 changeStatus("welcome");
-                navigate("../FarmerOption");
+                console.log(response.data[0].fname);
+                const farmer_id=response.data[0].farmer_id;
+                navigate(`../FarmerOption/farmer_id/${farmer_id}`);
             }
         })
     }

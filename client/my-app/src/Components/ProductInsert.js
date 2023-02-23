@@ -27,12 +27,13 @@ export default function ProductInsert() {
         formdata.append("description",description);
         formdata.append("quantity",quantity);
         formdata.append("category",category);
-        console.log(formdata);
+        formdata.append("cost",cost);
+        console.log(cost);
 
         axios.post("http://localhost:3001/insertProduct",formdata).then((response)=>{
             console.log(response.data)
-            console.log(response);
-            console.log(formdata);
+            // console.log(response);
+            // console.log(formdata);
         })
         .catch((error)=>{
             console.log(error);

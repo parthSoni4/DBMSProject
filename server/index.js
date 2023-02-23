@@ -170,8 +170,9 @@ app.post("/insertProduct",upload.single('file'),(req,res)=>{
     const date=req.body.date;
     const quantity=req.body.quantity;
     const imageBuffer=Buffer.from(imageFile.buffer);
-    const sql="insert into product (text, file,description,category,type,product_date) values (?,?,?,?,?,?);";
-    const values=[textInput,imageBuffer,description,category,type,date];
+    console.log(cost);
+    const sql="insert into product (text, file,description,category,type,product_date,quantity,cost) values (?,?,?,?,?,?,?,?);";
+    const values=[textInput,imageBuffer,description,category,type,date,quantity,cost];
 
     conn.query(sql,values,(err,results,fields)=>{
         if(err)

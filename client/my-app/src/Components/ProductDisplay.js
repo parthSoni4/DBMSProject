@@ -25,9 +25,15 @@ export default function ProductDisplay() {
     <>
     <div>
         {imageData.map(data=>(
-            <div key={data.id}>
+            <div key={data.id} className="product-card">
                 {data.imageData && <img src={data.imageData} alt="uploaded image" className="productPic"/>}
-                {data.textData && <p>{data.textData}</p>}
+                {data.textData && <p>Name: {data.textData}</p>}
+                {data.type && <p>Type: {data.type}</p>}
+                {data.category && <p>Type: {data.category}</p>}
+                {data.quantity && <p>quantity: {data.quantity}</p>}
+                {data.cost && <p>Cost: {data.cost}</p>}
+                {data.description && <p>description: {data.description}</p>}
+                {data.date && <p>Date: {data.date}</p>}
             </div>
         ))}
     </div>

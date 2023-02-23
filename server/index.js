@@ -190,7 +190,7 @@ app.post("/insertProduct",upload.single('file'),(req,res)=>{
 })
 
 app.get("/product_display",(req,res)=>{
-    const sql="Select text,file from product;"
+    const sql="Select * from product;"
     conn.query(sql,(error,results,fields)=>{
         if(error){
             console.error(error);
@@ -202,7 +202,14 @@ app.get("/product_display",(req,res)=>{
                 return{
                     id: row.id,
                     imageData: imageUrl,
-                    textData: row.text
+                    textData: row.text,
+                    cost: row.cost,
+                    quantity: row.quantity,
+                    category: row.category,
+                    type: row.type,
+                    description: row.description,
+                    id: row.product_id,
+                    date: row.product_date
                 };
             });
             console.log(imageData);

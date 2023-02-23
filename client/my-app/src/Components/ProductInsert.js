@@ -12,6 +12,9 @@ export default function ProductInsert() {
     const[date, setDate]=useState("");
     
     const handleSubmit=(event)=>{
+        console.log(quantity);
+        console.log(date);
+        console.log(type);
         event.preventDefault();
         const formdata=new FormData();
 

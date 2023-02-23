@@ -163,9 +163,15 @@ const upload=multer();
 app.post("/insertProduct",upload.single('file'),(req,res)=>{
     const textInput=req.body.text;
     const imageFile=req.file;
+    const cost=req.body.cost;
+    const description=req.body.description;
+    const category=req.body.category;
+    const type=req.body.type;
+    const date=req.body.date;
+    const quantity=req.body.quantity;
     const imageBuffer=Buffer.from(imageFile.buffer);
-    const sql="insert into product (text, file) values (?,?);";
-    const values=[textInput,imageBuffer];
+    const sql="insert into product (text, file,description,category,type,product_date) values (?,?,?,?,?,?);";
+    const values=[textInput,imageBuffer,description,category,type,date];
 
     conn.query(sql,values,(err,results,fields)=>{
         if(err)

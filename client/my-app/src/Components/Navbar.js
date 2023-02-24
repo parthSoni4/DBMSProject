@@ -39,6 +39,10 @@ export default function Navbar() {
           <Link className="navbar-brand" aria-current="page" to="/Admin_login">Admin login up</Link>
         </li>
         <li className="nav-item">
+          <Link className="navbar-brand" aria-current="page" to="/Contact">Contact and feedback</Link>
+        </li>
+
+        <li className="nav-item">
           {/* <Link className="nav-link active" aria-current="page" to="/customer">Customer</Link> */}
         </li>
         {/* <li className="nav-item">

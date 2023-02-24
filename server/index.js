@@ -245,6 +245,26 @@ app.get("/AllCustomer",function(req,res){
     })
 })
 
+// conn.query("create table contact (name varchar(20), email varchar(20), description varchar(200));",function(err,Result){
+//     if(err)throw err;
+//     console.log(Result);
+// })
+
+app.post("/contact",function(req,res){
+    const name=req.body.name;
+    const email=req.body.email;
+    const description=req.body.description;
+    console.log("name is",name);
+    sql=`insert into contact (name, email,description) values ('${name}','${email}',
+    '${description}');`;
+    conn.query(sql,function(err,result)
+    {
+        if(err) console.log(error);
+        console.log(result);
+        res.send("successful");
+    })
+})
+
 app.listen(PORT, function(err)
 {
     if(err) console.log(err);

@@ -39,6 +39,9 @@ export default function Navbar() {
           <Link className="navbar-brand" aria-current="page" to="/Admin_login">Admin login up</Link>
         </li>
         <li className="nav-item">
+          <Link className="navbar-brand" aria-current="page" to="/trying">Trying</Link>
+        </li>
+        <li className="nav-item">
           <Link className="navbar-brand" aria-current="page" to="/Contact">Contact and feedback</Link>
         </li>
 

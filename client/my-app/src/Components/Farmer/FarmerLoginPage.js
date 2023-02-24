@@ -38,6 +38,10 @@ export default function FarmerLoginPage() {
         <div className="input-group">
             <input type="text" className="form-control" placeholder="Enter your password ..." onChange={(e)=>{changePassword(e.target.value);}}/>
         </div>
+        <div>
+        <a href class="login_a" >Forgot password?</a>
+        </div>
+        
         <div className="input-group">
             <button className="btn btn-default btn-primary" onClick={check_farmer}>Submit</button>
         </div>

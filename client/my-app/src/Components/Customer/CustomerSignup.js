@@ -41,7 +41,7 @@ export default function CustomerSignup() {
   return (
     <>
        <main>
-        <button onClick={Customer_login}>Customer Login</button>
+        
         <h2 className="my-3">Customer SignUp!</h2>
         <div className="input-group">
 
@@ -81,6 +81,10 @@ export default function CustomerSignup() {
         </div>
         <div className="mb-3">
             <button className="buton" onClick={customer_login}>Sign Up</button>
+        </div>
+        <div>
+        <h5 className="my-3">Already have an account?</h5>
+        <a href class="login_a" onClick={Customer_login}>Click Here</a>
         </div>
        </main>
     </>

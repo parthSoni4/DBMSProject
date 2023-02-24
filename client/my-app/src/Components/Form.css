@@ -90,7 +90,15 @@ main{
 }
 .butonadmin:hover{
     background-color: blue;
-    color: white;
-   
+    color: white;  
 }
+.login_a{
+    text-decoration: none !important;
+    color: blue !important;
+    cursor: pointer;
+}
+.login_a:hover{
+    color: green !important;
+}
+
 

@@ -29,12 +29,12 @@ export default function Navbar() {
         <li className="nav-item">
           <Link className="navbar-brand" aria-current="page" to="/customer_login">Customer login up</Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <Link className="navbar-brand" aria-current="page" to="/ProductInsert">CreateProduct</Link>
-        </li>
-        <li className="nav-item">
+        </li> */}
+        {/* <li className="nav-item">
           <Link className="navbar-brand" aria-current="page" to="/ProductDisplay">Product Display</Link>
-        </li>
+        </li> */}
         <li className="nav-item">
           <Link className="navbar-brand" aria-current="page" to="/Admin_login">Admin login up</Link>
         </li>

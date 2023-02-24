@@ -46,40 +46,36 @@ export default function ProductInsert() {
             <h2>Enter the Product details</h2>
             <div className="input-group">
 
-            <input type="text" value={text}  placeholder="Enterr the product name" className="form-control" onChange={(event)=>setText(event.target.value)} />
+            <input type="text" value={text}  placeholder="Enter the product name ..." className="form-control" onChange={(event)=>setText(event.target.value)} />
             </div>
-            <div className="input-group">
-
-
+            <div className="input-group1">
             <input type="file" placeholder="Select product picture" className="form-control"  onChange={(event)=>setFile(event.target.files[0])}  />
             </div>
             <div className="input-group">
 
 
-            <input type="number" placeholder="enter the cost" value={cost} className="form-control" onChange={(event)=>setCost(event.target.value)}/>
+            <input type="number" placeholder="Enter the cost ..." value={cost} className="form-control" onChange={(event)=>setCost(event.target.value)}/>
             </div>
-            <div className="input-group">
+            <div className="input-group1">
                 <select name="" id="" className='form-control' onChange={(e)=>{setCategory(e.target.value)}}>
+                    <option value="" disabled="disabled">Select Category ...</option>
                     <option value="Vegetables">Vegetables</option>
                     <option value="fruits">Fruits</option>
-                    <option value="Grains">Grains</option>
-                    <option value="Dairy">Dairy Products</option>
+                    <option value="Grains">Grains</option>                    
                 </select>
             </div>
             <div className="input-group">
-              organic  <input type="radio" name="Category" value="organic" onChange={(e)=>{setType(e.target.value);}}/>
+              Organic  <input type="radio" name="Category" value="organic" onChange={(e)=>{setType(e.target.value);}}/>
               Non-organic  <input type="radio" name="Category" value="non-organic" onChange={(e)=>{setType(e.target.value)}} />
             </div>
             <div className="input-group">
-                Enter the quantity<input type="text" className="form-control" onChange={(e)=>{setQuantity(e.target.value);}}/>
+            <input type="text" placeholder='Enter the quantity ...' className="form-control" onChange={(e)=>{setQuantity(e.target.value);}}/>
+            </div>
+            <div className="input-group1">
+            <textarea name="Description" id="" cols="30" rows="10" className="form-control" placeholder='Enter the product description ...' onChange={(e)=>{setDescription(e.target.value);}}></textarea>
             </div>
             <div className="input-group">
-
-
-            <textarea name="Description" id="" cols="30" rows="10" className="form-control" placeholder='Enter the product description' onChange={(e)=>{setDescription(e.target.value);}}></textarea>
-            </div>
-            <div className="input-group">
-                <input type="date" placeholder='Enter the date when product can be received' onChange={(e)=>{setDate(e.target.value);}} />
+            Enter the date when product can be received ...<input type="date"  onChange={(e)=>{setDate(e.target.value);}} />
             </div>
             <div className="input-group">
 

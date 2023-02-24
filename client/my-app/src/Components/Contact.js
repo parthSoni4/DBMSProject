@@ -23,13 +23,13 @@ export default function Contact() {
     <main>
         <h2>Message and feedback form</h2>
         <div className="input-group">
-            <input type="text" placeholder='Enter your name' className="form-control" onChange={(e)=>{setName(e.target.value);}}/>
+            <input type="text" placeholder='Enter your name ...' className="form-control" onChange={(e)=>{setName(e.target.value);}}/>
         </div>
         <div className="input-group">
-            <input type="text" placeholder="Enter your email"className="form-control" onChange={(e)=>{setEmail(e.target.value);}} />
+            <input type="text" placeholder="Enter your email ..."className="form-control" onChange={(e)=>{setEmail(e.target.value);}} />
         </div>
-        <div className="input-group">
-            <textarea name="" placeholder='Enter your message and description' id="" cols="30" rows="10" className="form-control" onChange={(e)=>{setDescription(e.target.value);}}></textarea>
+        <div className="input-group1">
+            <textarea name="" placeholder='Enter your message and description ...' id="" cols="30" rows="10" className="form-control" onChange={(e)=>{setDescription(e.target.value);}}></textarea>
         </div>
         <div className="input-group">
             <button className="btn btn-primary" onClick={Submit}>Submit</button>

@@ -20,6 +20,12 @@ input#formFile.form-control {
     border-radius: 1px !important;
     margin-top: 0.2rem;
 }
+.input-group1 > .form-control,
+input#formFile.form-control {
+    border: 2px solid grey;
+    border-radius: 1px !important;
+    margin-top: 0.2rem;
+}
 #button {
     border-radius: 12px !important;
     background-color: black;
@@ -29,6 +35,11 @@ input#formFile.form-control {
 }
 
 .input-group {
+    width: 70%;
+    margin: 0.2rem;
+    margin-top: 1rem;
+}
+.input-group1 {
     width: 70%;
     margin: 0.2rem;
     margin-top: 1rem;

@@ -1,32 +1,31 @@
 import React from "react";
-import { useState, useEffect} from  "react";
+import { useState, useEffect } from "react";
 
 export default function Trying() {
-  const googleTranslateElementInit=()=>{
+  const googleTranslateElementInit = () => {
     new window.google.translate.TranslateElement(
-        {
-            pageLanguage: "en",
-            autodisplay: false
-,
-        },
-        "google_translate_element"
+      {
+        pageLanguage: "en",
+        autodisplay: false,
+      },
+      "google_translate_element"
     );
   };
 
-  useEffect(()=>{
-    var addScript=document.createElement("script");
+  useEffect(() => {
+    var addScript = document.createElement("script");
 
     addScript.setAttribute(
-        "src",
-        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
     );
     document.body.appendChild(addScript);
-    window.googleTranslateElementInit=googleTranslateElementInit;
+    window.googleTranslateElementInit = googleTranslateElementInit;
   }, []);
-    return (
+  return (
     <>
-     <div id="google_translate_element"></div>
+      <div id="google_translate_element"></div>
       <h4>Start building your app. Happy Coding!</h4>
     </>
-  )
+  );
 }

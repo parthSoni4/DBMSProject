@@ -1,0 +1,9 @@
+.content-container {
+    min-height: calc(7vh - 34px);
+  }
+
+.footer--pin {
+    position: relative;
+    left: 0;
+    bottom: 0;
+  }

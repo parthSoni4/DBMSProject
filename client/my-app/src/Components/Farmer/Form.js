@@ -47,7 +47,7 @@ export default function Form() {
   return (
     <>
     <main>
-      <button onClick={FarmerLoginPage}>Login page</button>
+      
         <h2 className="my-3">Farmer SignUp!</h2>
         <div className="input-group">
           {/* <span className="input-group-text">First and last name</span>
@@ -77,11 +77,11 @@ export default function Form() {
         </div>
         <div className="input-group">
         {/*<label htmlFor="" className="form-label">Select your city</label>*/}
-          <input type="text" placeholder="Enter your city" className="form-control" onChange={(e)=>{changeCity(e.target.value);}}/>
+          <input type="text" placeholder="Enter your city ..." className="form-control" onChange={(e)=>{changeCity(e.target.value);}}/>
         </div>
         <div className="input-group">
           {/*<label htmlFor="" className="form-label">Select your state</label>*/}
-          <input type="text" placeholder="Enter your state" className="form-control" onChange={(e)=>{changeState(e.target.value);}}/>
+          <input type="text" placeholder="Enter your state ..." className="form-control" onChange={(e)=>{changeState(e.target.value);}}/>
         </div>
         <div className="input-group">
           {/*<label htmlFor="" className="form-label">Pincode</label>*/}
@@ -102,8 +102,10 @@ export default function Form() {
         <div class="mb-3">
            <button class="buton" onClick={farmer_login}>Sign Up</button>
         </div>
-
-        
+        <div>
+        <h5 className="my-3">Already have an account?</h5>
+        <a href class="login_a" onClick={FarmerLoginPage}>Click Here</a>
+        </div>
       {/* </form> */}
     </main>
       

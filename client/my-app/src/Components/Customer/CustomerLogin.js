@@ -34,10 +34,13 @@ export default function CustomerLogin() {
     <main>
         <h2>Customer Login </h2>
         <div className="input-group">
-            <input type="text" placeholder="Enter your name" className="form-control" onChange={(e)=>{changeName(e.target.value);}}/>
+            <input type="text" placeholder="Enter your name ..." className="form-control" onChange={(e)=>{changeName(e.target.value);}}/>
         </div>
         <div className="input-group">
-            <input type="text" placeholder="Enter your password" className="form-control" onChange={(e)=>{changePassword(e.target.value);}} />
+            <input type="text" placeholder="Enter your password ..." className="form-control" onChange={(e)=>{changePassword(e.target.value);}} />
+        </div>
+        <div>
+        <a href class="login_a" >Forgot password?</a>
         </div>
         <div className="input-group">
             <button className="btn btn-default btn-primary" onClick={check_customer}>Submit</button>

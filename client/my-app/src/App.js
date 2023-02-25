@@ -25,6 +25,7 @@ function App() {
 
     <BrowserRouter>
       <Navbar/>
+      
       <Routes>
         <Route path="/"  element={<Home/>}/>
         <Route path="/Form" element={<Form/>}/> 
@@ -43,6 +44,7 @@ function App() {
         <Route path="/Contact"  element={<Contact></Contact>}/>
         {/* <Route path="/trying" element={<Trying></Trying>}/> */}
       </Routes>
+      <Footer/>
     </BrowserRouter>
     
    {/* <AllFarmer></AllFarmer>

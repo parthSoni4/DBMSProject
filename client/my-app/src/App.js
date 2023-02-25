@@ -17,6 +17,7 @@ import FarmerLoginPage from "./Components/Farmer/FarmerLoginPage";
 import CustomerOption from "./Components/Customer/CustomerOption";
 import FarmerOption from "./Components/Farmer/FarmerOption.";
 import Contact from "./Components/Contact";
+import Footer from "./Components/Footer";
 // import Trying from "./Components/Trying";
 
 function App() {

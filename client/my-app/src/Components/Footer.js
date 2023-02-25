@@ -1,8 +1,8 @@
 import React from 'react'
 import "./Footer.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const Footer = () => {
+export default function Footer(){
     return (
         <>  {/* fragment tag */} 
     <div className="content-container"></div>

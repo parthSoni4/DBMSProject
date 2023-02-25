@@ -1,5 +1,5 @@
 .navbar{
-    /* background-color: rgb(14, 233, 193) !important; */
+    background-color: rgb(122, 243, 122) !important;
     font-style: italic;
     font-family:'Times New Roman', Times, serif;
     /* position:sticky; */
@@ -7,7 +7,7 @@
     /* background-color: black; */
     /* box-shadow: 2px 2px 7px 2px grey; */
     overflow: hidden;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     width: 100%;
     /* border: 2px solid red; */

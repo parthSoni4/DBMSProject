@@ -2,7 +2,7 @@ import React from 'react'
 import one from "../Images/one.jpg";
 import two from "../Images/two.jpg";
 import three from "../Images/three.jpg";
-
+import pic4 from "../Images/pic6.jpg"
 
 import "./Home.css"
 

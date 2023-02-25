@@ -2,6 +2,7 @@ import React, { useEffect,useState } from "react";
 import "../Form.css";
 import Axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import farmer2 from "./FarmerSectionImage/farmer3.png";
 
 export default function Form() {
   const navigate=useNavigate("/root");
@@ -47,7 +48,12 @@ export default function Form() {
   return (
     <>
     <main>
-      
+      <div className="container">
+        <div className="row">
+          <div className="col-md-7">
+
+
+
         <h2 className="my-3">Farmer SignUp!</h2>
         <div className="input-group">
           {/* <span className="input-group-text">First and last name</span>
@@ -107,6 +113,12 @@ export default function Form() {
         <a href class="login_a" onClick={FarmerLoginPage}>Click Here</a>
         </div>
       {/* </form> */}
+          </div>
+          <div className="col-md-5">
+            <img src={farmer2} alt="" className="img-responsive" />
+          </div>
+        </div>
+           </div>
     </main>
       
       

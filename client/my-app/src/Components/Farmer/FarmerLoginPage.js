@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import "../Form.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import pic4 from "./FarmerSectionImage/farmer1.png";
+
 
 export default function FarmerLoginPage() {
     const navigate=useNavigate("/root");
@@ -31,6 +33,12 @@ export default function FarmerLoginPage() {
   return (
     <>
     <main>
+        <div className="container">
+            <div className="row">
+                <div className="col-md-6">
+
+
+
         <h2>Login Page for farmer</h2>
         <div className="input-group">
             <input type="text" className="form-control" placeholder='Enter your Username ...' onChange={(e)=>{changeName(e.target.value);}}/>
@@ -46,6 +54,13 @@ export default function FarmerLoginPage() {
             <button className="btn btn-default btn-primary" onClick={check_farmer}>Submit</button>
         </div>
         <h3>{status}</h3>
+                </div>
+                <div className="col-md-6">
+                    
+                    <img src={pic4} className="img-responsive" alt="" />
+                </div>
+            </div>
+        </div>
     </main>
     </>
   )

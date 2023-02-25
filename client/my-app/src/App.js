@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./Components/Navbar";
+import About from "./Components/About";
 import Form from "./Components/Farmer/Form";
 import Home from "./Components/Home";
 import AllFarmer from "./Components/Admin/AllFarmer";
@@ -28,6 +29,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/"  element={<Home/>}/>
+        <Route path="/About"  element={<About/>}/>
         <Route path="/Form" element={<Form/>}/> 
         <Route path="/customer_login" element={<CustomerSignup></CustomerSignup>}/>
         <Route path="/admin_login"  element={<AdminLogin></AdminLogin>}/>

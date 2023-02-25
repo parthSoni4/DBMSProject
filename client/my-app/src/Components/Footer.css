@@ -1,9 +1,19 @@
 .content-container {
     min-height: calc(7vh - 34px);
+    text-align: center;
+    border: 2px solid lightgrey;
+    background-color: lightgrey;
+    height: 22vh;
+    padding: 25px;
   }
 
 .footer--pin {
     position: relative;
     left: 0;
     bottom: 0;
+    padding-left: 35px;
   }
+.icons{
+  margin-left: 2.5em;
+}
+

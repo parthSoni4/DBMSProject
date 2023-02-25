@@ -41,6 +41,11 @@ export default function Navbar() {
                                 </Link>
                             </li>
                             <li className="nav-item">
+                                <Link className="navbar-brand" aria-current="page" to="/About">
+                                    About
+                                </Link>
+                            </li>
+                            <li className="nav-item">
                                 {/* <Link className="nav-link active" aria-current="page" to="/" >Home</Link> */}
                                 <Link className="navbar-brand" to="/Form">
                                     Farmer login
@@ -99,7 +104,7 @@ export default function Navbar() {
                         {/* <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button className="btn btn-outline-success" type="submit">Search</button>
-      </form> */} </div>
+      </form> */}  </div>
                 </div>
             </nav>
         </>

@@ -19,8 +19,6 @@ import FarmerOption from "./Components/Farmer/FarmerOption.";
 import Contact from "./Components/Contact";
 import Trying from "./Components/Trying";
 import { Footer } from "./Components/Footer";
-import initFontAwesome from "./initFontAwesome";
-initFontAwesome();
 
 function App() {
   return (

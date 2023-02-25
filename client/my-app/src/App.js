@@ -18,6 +18,9 @@ import CustomerOption from "./Components/Customer/CustomerOption";
 import FarmerOption from "./Components/Farmer/FarmerOption.";
 import Contact from "./Components/Contact";
 import Trying from "./Components/Trying";
+import { Footer } from "./Components/Footer";
+import initFontAwesome from "./initFontAwesome";
+initFontAwesome();
 
 function App() {
   return (
@@ -25,6 +28,7 @@ function App() {
 
     <BrowserRouter>
       <Navbar/>
+      
       <Routes>
         <Route path="/"  element={<Home/>}/>
         <Route path="/Form" element={<Form/>}/> 
@@ -43,6 +47,7 @@ function App() {
         <Route path="/Contact"  element={<Contact></Contact>}/>
         <Route path="/trying" element={<Trying></Trying>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
     
    {/* <AllFarmer></AllFarmer>

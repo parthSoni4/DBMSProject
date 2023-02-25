@@ -57,7 +57,7 @@ export default function FarmerLoginPage() {
                 </div>
                 <div className="col-md-6">
                     
-                    <img src={pic4} className="img-responsive" alt="" />
+                    <img src={pic4} className="img-fluid my-3" alt="" />
                 </div>
             </div>
         </div>

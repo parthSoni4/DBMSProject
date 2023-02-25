@@ -20,7 +20,7 @@ export default function Navbar() {
     }, []);
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-light">
+            <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
                 <div className="container-fluid">
                     {/* <button
             className="navbar-toggler"

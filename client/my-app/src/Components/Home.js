@@ -9,7 +9,7 @@ import "./Home.css"
 export default function Home() {
   return (
     <>
-        <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExampleAutoplaying" className="carousel slide " data-bs-ride="carousel">
   <div className="carousel-inner">
     <div className="carousel-item active">
       <img src={one} className="d-block w-100" alt="..."/>

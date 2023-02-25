@@ -115,7 +115,7 @@ export default function Form() {
       {/* </form> */}
           </div>
           <div className="col-md-5">
-            <img src={farmer2} alt="" className="img-responsive" />
+            <img src={farmer2} alt="" className=" img-fluid" />
           </div>
         </div>
            </div>

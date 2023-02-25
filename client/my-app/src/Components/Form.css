@@ -102,9 +102,16 @@ main{
 }
 
 body{
-    background-image: url("./Farmer/FarmerSectionImage/background14jpg.jpg");
+    /* background-image: url("./Farmer/FarmerSectionImage/farmer1.png"); */
 
 }
 main{
     background-color: white;
+}
+.col-md-7{
+    /* border: 2px solid red; */
+}
+
+.row{
+    /* border: 2px solid red; */
 }

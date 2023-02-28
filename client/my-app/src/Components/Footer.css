@@ -47,11 +47,9 @@
   color: white;
 }
 
-
-}
 .row{
-  /* border: 3px solid green; */
+   border: 3px solid green; 
 }
 .col-sm-4{
-  /* border: 2px solid black; */
+   border: 2px solid black; 
 }

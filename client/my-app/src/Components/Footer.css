@@ -1,19 +1,65 @@
 .content-container {
-    min-height: calc(7vh - 34px);
-    text-align: center;
-    border: 2px solid lightgrey;
-    background-color: lightgrey;
-    height: 22vh;
-    padding: 25px;
-  }
-
-.footer--pin {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    padding-left: 35px;
-  }
-.icons{
-  margin-left: 2.5em;
+  min-height: calc(7vh - 34px);
+  text-align: center;
+  border: 2px solid rgb(122, 243, 122);
+  background-color: rgb(122, 243, 122);
+  height: 22vh;
+  padding: 12px;
 }
 
+.footer--pin {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.icon1 {
+  margin-left: 0.6em;
+  color: white;
+}
+
+.icon1:hover {
+  color: #3b5998;
+}
+
+.icon2 {
+  margin-left: 2.5em;
+  color: white;
+}
+
+.icon2:hover {
+  color: #00acee;
+}
+
+.icon3 {
+  margin-left: 2.5em;
+  color: white;
+}
+
+.icon3:hover {
+  color: #b70068;
+}
+
+.icon4 {
+  margin-left: 2.5em;
+  color: white;
+}
+
+.icon4:hover {
+  color: red;
+}
+ul{
+  display: inline-flex;
+}
+a{
+  text-decoration: none !important;
+  color:white ;
+ 
+}
+.foot--page{
+  font-size: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+}

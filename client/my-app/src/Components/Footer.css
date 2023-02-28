@@ -1,11 +1,11 @@
 .content-container {
-  min-height: calc(7vh - 34px);
-  text-align: center;
-  border: 2px solid rgb(122, 243, 122);
-  background-color: rgb(122, 243, 122);
-  height: 22vh;
-  padding: 12px;
-}
+    min-height: calc(7vh - 34px);
+    text-align: center;
+    border: 2px solid lightgrey;
+    background-color: lightgrey;
+    height: 22vh;
+    padding: 25px;
+  }
 
 .footer--pin {
   position: relative;
@@ -47,19 +47,11 @@
   color: white;
 }
 
-.icon4:hover {
-  color: red;
+
 }
-ul{
-  display: inline-flex;
+.row{
+  /* border: 3px solid green; */
 }
-a{
-  text-decoration: none !important;
-  color:white ;
- 
-}
-.foot--page{
-  font-size: 25px;
-  padding-left: 50px;
-  padding-right: 50px;
+.col-sm-4{
+  /* border: 2px solid black; */
 }

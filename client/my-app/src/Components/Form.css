@@ -1,11 +1,16 @@
+body{
+    background: linear-gradient(to top right, #baf3bb, #3cd2c6);
+}
 
 form,main {
     /* border: 2px solid yellow; */
     margin: auto;
+    /* padding-left: 0px !important; */
     box-shadow: 1px 1px 1px 1px grey;
-    border-radius: 1.6em;
+    border-radius: 0.6em;
     margin-top: 1.9rem;
     padding-top: 1.5rem;
+    /* border: 2px solid yellow !important; */
 }
 input {
     margin: 0.5rem;
@@ -35,27 +40,36 @@ input#formFile.form-control {
 }
 
 .input-group {
-    width: 70%;
+    width: 90%;
     margin: 0.2rem;
+    margin: auto;
     margin-top: 1rem;
+    /* border: 2px solid palegreen; */
 }
 .input-group1 {
     width: 70%;
     margin: 0.2rem;
     margin-top: 1rem;
+    /* border: 2px solid pink !important; */
 }
 form , main{
     border: 2px solid grey;
-    width: 80%;
+    width: 60%;
     display: flex;
+    margin: auto;
+    padding: auto;
     margin: auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.col-md-7{
+    border:2px solid red;
+}
 label,
 input {
     margin: 0.1rem 0.9rem 0.1rem 0.1rem;
+    /* border: 2px solid red; */
 }
 
 .buton {
@@ -68,7 +82,9 @@ input {
     border-radius: 0.5em;
     background-color: white;
     color:green;
+
 }
+
 .buton:hover{
     background-color: green;
     color:white;

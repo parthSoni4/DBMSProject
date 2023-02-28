@@ -17,9 +17,10 @@
     color: black;
 }
 .navbar-brand:hover, .nav-link:hover{
-    background-color: black; 
+    background-color: white; 
     border-radius: 10px;  
     padding: 0.3rem;
+    color: black;
     
 }
 

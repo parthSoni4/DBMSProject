@@ -1,10 +1,13 @@
+body{
+    background: linear-gradient(to top right, #baf3bb, #3cd2c6);
+}
 
 form,main {
     /* border: 2px solid yellow; */
     margin: auto;
     /* padding-left: 0px !important; */
     box-shadow: 1px 1px 1px 1px grey;
-    border-radius: 1.6em;
+    border-radius: 0.6em;
     margin-top: 1.9rem;
     padding-top: 1.5rem;
     /* border: 2px solid yellow !important; */
@@ -79,7 +82,9 @@ input {
     border-radius: 0.5em;
     background-color: white;
     color:green;
+
 }
+
 .buton:hover{
     background-color: green;
     color:white;

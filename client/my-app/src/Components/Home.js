@@ -4,6 +4,8 @@ import two from "../Images/two.jpg";
 import three from "../Images/three.jpg";
 // import pic4 from "../Images/wow.jpg";
 import wow from "./Farmer/FarmerSectionImage/wow.jpg";
+import wow2 from "./Farmer/FarmerSectionImage/wow2.jpg";
+
 
 import "./Home.css"
 
@@ -19,7 +21,7 @@ export default function Home() {
       <img src={two} className="d-block w-100" alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src={three} className="d-block w-100" alt="..."/>
+      <img src={wow2} className="d-block w-100" alt="..."/>
     </div>
   </div>
   <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">

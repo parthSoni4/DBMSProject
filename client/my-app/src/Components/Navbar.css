@@ -1,5 +1,5 @@
 .navbar{
-    background-color: rgb(122, 243, 122) !important;
+    background-color: white !important;
     font-style: italic;
     font-family:'Times New Roman', Times, serif;
     /* position:sticky; */
@@ -12,15 +12,19 @@
     width: 100%;
     /* border: 2px solid red; */
     z-index: 2;
+    height: 30% !important;
+    color:black;
+
+    border-bottom: 2px solid black;
 }
 .navbar-brand{
     color: black;
 }
 .navbar-brand:hover, .nav-link:hover{
-    background-color: white; 
+    background-color: black; 
     border-radius: 10px;  
     padding: 0.3rem;
-    color: black;
+    color: white;
     
 }
 

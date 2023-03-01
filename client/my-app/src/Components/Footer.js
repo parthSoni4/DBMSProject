@@ -6,9 +6,6 @@ import { Icon } from '@iconify/react';
 export default function Footer() {
     return (
         <>  {/* fragment tag */}
-        <div className="container-fluid" id="footer">
-            <div className="row">
-
             <div className="content-container">
                     <span className='foot--page'><a href="About" >About</a></span>
                     <span className='foot--page'><a href="Contact" >Feedback</a></span>
@@ -18,32 +15,23 @@ export default function Footer() {
                 <br/><br/>
                 <div className="footer--pin">
                     <h3 class="">Available on</h3>
-                </div><br/>
+                </div>
+                <a href='https://www.facebook.com/'>
+                    <span className='icon1'><Icon icon="ri:facebook-box-fill" width="38" /></span>
+                </a>
+                <a href='https://twitter.com/?lang=en'>
+                    <span className='icon2'><Icon icon="mdi:twitter" width="38" /></span>
+                </a>
+                <a href='https://www.instagram.com/'>
+                    <span className='icon3'><Icon icon="ci:instagram" width="38" /></span>
+                </a>
+                <a href='https://www.youtube.com/'>
+                    <span className='icon4'><Icon icon="basil:youtube-solid" width="38" /></span>
+                </a><br /><br />
                 <div>
                     <label>&copy; Copyright 2023,  All Rights Reserved</label>
                 </div>
             </div>
-            <div className="row">
-                <input type="Email" placeholder='Enter your mail' className='form-control email-control' />
-            </div>
-            <div className="row">
-                <div className="col-sm-4">
-                    logo
-                    {/* <span>Tagline</span> */}
-                </div>
-                <div className="col-sm-4">
-                    Terms And conditions
-                </div>
-                <div className="col-sm-4">
-                    About us
-                </div>
-            </div>
-
-            </div>
-            <div className="row">
-            All right reserved &bnsp; FarmMart.com
-            </div>
-        </div>
         </>
     )
 }

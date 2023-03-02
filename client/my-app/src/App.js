@@ -19,6 +19,7 @@ import CustomerOption from "./Components/Customer/CustomerOption";
 import FarmerOption from "./Components/Farmer/FarmerOption.";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
+import ProductDetailedDisplay from "./Components/ProductDetailedDisplay";
 // import Trying from "./Components/Trying";
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path="/CustomerOption/customer_id/:customer_id" element={<CustomerOption></CustomerOption>}/>
         <Route path="/FarmerOption/farmer_id/:farmer_id" element={<FarmerOption></FarmerOption>}/>    
         <Route path="/Contact"  element={<Contact></Contact>}/>
+        <Route path="/ProductDetailedDisplay/product_id/:product_id" element={<ProductDetailedDisplay></ProductDetailedDisplay>}/>
         {/* <Route path="/trying" element={<Trying></Trying>}/> */}
       </Routes>
      <Footer/>

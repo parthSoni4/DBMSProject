@@ -2,11 +2,18 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios";
 import "./ProductDisplay.css";
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductDisplay() {
   const [imageData,setImageData]=useState([]);
   const[error,setError]=useState("");
-
+  var product_id;
+  const navigate=useNavigate("/root");
+  const ProductDetailedDisplay=(a)=>{
+    console.log("now go");
+    console.log(a);
+    navigate(`../ProductDetailedDisplay/product_id/:${a}`);
+  }
   useEffect(()=>{
     // const url="http://localhost:3001/productDisplay";
 
@@ -27,7 +34,8 @@ export default function ProductDisplay() {
       <div className="row">
 
         {imageData.map(data=>(
-          <div key={data.id} className="product-card col-md-3">
+        
+          <div key={data.id} className="product-card col-md-3" onClick={()=>ProductDetailedDisplay(data.id)}>
                 {data.imageData && <img src={data.imageData} alt="uploaded image" className="productPic"/>}
                 {data.textData && <p>Name: {data.textData}</p>}
                 {data.type && <p>Type: {data.type}</p>}
@@ -36,8 +44,9 @@ export default function ProductDisplay() {
                 {data.cost && <p>Cost: {data.cost}</p>}
                 {data.description && <p>description: {data.description}</p>}
                 {data.date && <p>Date: {data.date}</p>}
+                {/* <button OnClick={ProductDetailedDisplay(data.product_id)}>View details</button> */}
             </div>
-        ))}
+                ))}
         </div>
     </div>
     </>

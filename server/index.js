@@ -68,6 +68,26 @@ conn.connect(function(err)
 //     console.log(result);
 // })
 
+// ***** feedback table creation ******
+// conn.query("create table feedback(customer_id varchar(15), farmer_id varchar(15), description varchar(50));",function(err,result)
+// {
+//     if(err)throw err;
+//     console.log(result);
+// })
+
+// **** payment table creation *****
+// conn.query("create table payment(customer_id varchar(15), farmer_id varchar(15), pay_date date,pay_status varchar(20), amount bigint,pay_mode varchar(15));",function(err,result)
+// {
+//     if(err)throw err;
+//     console.log(result);
+// })
+
+// **** purchase table creation ****
+// conn.query("create table purchase(customer_id varchar(15), farmer_id varchar(15), pay_status varchar(20), price bigint,purchase_date date, purchase_unit varchar(20));",function(err,result)
+// {
+//     if(err)throw err;
+//     console.log(result);
+// })
 
 
 app.post("/farmer_login",function(req,res){

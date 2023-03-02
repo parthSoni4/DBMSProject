@@ -1,5 +1,14 @@
+html{
+    height: 100%;
+}
 body{
     background: linear-gradient(to top right, #baf3bb, #3cd2c6);
+    /* border: 22px solid red; */
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 form,main {

@@ -265,6 +265,16 @@ app.post("/contact",function(req,res){
     })
 })
 
+
+// getting product detailed display
+
+app.post("/product_detailed_display",(req,res)=>{
+    const id=req.body.id;
+    console.log(id);
+    
+    res.send("Yes");
+})
+
 app.listen(PORT, function(err)
 {
     if(err) console.log(err);

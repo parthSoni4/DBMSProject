@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 import axios from "axios";
 import "./ProductDisplay.css";
 import { useNavigate } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 export default function ProductDisplay() {
   const [imageData,setImageData]=useState([]);
@@ -12,7 +13,7 @@ export default function ProductDisplay() {
   const ProductDetailedDisplay=(a)=>{
     console.log("now go");
     console.log(a);
-    navigate(`../ProductDetailedDisplay/product_id/:${a}`);
+    navigate(`../ProductDetailedDisplay/product_id/:${a}`, { state: { a }});
   }
   useEffect(()=>{
     // const url="http://localhost:3001/productDisplay";

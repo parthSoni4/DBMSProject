@@ -1,10 +1,26 @@
 .productPic{
-    border: 2px solid red;
-    width: 100px;
+    /* border: 2px solid red; */
+    width: 100% !important;
+    overflow: hidden;
     height: 100px;
-    margin: 20px;
+    padding: 0% !important;
+    margin: 0% !important;
+    /* margin: 20px; */
+    box-sizing:border-box;
+}
+body{
+    background: white ;
 }
 .product-card{
-    border: 2px solid black;
-    margin: 1rem;
+    /* border: 2px solid black; */
+    margin: 1.5rem;
+    padding: 0%;
+    height: 70%;
+    background-color: white;
+    box-shadow: 1px 1px 7px 1px grey;
+    width: 25%;
+}
+.row{
+    /* border: 2px solid red; */
+    justify-content: center;
 }

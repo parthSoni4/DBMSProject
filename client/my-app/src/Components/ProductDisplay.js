@@ -23,9 +23,11 @@ export default function ProductDisplay() {
 },[]);
     return (
     <>
-    <div>
+    <div className='container-fluid'>
+      <div className="row">
+
         {imageData.map(data=>(
-            <div key={data.id} className="product-card">
+          <div key={data.id} className="product-card col-md-3">
                 {data.imageData && <img src={data.imageData} alt="uploaded image" className="productPic"/>}
                 {data.textData && <p>Name: {data.textData}</p>}
                 {data.type && <p>Type: {data.type}</p>}
@@ -36,6 +38,7 @@ export default function ProductDisplay() {
                 {data.date && <p>Date: {data.date}</p>}
             </div>
         ))}
+        </div>
     </div>
     </>
   )

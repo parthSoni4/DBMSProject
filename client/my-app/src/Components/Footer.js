@@ -9,14 +9,14 @@ export default function Footer() {
             <div className="content-container">
                     <span className='foot--page'><a href="About" >About</a></span>
                     <span className='foot--page'><a href="Contact" >Feedback</a></span>
-                    <span className='foot--page'><a href="#" >Product Price</a></span>
-                    <span className='foot--page'><a href="#" >Govt. Scheme</a></span>
-                    <span className='foot--page'><a href="#" >Organic Certificate </a></span>
+                    <span className='foot--page'><a href={"one"} >Product Price</a></span>
+                    <span className='foot--page'><a href={"ine"} >Govt. Scheme</a></span>
+                    <span className='foot--page'><a href={"siz"} >Organic Certificate </a></span>
                 <br/><br/>
                 <div className="footer--pin">
-                    <h3 class="">Available on</h3>
+                    <h3 className="">Available on</h3>
                 </div>
-                <a href='https://www.facebook.com/'>
+                <a href={'https://www.facebook.com/'}>
                     <span className='icon1'><Icon icon="ri:facebook-box-fill" width="38" /></span>
                 </a>
                 <a href='https://twitter.com/?lang=en'>

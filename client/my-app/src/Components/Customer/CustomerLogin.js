@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import "../Form.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import {useEffect} from "react";
 
 export default function CustomerLogin() {
     const navigate=useNavigate("/root");
@@ -28,7 +29,13 @@ export default function CustomerLogin() {
                 navigate(`../CustomerOption/customer_id/${customer_id}`);
             }
         })
-    }
+    };
+
+    useEffect(() => {
+      document.body.style.backgroundColor="pink";
+    //   document.body.style.backgroundColor="red";
+    }, [])
+    
 
   return (
     <main>

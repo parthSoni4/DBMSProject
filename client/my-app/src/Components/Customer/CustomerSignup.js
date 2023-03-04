@@ -84,7 +84,7 @@ export default function CustomerSignup() {
         </div>
         <div>
         <h5 className="my-3">Already have an account?</h5>
-        <a href class="login_a" onClick={Customer_login}>Click Here</a>
+        <button onClick={Customer_login}>Click Here</button>
         </div>
        </main>
     </>

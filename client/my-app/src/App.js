@@ -11,15 +11,15 @@ import AdminLogin from "./Components/Admin/AdminLogin";
 import AdminOption from "./Components/Admin/AdminOption";
 import AllCustomer from "./Components/Admin/AllCustomer";
 import CreateAdmin from "./Components/Admin/CreateAdmin";
-import ProductInsert from "./Components/ProductInsert";
-import ProductDisplay from "./Components/ProductDisplay";
+import ProductInsert from "./Components/Product/ProductInsert";
+import ProductDisplay from "./Components/Product/ProductDisplay";
 import CustomerLogin from "./Components/Customer/CustomerLogin";
 import FarmerLoginPage from "./Components/Farmer/FarmerLoginPage";
 import CustomerOption from "./Components/Customer/CustomerOption";
 import FarmerOption from "./Components/Farmer/FarmerOption.";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
-import ProductDetailedDisplay from "./Components/ProductDetailedDisplay";
+import ProductDetailedDisplay from "./Components/Product/ProductDetailedDisplay";
 // import Trying from "./Components/Trying";
 
 function App() {

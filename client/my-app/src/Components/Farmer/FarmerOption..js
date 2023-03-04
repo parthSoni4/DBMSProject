@@ -1,6 +1,6 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
-import "../ProductInsert";
+import "../Product/ProductInsert";
 
 export default function FarmerOption() {
   const navigate=useNavigate("/root");

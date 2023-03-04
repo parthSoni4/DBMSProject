@@ -1,7 +1,7 @@
 import React from 'react'
 import {useParams} from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-import "../ProductDisplay";
+import "../Product/ProductDisplay";
 
 export default function CustomerOption() {
   let {customer_id}=useParams();

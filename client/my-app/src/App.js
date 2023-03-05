@@ -20,6 +20,9 @@ import FarmerOption from "./Components/Farmer/FarmerOption.";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import ProductDetailedDisplay from "./Components/Product/ProductDetailedDisplay";
+import Payment from "./Components/Product/Payment";
+import StripeContainer from "./Components/Product/StripeContainer";
+
 // import Trying from "./Components/Trying";
 
 function App() {
@@ -46,6 +49,7 @@ function App() {
         <Route path="/FarmerOption/farmer_id/:farmer_id" element={<FarmerOption></FarmerOption>}/>    
         <Route path="/Contact"  element={<Contact></Contact>}/>
         <Route path="/ProductDetailedDisplay/product_id/:product_id" element={<ProductDetailedDisplay></ProductDetailedDisplay>}/>
+        <Route path="/Payment" element={<StripeContainer></StripeContainer>}/>
         {/* <Route path="/trying" element={<Trying></Trying>}/> */}
       </Routes>
      <Footer/>

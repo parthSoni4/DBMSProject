@@ -52,7 +52,7 @@ export default function Form() {
   
   return (
     <>
-      <div id="body-form">
+      {/* <div id="body-form"> */}
         <main>
           <div className="container" id="background">
             <div className="row">
@@ -199,7 +199,7 @@ export default function Form() {
             </div>
           </div>
         </main>
-      </div>
+      {/* </div> */}
     </>
   );
 }

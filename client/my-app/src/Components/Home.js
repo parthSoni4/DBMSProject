@@ -9,7 +9,7 @@ import tomato from "./HomeImages/tomato.avif";
 import mango from "./HomeImages/mango2.avif";
 import color from "./HomeImages/color.jpeg";
 import color2 from "./HomeImages/color2.jpeg";
-import sunrise from "./HomeImages/sunrise1.jpeg";
+import sunrise from "./HomeImages/sunrise4.jpeg";
 
 import "./Home.css"
 
@@ -69,14 +69,16 @@ export default function Home() {
       </div>
 
       <div className="container-fluid our-moto">
-        <h2>Our moto</h2>
-        <div className="row">
+        <div className="row moto-row">
+        <h2 className='text-center'>Our moto</h2>
 
-        <div className="col-sm col-moto">
-          <img src={sunrise} alt="" className="img-responsive moto-img" />
+        <div className="col-sm col-moto moto-img">
+          <p>o</p>
+          
+          {/* <img src={sunrise} alt="" className="img-responsive moto-img" /> */}
         </div>
-        <div className="col-sm col-moto">
-          12
+        <div className="col-sm col-moto moto-text">
+          <p>text</p>
         </div>
         </div>
       </div>

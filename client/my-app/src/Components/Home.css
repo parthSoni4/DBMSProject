@@ -27,10 +27,39 @@ body{
 
 .our-moto{
     margin-top: 12em;
+    margin-left: 0px;
+    margin-left: 0px;
+    /* border: 2px solid pink; */
+    width: 99vw;
+    padding: 0px;
 
+}
+.moto-row{
+    /* border: 2px solid green; */
+    width: 100%;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+.moto-img{
+    width: 100%;;
 }
 .col-moto{
     padding: 0px;
-    width: 100%;
-    border: 2px solid red;
+    /* width: 100%; */
+ /* /\   border: 2px solid red; */
+ height: 80vh;
+}
+.moto-img{
+    background-image: url("./HomeImages/sunrise4.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.moto-text{
+    /* background-color: azure ; */
+    /* background-image: url("./HomeImages//wallpaper.jpg"); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover;
+     */
+     background-color: rgb(236, 246, 236);
+    /* opacity: 0.3; */
 }

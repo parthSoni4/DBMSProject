@@ -4,10 +4,16 @@ var app = express();
 const cors = require("cors");
 const multer = require("multer");
 var PORT = 3001;
+require('dotenv').config()
+const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
+// const payment=require("./server");
+// const stripe = require('stripe')('sk_test_Gx4mWEgHtCMr4DYMUIqfIrsz');
 // const bodyParser=require("body-parser");
 
 // app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
+// const YOUR_DOMAIN = 'http://localhost:3001';
+
 
 app.use(
   cors({
@@ -313,6 +319,24 @@ app.post("/product_detailed_display", (req, res) => {
     }
   });
 });
+app.post("/payment", cors(), async (req, res) => {
+	let { amount, id } = req.body
+	try {
+		const payment = await stripe.paymentIntents.create({
+			amount,
+			currency: "USD",
+			description: "Spatula company",
+			payment_method: id,
+			confirm: true
+		})
+		console.log("Payment is completed", payment)
+		res.send("all right");
+	} catch (error) {
+		console.log("Error", error)
+		res.send("not right")
+	}
+})
+
 
 app.listen(PORT, function (err) {
   if (err) console.log(err);

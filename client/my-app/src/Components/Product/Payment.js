@@ -44,6 +44,8 @@ export default function Payment() {
       const {response}= await axios.post("http://localhost:3001/payment", {
         amount: 1000,
         id
+      }).then((response)=>{
+        console.log("this is the response",response);
       })
       console.log(response);
       if(response)
@@ -68,7 +70,7 @@ export default function Payment() {
       <form onSubmit={handleSubmit}>
         <fieldset className='FormGroup'>
           <div className="FormRow">
-            <CardElement options={CARD_OPTIONS}/>
+            <CardElement/>
           </div>
         </fieldset>
         <button>Pay</button>

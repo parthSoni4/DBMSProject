@@ -1,3 +1,36 @@
 body{
     background-color: white;
 }
+.display{
+    /* border: 10px solid black; */
+    height: 100vh;
+}
+.service-col{
+    /* border: 2px solid black; */
+    /* margin:auto; */
+    /* height: 30%; */
+    width: 20% !important;
+    margin: 2em;
+    border-radius: 13px;
+    box-shadow: 2px 2px 7px 1px grey;
+    padding: 1rem;
+}
+.card-img{
+    margin-bottom: 0.6rem ;
+    border-radius: 100%;
+
+}
+.services{
+    /* border: 2px solid red; */
+    margin-top: 12em;
+}
+
+.our-moto{
+    margin-top: 12em;
+
+}
+.col-moto{
+    padding: 0px;
+    width: 100%;
+    border: 2px solid red;
+}

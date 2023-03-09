@@ -4,14 +4,18 @@ import "./About.css";
 export default function About() {
     return (
         <>  {/* fragment tag */}
-            <div className="about-body">
-                <div className='about-contain'>
-                    <h5>About Us</h5>
+            <main>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm">
+                             hi
+                        </div>
+                        <div className="col-sm">
+                            hello
+                        </div>
+                    </div>
                 </div>
-                <div class="why-contain">
-                    <h5>Why Farm mart?</h5>
-                </div>
-            </div>
+            </main>
 
         </>
     )

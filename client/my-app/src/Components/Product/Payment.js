@@ -27,6 +27,7 @@ const CARD_OPTIONS = {
 
 export default function Payment() {
   const[sucess, setSuccess]=useState(false);
+  const[message, setMessage]=useState("Paymn");
   const stripe=useStripe();
   const elements=useElements();
 
@@ -44,20 +45,31 @@ export default function Payment() {
       const {response}= await axios.post("http://localhost:3001/payment", {
         amount: 1000,
         id
-      }).then((response)=>{
-        console.log("this is the response",response);
+      }).then((r)=>{
+        console.log("this is the response",r);
+        console.log(r.data);
+        if(r.data=="not right")
+        {
+          console.log("hello");
+          setMessage("Your payment is unsuccessful");
+        }
+        else{
+          setMessage("Your payment is successful");
+        }
       })
       console.log(response);
       if(response)
       {
         console.log("successful payment")
         setSuccess(true);
+        setMessage("payment is not successfull");
       }
     }
     catch(error)
     {
+      setSuccess(false);
       // console.log("message", response.message);
-      console.log("in Error section", error)
+      console.log("in Error section", error.data)
     }
   }
   else{
@@ -74,6 +86,7 @@ export default function Payment() {
           </div>
         </fieldset>
         <button>Pay</button>
+        <p>{message}</p>
       </form>
       : <div>
         <h2>You just bought </h2>

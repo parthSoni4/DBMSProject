@@ -333,7 +333,7 @@ app.post("/payment", cors(), async (req, res) => {
 		res.send("all right");
 	} catch (error) {
 		console.log("Error", error)
-		res.send("not right")
+		res.json("not right")
 	}
 })
 

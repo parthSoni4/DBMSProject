@@ -78,7 +78,22 @@ export default function Home() {
           {/* <img src={sunrise} alt="" className="img-responsive moto-img" /> */}
         </div>
         <div className="col-sm col-moto moto-text">
-          <p>text</p>
+          <h2 className='head-size'>Our mottos</h2>
+          <p className='para-size'>
+            To build platform for farmer to sell their goods directly
+          </p>
+          <p className='para-size'>
+            To remove the intermediate people
+          </p>
+          <p className='para-size'>
+            To save the farmer of this country
+          </p>
+          <p className='para-size'>
+            Provide fresh and organic vegetable to the Customer
+          </p>
+          <p>
+            
+          </p>
         </div>
         </div>
       </div>

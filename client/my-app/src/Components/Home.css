@@ -63,3 +63,11 @@ body{
      background-color: rgb(236, 246, 236);
     /* opacity: 0.3; */
 }
+
+.head-size{
+    font-size: 3.9rem;
+
+}
+.para-size{
+    font-size: 1.5rem;
+}

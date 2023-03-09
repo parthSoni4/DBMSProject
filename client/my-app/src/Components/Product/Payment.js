@@ -3,31 +3,34 @@ import {  useElements, useStripe } from '@stripe/react-stripe-js'
 import { CardElement } from '@stripe/react-stripe-js';
 import axios from "axios";
 import "./payment.css"
+import { useNavigate } from 'react-router-dom';
+import "./ProductDisplay";
 
-const CARD_OPTIONS = {
-	iconStyle: "solid",
-	style: {
-		base: {
-			iconColor: "#c4f0ff",
-			color: "#fff",
-			fontWeight: 500,
-			fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-			fontSize: "16px",
-			fontSmoothing: "antialiased",
-			":-webkit-autofill": { color: "#fce883" },
-			"::placeholder": { color: "#87bbfd" }
-		},
-		invalid: {
-			iconColor: "#ffc7ee",
-			color: "#ffc7ee"
-		}
-	}
-}
+// const CARD_OPTIONS = {
+// 	iconStyle: "solid",
+// 	style: {
+// 		base: {
+// 			iconColor: "#c4f0ff",
+// 			color: "#fff",
+// 			fontWeight: 500,
+// 			fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+// 			fontSize: "16px",
+// 			fontSmoothing: "antialiased",
+// 			":-webkit-autofill": { color: "#fce883" },
+// 			"::placeholder": { color: "#87bbfd" }
+// 		},
+// 		invalid: {
+// 			iconColor: "#ffc7ee",
+// 			color: "#ffc7ee"
+// 		}
+// 	}
+// }
 
 
 export default function Payment() {
+  const navigate=useNavigate("/root");
   const[sucess, setSuccess]=useState(false);
-  const[message, setMessage]=useState("Paymn");
+  const[message, setMessage]=useState("Payment status");
   const stripe=useStripe();
   const elements=useElements();
 
@@ -55,6 +58,7 @@ export default function Payment() {
         }
         else{
           setMessage("Your payment is successful");
+          navigate("../ProductDisplay");
         }
       })
       console.log(response);

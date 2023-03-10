@@ -26,7 +26,7 @@ export default function FarmerLoginPage() {
                 changeStatus("welcome");
                 console.log(response.data[0].fname);
                 const farmer_id=response.data[0].farmer_id;
-                navigate(`../FarmerOption/farmer_id/${farmer_id}`);
+                navigate(`../FarmerOption/farmer_id/${farmer_id}`, { state: {farmer_id}});
             }
         })
     }

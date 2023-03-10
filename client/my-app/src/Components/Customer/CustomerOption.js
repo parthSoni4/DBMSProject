@@ -6,6 +6,7 @@ import "../Product/ProductDisplay";
 export default function CustomerOption() {
   let {customer_id}=useParams();
   const navigate=useNavigate("/root");
+  sessionStorage.setItem("customer_id",customer_id);
   const view_products=()=>{
     navigate("../ProductDisplay");
   }

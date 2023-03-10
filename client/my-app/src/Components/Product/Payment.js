@@ -33,6 +33,11 @@ export default function Payment() {
   const[message, setMessage]=useState("Payment status");
   const stripe=useStripe();
   const elements=useElements();
+  // console.log(id);
+  const product_id=sessionStorage.getItem("product_id");
+  console.log("the product id is",product_id);
+  const customer_id=sessionStorage.getItem("customer_id");
+  console.log("the customer id is", customer_id);
 
   const handleSubmit= async (e)=>{
     e.preventDefault();

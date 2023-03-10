@@ -10,6 +10,8 @@ export default function ProductDetailedDisplay() {
     const location=useLocation();
     const [data, setData]=useState([]);
     const id=location.state.a;
+    console.log("the product is ",id);
+    sessionStorage.setItem("product_id",id);
     const pay=()=>{
       console.log("Pay");
     }

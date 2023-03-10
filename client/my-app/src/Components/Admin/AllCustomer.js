@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Axios from "axios"
+import "./All.css";
 
 export default function AllCustomer() {
   const[data, setdata]=useState([]);
@@ -9,15 +10,27 @@ export default function AllCustomer() {
         setdata(response.data);
     })
   }
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/AllCustomer").then((response)=>{
+        setdata(response.data);
+    })
+  
+    
+  }, [])
+  
     return (
         
     <>
-        <button onClick={get_value}>Print</button>
+        {/* <button onClick={get_value}>Print</button> */}
 
-        <div>
+        <div className="container container-display">
+            
             {
+
+                
                 data.map(item=>(
-                    <div key={item.customer_id}>
+                    <div classnName="row row-display"  key={item.customer_id}>
                         <div>
                             {item.fname}
                         </div>

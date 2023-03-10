@@ -176,10 +176,11 @@ app.post("/insertProduct", upload.single("file"), (req, res) => {
   const type = req.body.type;
   const date = req.body.date;
   const quantity = req.body.quantity;
+  const farmer_id=req.body.farmer_id;
   const imageBuffer = Buffer.from(imageFile.buffer);
   console.log(cost);
   const sql =
-    "insert into product (text, file,description,category,type,product_date,quantity,cost) values (?,?,?,?,?,?,?,?);";
+    "insert into product (text, file,description,category,type,product_date,quantity,cost, farmer_id) values (?,?,?,?,?,?,?,?,?);";
   const values = [
     textInput,
     imageBuffer,
@@ -189,6 +190,7 @@ app.post("/insertProduct", upload.single("file"), (req, res) => {
     date,
     quantity,
     cost,
+    farmer_id,
   ];
 
   conn.query(sql, values, (err, results, fields) => {

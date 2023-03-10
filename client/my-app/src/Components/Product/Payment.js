@@ -52,7 +52,10 @@ export default function Payment() {
       const {id}=paymentMethod
       const {response}= await axios.post("http://localhost:3001/payment", {
         amount: 1000,
-        id
+        id: id,
+        customer_id: customer_id,
+        product_id: product_id,
+
       }).then((r)=>{
         console.log("this is the response",r);
         console.log(r.data);

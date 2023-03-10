@@ -10,7 +10,7 @@ import mango from "./HomeImages/mango2.avif";
 import color from "./HomeImages/color.jpeg";
 import color2 from "./HomeImages/color2.jpeg";
 import sunrise from "./HomeImages/sunrise4.jpeg";
-
+import Footer from "./Footer";
 import "./Home.css"
 
 export default function Home() {
@@ -97,6 +97,7 @@ export default function Home() {
         </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   )
 }

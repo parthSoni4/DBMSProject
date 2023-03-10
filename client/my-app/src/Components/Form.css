@@ -6,7 +6,7 @@ body{
     /* border: 22px solid red; */
     height: 100%;
     margin: 0;
-    /* background-repeat: no-repeat; */
+    background-repeat: repeat;
     /* background-attachment: fixed; */
     /* background-size: cover; */
 }

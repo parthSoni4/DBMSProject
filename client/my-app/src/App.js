@@ -52,7 +52,7 @@ function App() {
         <Route path="/Payment" element={<StripeContainer></StripeContainer>}/>
         {/* <Route path="/trying" element={<Trying></Trying>}/> */}
       </Routes>
-     <Footer/>
+     {/* <Footer/> */}
     </BrowserRouter>
     
    {/* <AllFarmer></AllFarmer>

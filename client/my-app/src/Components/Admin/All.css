@@ -1,3 +1,25 @@
 .row-display{
-    border: 2px solid red;
+    /* border: 2px solid red !important; */
+    margin: 3.3rem !important;
+    padding: 2rem !important;
+    box-shadow: 2px 2px 7px 2px grey;
+    width: 80%;
+    background-color: white;
+
+}
+.container-display{
+    /* background-color: red !important; */
+    box-shadow:none !important;
+    border: 0 !important;    
+    /* padding-bottom: 100px !important; */
+    overflow: hidden;
+}
+body{
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    padding: 0px;
+    margin: 0px;
+    /* overflow: hidden; */
+    /* border-style: rgb(57, 143, 146) !important; */
+
 }

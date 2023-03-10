@@ -322,7 +322,11 @@ app.post("/product_detailed_display", (req, res) => {
   });
 });
 app.post("/payment", cors(), async (req, res) => {
-	let { amount, id } = req.body
+	// let { amount, id } = req.body
+  const amount=req.body.amount;
+  const id=req.body.id;
+  const product_id=req.body.product_id;
+  const customer_id=req.body.customer_id;
 	try {
 		const payment = await stripe.paymentIntents.create({
 			amount,
@@ -331,13 +335,45 @@ app.post("/payment", cors(), async (req, res) => {
 			payment_method: id,
 			confirm: true
 		})
+  
 		console.log("Payment is completed", payment)
+    sql=`insert into payment(customer_id, product_id, amount ) values ( ${customer_id}, ${product_id}, ${amount})`;
+    conn.query(sql, function(err,result){
+      if(err) throw(err)
+      console.log(result);
+    })
 		res.send("all right");
 	} catch (error) {
 		console.log("Error", error)
 		res.json("not right")
 	}
 })
+
+// deleting farmer by admin
+
+app.post("/farmer_delete",(req,res)=>{
+  const farmer_id=req.body.farmer_id;
+  const sql=`delete from farmer where farmer_id=${farmer_id}`;
+  conn.query(sql,function(err,result)
+  {
+    if(err)throw err;
+    console.log(result);
+  })
+  console.log(farmer_id);
+  res.send("deleted");
+})
+
+app.post("/customer_delete",function(req,res){
+  const customer_id=req.body.customer_id;
+  const sql=`delete from customer where customer_id=${customer_id};`
+  conn.query(sql, function(err,result)
+  {
+    if(err)throw err;
+    console.log(result);
+  })
+  res.send("deleted")
+})
+
 
 
 app.listen(PORT, function (err) {

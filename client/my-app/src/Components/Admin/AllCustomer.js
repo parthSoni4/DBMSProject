@@ -1,9 +1,19 @@
 import React, {useState, useEffect} from 'react'
 import Axios from "axios"
 import "./All.css";
+import image from "../HomeImages/bg3.webp";
+
 
 export default function AllCustomer() {
   const[data, setdata]=useState([]);
+  const Delete=(a)=>{
+    console.log("the customer to delete is",a);
+    Axios.post("http://localhost:3001/customer_delete",{
+      customer_id: a
+    }).then((response)=>{
+      console.log(response);
+    })
+  }
   function get_value()
   {
     Axios.get("http://localhost:3001/AllCustomer").then((response)=>{
@@ -14,8 +24,9 @@ export default function AllCustomer() {
   useEffect(() => {
     Axios.get("http://localhost:3001/AllCustomer").then((response)=>{
         setdata(response.data);
+        
     })
-  
+   
     
   }, [])
   
@@ -30,19 +41,22 @@ export default function AllCustomer() {
 
                 
                 data.map(item=>(
-                    <div classnName="row row-display"  key={item.customer_id}>
+                    <div className="row row-display"  key={item.customer_id}>
                         <div>
-                            {item.fname}
+                           first name: {item.fname}
                         </div>
                         <div>
-                            {item.lname}
-                            {item.lname}
-                            {item.phone_no}
-                            {item.email}
-                            {item.address}
-                            {item.state}
-                            {item.city}
-                            {item.password}
+                           last name: {item.lname} <br></br>
+                            {/* {item.lname} <br></br> */}
+                            phone no: {item.phone_no} <br></br>
+                           email: {item.email} <br></br>
+                           address: {item.address} <br></br>
+                           state: {item.state} <br></br>
+                           city:  {item.city} <br></br>
+                           password:  {item.password} <br></br>
+                        </div>
+                        <div>
+                          <button className="btn btn-default btn-primary" onClick={()=>{Delete(item.customer_id)}}>Delete</button>
                         </div>
                     </div>
 

@@ -1,5 +1,6 @@
 import axios from "axios";
 import react, {useState, useEffect} from "react";
+// import { useEffect } from "react";
 
 export default function AllFarmer()
 {
@@ -14,10 +15,18 @@ export default function AllFarmer()
         })
         
          
-}
+
+    }
+    useEffect(() => {
+        axios.get("http://localhost:3001/AllFarmer").then((response)=>{
+            // console.log(response.data);
+            setdata(response.data);
+        })
+    }, [])
+    
     return(
         <>
-            <button onClick={get_value}>print</button>
+            {/* <button onClick={get_value}>print</button> */}
            <div>
             {
                 data.map(item=>(

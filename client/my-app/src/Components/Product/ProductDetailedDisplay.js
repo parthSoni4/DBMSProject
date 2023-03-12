@@ -3,12 +3,15 @@ import  {useLocation} from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import "./ProductDetailedDisplay.css";
+import StripeContainer from "./StripeContainer";
 
 export default function ProductDetailedDisplay() {
     // console.log(product_id);
     const location=useLocation();
     const [data, setData]=useState([]);
     const id=location.state.a;
+    console.log("the product is ",id);
+    sessionStorage.setItem("product_id",id);
     const pay=()=>{
       console.log("Pay");
     }
@@ -45,6 +48,8 @@ export default function ProductDetailedDisplay() {
         {d.description && <p> Description: {d.description}</p>}
         {d.date && <p> Date: {d.date}</p>}
         <button onClick={()=>pay()}>Pay</button>
+        <StripeContainer></StripeContainer>
+        
         </div>
         <div className="col-sm-7">
 

@@ -1,7 +1,9 @@
 .FormRow{
  border: 2px solid black; 
  min-width: 20em;
- color: black !important;  
+ color: black !important; 
+ min-height: 2em; 
+ background-color: red;
 }
 .FormGroup{
     /* border: 2px solid red; */

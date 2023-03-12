@@ -176,10 +176,11 @@ app.post("/insertProduct", upload.single("file"), (req, res) => {
   const type = req.body.type;
   const date = req.body.date;
   const quantity = req.body.quantity;
+  const farmer_id=req.body.farmer_id;
   const imageBuffer = Buffer.from(imageFile.buffer);
   console.log(cost);
   const sql =
-    "insert into product (text, file,description,category,type,product_date,quantity,cost) values (?,?,?,?,?,?,?,?);";
+    "insert into product (text, file,description,category,type,product_date,quantity,cost, farmer_id) values (?,?,?,?,?,?,?,?,?);";
   const values = [
     textInput,
     imageBuffer,
@@ -189,6 +190,7 @@ app.post("/insertProduct", upload.single("file"), (req, res) => {
     date,
     quantity,
     cost,
+    farmer_id,
   ];
 
   conn.query(sql, values, (err, results, fields) => {
@@ -205,7 +207,7 @@ app.post("/insertProduct", upload.single("file"), (req, res) => {
 });
 
 app.get("/product_display", (req, res) => {
-  const sql = "Select * from product;";
+  const sql = "Select * from product where status='not_purchased';";
   conn.query(sql, (error, results, fields) => {
     if (error) {
       console.error(error);
@@ -314,7 +316,11 @@ app.post("/product_detailed_display", (req, res) => {
   });
 });
 app.post("/payment", cors(), async (req, res) => {
-	let { amount, id } = req.body
+	// let { amount, id } = req.body
+  const amount=req.body.amount;
+  const id=req.body.id;
+  const product_id=req.body.product_id;
+  const customer_id=req.body.customer_id;
 	try {
 		const payment = await stripe.paymentIntents.create({
 			amount,
@@ -323,14 +329,92 @@ app.post("/payment", cors(), async (req, res) => {
 			payment_method: id,
 			confirm: true
 		})
+  
 		console.log("Payment is completed", payment)
+    sql=`insert into payment(customer_id, product_id, amount ) values ( ${customer_id}, ${product_id}, ${amount})`;
+    conn.query(sql, function(err,result){
+      if(err) throw(err)
+      console.log(result);
+    })
 		res.send("all right");
 	} catch (error) {
 		console.log("Error", error)
-		res.send("not right")
+		res.json("not right")
 	}
 })
 
+// deleting farmer by admin
+
+app.post("/farmer_delete",(req,res)=>{
+  const farmer_id=req.body.farmer_id;
+  const sql=`delete from farmer where farmer_id=${farmer_id}`;
+  conn.query(sql,function(err,result)
+  {
+    if(err)throw err;
+    console.log(result);
+  })
+  console.log(farmer_id);
+  res.send("deleted");
+})
+
+app.post("/customer_delete",function(req,res){
+  const customer_id=req.body.customer_id;
+  const sql=`delete from customer where customer_id=${customer_id};`
+  conn.query(sql, function(err,result)
+  {
+    if(err)throw err;
+    console.log(result);
+  })
+  res.send("deleted")
+})
+
+// get customer, farmer and viewer messages
+
+app.get("/AllContact", function(req,res){
+  sql="select * from contact";
+  conn.query(sql,function(err,result)
+  {
+    if(err)throw err;
+    console.log(result);
+    res.send(result);
+  })
+})
+
+// get all payment detail
+
+app.get("/Allpayment", function(req,res){
+  sql="select payment.product_id, product.farmer_id, payment.customer_id, payment_id ,customer.fname as customerFname, customer.lname as customerLname, customer.phone_no as customer_phone_no , text, category, type, quantity, description, product_date, email, farmer.fname as farmerFname, farmer.lname as farmerLname, farmer.phone_no as farmer_phone_no from payment, product, farmer, customer where (payment.product_id=product.product_id) && (product.farmer_id=farmer.farmer_id) && (customer.customer_id=payment.customer_id);"
+
+  conn.query(sql, function(err,result)
+  {
+    if(err)throw err;
+    console.log(result);
+    res.send(result);
+  })
+})
+
+app.post("/farmer_sales",function(req,res){
+  const farmer_id=req.body.farmer_id;
+  sql=`select payment.product_id, product.farmer_id, payment.customer_id, payment_id ,customer.fname as customerFname, customer.lname as customerLname, customer.phone_no as customer_phone_no , text, category, type, quantity, description, product_date, email, farmer.fname as farmerFname, farmer.lname as farmerLname, farmer.phone_no as farmer_phone_no from payment, product, farmer, customer where (payment.product_id=product.product_id) && (product.farmer_id=farmer.farmer_id) && (customer.customer_id=payment.customer_id) && (farmer.farmer_id=${farmer_id});`;
+  conn.query(sql,function(err,result)
+  {
+    if(err)throw err;
+    console.log(result);
+    res.send(result);
+  })
+})
+
+//  getting customer purchase
+app.post("/view_purchase",function(req,res){
+  const customer_id=req.body.customer_id;
+  sql=`select payment.product_id, product.farmer_id, payment.customer_id, payment_id ,customer.fname as customerFname, customer.lname as customerLname, customer.phone_no as customer_phone_no , text, category, type, quantity, description, product_date, email, farmer.fname as farmerFname, farmer.lname as farmerLname, farmer.phone_no as farmer_phone_no from payment, product, farmer, customer where (payment.product_id=product.product_id) && (product.farmer_id=farmer.farmer_id) && (customer.customer_id=payment.customer_id) && (customer.customer_id=${customer_id});`;
+  conn.query(sql,function(err,result)
+  {
+    if(err)throw err;
+    console.log(result);
+    res.send(result);
+  })
+})
 
 app.listen(PORT, function (err) {
   if (err) console.log(err);

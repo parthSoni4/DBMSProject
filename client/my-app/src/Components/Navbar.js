@@ -61,11 +61,11 @@ export default function Navbar() {
                                     Customer login up
                                 </Link>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link className="navbar-brand" aria-current="page" to="/Payment">
                                     Payment check
                                 </Link>
-                            </li>
+                            </li> */}
                             {/* <li className="nav-item">
           <Link className="navbar-brand" aria-current="page" to="/ProductInsert">CreateProduct</Link>
         </li> */}

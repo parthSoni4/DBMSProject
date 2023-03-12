@@ -1,0 +1,27 @@
+body{
+    /* background-image: url("https://soygrowers.com/wp-content/uploads/2019/02/hompage-hero-img.jpg"); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+.about-container{
+    box-shadow: 0px 0px 0px 0px white !important;
+    border-radius: 0px;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem ;
+}
+.row-about{
+    width: 100%;
+    margin: 0px !important;
+    padding: 0px !important;
+    margin-top: 0px;
+}
+main{
+    margin-top: 4rem !important ;
+}
+.col-sm{
+    /* border: 2px solid red; */
+    width: 50%;
+}
+.about-img{
+    width: 100%;
+}

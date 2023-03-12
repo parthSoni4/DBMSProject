@@ -25,13 +25,18 @@ export default function AdminLogin() {
     }).then((response)=>{
       console.log(response);
       console.log(response.data);
+      if(response.data=="right")
+      {
+      navigate("../AdminOption");
+
+      }
     })
   }
 
   return (
     <>
         <main>
-          <button onClick={handleClick}>Go to login</button>
+          {/* <button onClick={handleClick}>Go to login</button> */}
             <h2>Admin login</h2>
             <div className="input-group">
                 {/*Enter your username*/}

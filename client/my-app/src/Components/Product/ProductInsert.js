@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios";
+import { useLocation } from 'react-router-dom';
 
 export default function ProductInsert() {
     const[text, setText]=useState("");
@@ -10,7 +11,11 @@ export default function ProductInsert() {
     const[type,setType]=useState("");
     const[description,setDescription]=useState("");
     const[date, setDate]=useState("");
-    
+    const location=useLocation();
+
+    const farmer_id=location.state.farmer_id;
+    console.log(" farmer id is",farmer_id);
+
     const handleSubmit=(event)=>{
         console.log(quantity);
         console.log(date);
@@ -28,6 +33,7 @@ export default function ProductInsert() {
         formdata.append("quantity",quantity);
         formdata.append("category",category);
         formdata.append("cost",cost);
+        formdata.append("farmer_id", farmer_id);
         console.log(cost);
 
         axios.post("http://localhost:3001/insertProduct",formdata).then((response)=>{

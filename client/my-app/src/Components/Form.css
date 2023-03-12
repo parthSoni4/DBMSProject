@@ -6,7 +6,7 @@ body{
     /* border: 22px solid red; */
     height: 100%;
     margin: 0;
-    /* background-repeat: no-repeat; */
+    background-repeat: repeat;
     /* background-attachment: fixed; */
     /* background-size: cover; */
 }
@@ -18,6 +18,7 @@ form,main {
     box-shadow: 1px 1px 1px 1px grey;
     border-radius: 0.6em;
     margin-top: 1.9rem;
+    margin-bottom: 1rem;
     padding-top: 1.5rem;
     /* border: 2px solid yellow !important; */
 }
@@ -130,7 +131,7 @@ main{
     /* background-image: url("./Farmer/FarmerSectionImage/images.jpg"); */
     /* background-color: red !important; */
     /* height: 100%; */
-    background-repeat: repeat;
+    /* background-repeat: repeat !important; */
 
 }
 main{

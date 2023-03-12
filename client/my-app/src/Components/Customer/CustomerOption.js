@@ -7,11 +7,14 @@ import "../Option.css";
 export default function CustomerOption() {
   let {customer_id}=useParams();
   const navigate=useNavigate("/root");
+  const view_purchase=()=>{
+    navigate("../view_purchase");
+  }
   sessionStorage.setItem("customer_id",customer_id);
   const view_products=()=>{
     navigate("../ProductDisplay");
   }
-  console.log(customer_id);
+  console.log("customer id is",customer_id);
   return (
     <>
     <div className="container container-option">
@@ -23,7 +26,7 @@ export default function CustomerOption() {
       <div className="row row-option">
 
     <button className="option-button"  onClick={view_products}>View the products</button>
-    <button className="option-button" >View purchase</button>
+    <button className="option-button" onClick={view_purchase}>View purchase</button>
       </div>
     </div>
     {/* <button></button> */}

@@ -6,7 +6,6 @@ import farmer2 from "./FarmerSectionImage/farmer3.png";
 import image from "./FarmerSectionImage/background14jpg.jpg";
 
 
-
 export default function Form() {
   const navigate = useNavigate("/root");
 
@@ -24,7 +23,7 @@ export default function Form() {
   const [state, changeState] = useState("");
   const [password, changePassword] = useState("");
   const [pincode, changePincode] = useState("");
-
+  
   const farmer_login = () => {
     console.log("function called");
     Axios.post("http://localhost:3001/farmer_login", {
@@ -47,29 +46,37 @@ export default function Form() {
     const style = document.createElement('style');
     style.textContent = `body { background-image: url(${image}); }`;
     document.head.appendChild(style);
+  },)
 
-  }, )
+ 
+
   
   return (
     <>
       {/* <div id="body-form"> */}
-        <main>
-          <div className="container" id="background">
+      
+        <form>
+        <div className="container">
             <div className="row">
               <h2 className="my-3 text-center">Farmer SignUp!</h2>
-              <div className="input-group">
+              
                 {/* <span className="input-group-text">First and last name</span>
                  */}
                 {/*<label htmlFor="" className="form-label">Enter your first and last name</label>*/}
+                <div className="input-group">
                 <input
                   type="text"
                   placeholder="Enter your first name ..."
                   aria-label="First name"
                   className="our-form form-control"
+                  name="fname"
                   onChange={(e) => {
                     ChangefName(e.target.value);
                   }}
+                 
                 />
+                </div>
+                <div className="input-group">
                 <input
                   type="text"
                   placeholder="Enter your last name ..."
@@ -79,7 +86,8 @@ export default function Form() {
                     ChangelName(e.target.value);
                   }}
                 />
-              </div>
+                </div>
+     
               <div className="input-group">
                 {/* <span className="input-group-text">Enter age</span> */}
                 {/*<label htmlFor="" className="form-label">Enter your age</label>*/}
@@ -91,7 +99,7 @@ export default function Form() {
                     ChangeAge(e.target.value);
                   }}
                 />
-              </div>
+               </div>
               <div className="input-group">
                 {/* <label htmlFor="" className="form-label">Enter your aadhar card no</label>*/}
                 <input
@@ -165,11 +173,12 @@ export default function Form() {
                   type="text"
                   placeholder="Enter password ..."
                   className="form-control"
+                  id="password"
                   onChange={(e) => {
                     changePassword(e.target.value);
                   }}
                 />
-              </div>
+                </div>
               <div className="input-group">
                 {/*<label htmlFor="" className="form-label">Confirm password</label>*/}
                 <input
@@ -192,14 +201,14 @@ export default function Form() {
                   Click Here
                 </button>
               </div>
-              {/* </form> */}
-              {/* <div className="col-md-5">
-            <img src={farmer2} alt="" className=" img-fluid" />
-          </div> */}{" "}
+             
             </div>
-          </div>
-        </main>
+         </div>
+        </form>
+        
+      
       {/* </div> */}
     </>
   );
 }
+

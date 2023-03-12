@@ -136,6 +136,9 @@ main{
 main{
     background-color: white;
 }
+.container{
+    background-color: white;
+}
 .col-md-7{
     /* border: 2px solid red; */
 }

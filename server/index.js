@@ -1,6 +1,7 @@
 var express = require("express");
 var mysql = require("mysql2");
 var app = express();
+var bodyParser = require("body-parser");
 const cors = require("cors");
 const multer = require("multer");
 var PORT = 3001;
@@ -10,10 +11,11 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
 // const stripe = require('stripe')('sk_test_Gx4mWEgHtCMr4DYMUIqfIrsz');
 // const bodyParser=require("body-parser");
 
-// app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 // const YOUR_DOMAIN = 'http://localhost:3001';
-
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 app.use(
   cors({
@@ -26,7 +28,7 @@ app.use(
 const conn = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "parth",
+  password: "Chinnu@2000",
   database: "DBMS",
 });
 
@@ -72,11 +74,21 @@ conn.connect(function (err) {
 // })
 
 
+app.post("/Geolocation",function(req,res){
+  console.log(req.body);
+  conn.query("insert into location(latitude, longitude) values('"+req.body.latitude+"','"+req.body.longitude+"');",function(err,result){
+      if(err)throw err;
+        console.log(result);
+  });
+  res.send("Location inserted");
+})
+
+
 
 app.post("/farmer_login",function(req,res){
     console.log(req.body);
     console.log("Hi");
-    conn.query("insert into farmer(fname,lname,aadhar_no,age,phone_no,city,state,password,pincode,unique_id)values('"+req.body.fname+"','"+req.body.lname+"','"+req.body.aadhar_no+"',"+req.body.age+",'"+req.body.phone_no+"','"+req.body.city+"','"+req.body.state+"',"+req.body.password+","+req.body.pincode+","+req.body.unique_id+");",function(err,result){
+    conn.query("insert into farmer(fname,lname,age,aadhar_no,unique_id,phone_no,city,state,pincode,password)values('"+req.body.fname+"','"+req.body.lname+"','"+req.body.age+"','"+req.body.aadhar_no+"','"+req.body.unique_id+"','"+req.body.phone_no+"','"+req.body.city+"','"+req.body.state+"','"+req.body.pincode+"','"+req.body.password+"');",function(err,result){
         if(err)throw err;
         console.log(result);
     });
@@ -110,14 +122,7 @@ app.post("/admin_login",function(req,res){
 
 app.post("/check_customer", function (req, res) {
   console.log(req.body);
-  const sql =
-    "select * from customer where fname='" +
-    req.body.name +
-    "' && password=" +
-    req.body.password +
-    ";";
-  const values = [req.body.name];
-  conn.query(sql, function (err, result) {
+  const sql ="select * from customer where fname='" +req.body.name +"' && password=" +req.body.password +";";const values = [req.body.name];conn.query(sql, function (err, result) {
     if (err) console.error(err);
     console.log(sql);
     console.log(result);
@@ -132,15 +137,10 @@ app.post("/check_customer", function (req, res) {
     // res.send("safe");
   });
 });
+
 app.post("/check_farmer", function (req, res) {
   console.log(req.body);
-  conn.query(
-    "select * from farmer where fname='" +
-      req.body.name +
-      "' && password=" +
-      req.body.password +
-      ";",
-    function (err, result) {
+  conn.query("select * from farmer where fname='" +req.body.name +"' && password='" +req.body.password +"';",function (err, result) {
       if (err) console.log(err);
       console.log(result);
       if (result == "") {
@@ -152,7 +152,7 @@ app.post("/check_farmer", function (req, res) {
       }
     }
   );
-});
+})
 
 // app.post("/insertProduct",upload.fields([{name:"text"},{name:"file"}]),function(req,res){
 //     const{text,file}=req.body;
@@ -234,13 +234,7 @@ app.get("/product_display", (req, res) => {
 });
 
 app.post("/create_admin", function (req, res) {
-  conn.query(
-    "insert into admin (username, password) values ('" +
-      req.body.username +
-      "','" +
-      req.body.password +
-      "');",
-    function (err, result) {
+  conn.query("insert into admin (username, password) values ('"+req.body.username +"','" +req.body.password +"');",function (err, result) {
       if (err) throw err;
       console.log(result);
     }

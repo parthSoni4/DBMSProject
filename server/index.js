@@ -374,6 +374,30 @@ app.post("/customer_delete",function(req,res){
   res.send("deleted")
 })
 
+// get customer, farmer and viewer messages
+
+app.get("/AllContact", function(req,res){
+  sql="select * from contact";
+  conn.query(sql,function(err,result)
+  {
+    if(err)throw err;
+    console.log(result);
+    res.send(result);
+  })
+})
+
+// get all payment detail
+
+app.get("/Allpayment", function(req,res){
+  sql="select payment.product_id, product.farmer_id, payment.customer_id, payment_id ,customer.fname as customerFname, customer.lname as customerLname, customer.phone_no as customer_phone_no , text, category, type, quantity, description, product_date, email, farmer.fname as farmerFname, farmer.lname as farmerLname, farmer.phone_no as farmer_phone_no from payment, product, farmer, customer where (payment.product_id=product.product_id) && (product.farmer_id=farmer.farmer_id) && (customer.customer_id=payment.customer_id);"
+
+  conn.query(sql, function(err,result)
+  {
+    if(err)throw err;
+    console.log(result);
+    res.send(result);
+  })
+})
 
 
 app.listen(PORT, function (err) {

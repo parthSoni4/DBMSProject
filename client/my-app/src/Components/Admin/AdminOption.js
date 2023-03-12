@@ -5,6 +5,7 @@ import "./AllFarmer";
 import "./AllCustomer";
 import "./CreateAdmin";
 import "../Option.css";
+import Allpayment from './Allpayment';
 
 export default function AdminOption() {
  const navigate=useNavigate("/root");
@@ -18,6 +19,13 @@ export default function AdminOption() {
  }
  const Create_admin=()=>{
   navigate("../CreateAdmin");
+ }
+ const AllContact=()=>{
+  navigate("../AllContact");
+ }
+
+ const Allpayment=()=>{
+  navigate("../Allpayment");
  }
 
 
@@ -33,7 +41,8 @@ export default function AdminOption() {
     <button className="option-button" onClick={Create_admin}>Create new Admin</button>
     <button className="option-button" onClick={AllFarmer}>View all farmer</button>
     <button className="option-button" onClick={AllCustomer}>View all customer</button>
-    <button className="option-button" >View all purchase</button>
+    <button className="option-button" onClick={AllContact}>View all the messages</button>
+    <button className="option-button" onClick={Allpayment}>View all purchase</button>
       </div>
     </div>
     </>

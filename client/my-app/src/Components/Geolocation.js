@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 
-function GeolocationExample() {
+function Geolocation() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -43,4 +43,4 @@ function GeolocationExample() {
   );
 }
 
-export default GeolocationExample;
+export default Geolocation;

@@ -22,7 +22,6 @@ import Footer from "./Components/Footer";
 import ProductDetailedDisplay from "./Components/Product/ProductDetailedDisplay";
 import Payment from "./Components/Product/Payment";
 import StripeContainer from "./Components/Product/StripeContainer";
-import Geolocation from "./Components/Geolocation";
 
 // import Trying from "./Components/Trying";
 
@@ -51,8 +50,6 @@ function App() {
         <Route path="/Contact"  element={<Contact></Contact>}/>
         <Route path="/ProductDetailedDisplay/product_id/:product_id" element={<ProductDetailedDisplay></ProductDetailedDisplay>}/>
         <Route path="/Payment" element={<StripeContainer></StripeContainer>}/>
-        <Route path="/Geolocation"  element={<Geolocation/>}/>
-
         {/* <Route path="/trying" element={<Trying></Trying>}/> */}
       </Routes>
       <Footer/>

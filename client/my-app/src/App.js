@@ -24,6 +24,7 @@ import Payment from "./Components/Product/Payment";
 import StripeContainer from "./Components/Product/StripeContainer";
 import AllContact from "./Components/Admin/AllContact";
 import Allpayment from "./Components/Admin/Allpayment";
+import FarmerSales from "./Components/Farmer/FarmerSales";
 
 // import Trying from "./Components/Trying";
 
@@ -54,6 +55,8 @@ function App() {
         <Route path="/Payment" element={<StripeContainer></StripeContainer>}/>
         <Route path="/AllContact" element={<AllContact></AllContact>}></Route>
         <Route path="/Allpayment" element={<Allpayment></Allpayment>}></Route>
+        <Route path="/farmer_sales" element={<FarmerSales></FarmerSales>}></Route>
+
         {/* <Route path="/trying" element={<Trying></Trying>}/> */}
       </Routes>
      {/* <Footer/> */}

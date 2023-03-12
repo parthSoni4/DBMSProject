@@ -27,6 +27,7 @@ export default function FarmerLoginPage() {
                 console.log(response.data[0].fname);
                 const farmer_id=response.data[0].farmer_id;
                 navigate(`../FarmerOption/farmer_id/${farmer_id}`, { state: {farmer_id}});
+                sessionStorage.setItem("farmer_id",farmer_id);
             }
         })
     }
@@ -47,7 +48,7 @@ export default function FarmerLoginPage() {
             <input type="text" className="form-control" placeholder="Enter your password ..." onChange={(e)=>{changePassword(e.target.value);}}/>
         </div>
         <div>
-        <a href class="login_a" >Forgot password?</a>
+        {/* <a href className="login_a" >Forgot password?</a> */}
         </div>
         
         <div className="input-group">

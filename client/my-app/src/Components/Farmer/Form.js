@@ -40,6 +40,10 @@ export default function Form() {
       unique_id: unique_id,
     }).then((response) => {
       console.log(response);
+      if(response.data=="got this")
+      {
+        navigate("../FarmerLoginPage");        
+      }
     });
 
   };

@@ -2,9 +2,15 @@ import React, {useEffect, useState} from 'react';
 import "../Form.css";
 import Axios from "axios";
 import {useNavigate} from "react-router-dom";
-
+import image from "../HomeImages/customer1.jpg";
 
 export default function CustomerSignup() {
+    useEffect(() => {
+        const style = document.createElement('style');
+        style.textContent = `body { background-image: url(${image}); background-repeat: repeat; }`;
+        document.head.appendChild(style);
+    
+      }, )
     const navigate=useNavigate("/root");
     const Customer_login=()=>{
         navigate("../CustomerLogin");
@@ -90,3 +96,6 @@ export default function CustomerSignup() {
     </>
   )
 }
+
+
+// https://global-uploads.webflow.com/5ec58288fb88c8354e4ff63a/5ed6a583e460099ef51782de_Plate%201.jpg

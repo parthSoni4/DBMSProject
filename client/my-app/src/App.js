@@ -17,8 +17,9 @@ import CustomerLogin from "./Components/Customer/CustomerLogin";
 import FarmerLoginPage from "./Components/Farmer/FarmerLoginPage";
 import CustomerOption from "./Components/Customer/CustomerOption";
 import FarmerOption from "./Components/Farmer/FarmerOption.";
-import Contact from "./Components/Contact";
+import AllContact from "./Components/Admin/AllContact";
 import Footer from "./Components/Footer";
+import Contact from "./Components/Contact";
 import ProductDetailedDisplay from "./Components/Product/ProductDetailedDisplay";
 import Payment from "./Components/Product/Payment";
 import StripeContainer from "./Components/Product/StripeContainer";
@@ -45,9 +46,10 @@ function App() {
         <Route path="/ProductDisplay" element={<ProductDisplay></ProductDisplay>}/>
         <Route path="/CustomerLogin" element={<CustomerLogin></CustomerLogin>}/>
         <Route path="/FarmerLoginPage" element={<FarmerLoginPage></FarmerLoginPage>}/>
+        <Route path="/Contact" element={<Contact></Contact>}></Route>
         <Route path="/CustomerOption/customer_id/:customer_id" element={<CustomerOption></CustomerOption>}/>
         <Route path="/FarmerOption/farmer_id/:farmer_id" element={<FarmerOption></FarmerOption>}/>    
-        <Route path="/Contact"  element={<Contact></Contact>}/>
+        <Route path="/AllContact"  element={<AllContact></AllContact>}/>
         <Route path="/ProductDetailedDisplay/product_id/:product_id" element={<ProductDetailedDisplay></ProductDetailedDisplay>}/>
         <Route path="/Payment" element={<StripeContainer></StripeContainer>}/>
         {/* <Route path="/trying" element={<Trying></Trying>}/> */}

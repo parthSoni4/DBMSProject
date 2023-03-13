@@ -46,7 +46,7 @@ export default function AdminLogin() {
                 {/*Enter your password*/}
                 <input type="text" placeholder="Enter your password ..." className="form-control" onChange={(e)=>{changePassword(e.target.value);}}/>
             </div>
-            <button className="butonadmin" onClick={admin_login}>Submit</button>
+            <button className="btn btn-primary" onClick={admin_login}>Submit</button>
 
         </main>
     </>

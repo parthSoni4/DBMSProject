@@ -58,13 +58,13 @@ export default function Form() {
     if (!fname) {
       errors.fname = "*";
     } else if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(fname)) {
-      errors.fname = "First name must characters only";
+      errors.fname = "First name must be characters only";
     }
 
     if (!lname) {
       errors.lname = "*";
     } else if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(lname)) {
-      errors.lname = "\nLast name must characters only";
+      errors.lname = "\nLast name must be characters only";
     }
 
     if (!age) {
@@ -78,13 +78,15 @@ export default function Form() {
     if (!aadhar_no.trim()) {
       errors.aadhar_no = "*";
     } else if (aadhar_no.length < 12) {
-      errors.aadhar_no = "\nAadhar number 12 digits long";
+      errors.aadhar_no = "\nAadhar number must be 12 digits long";
     }
 
     if (!phone_no.trim()) {
       errors.phone_no = "*";
-    } else if (phone_no.length < 10) {
-      errors.phone_no = "\nPhone number must be 10 digits long";
+    } else if (!/^[0-9]+$/.test(phone_no)) {
+    errors.phone_no = "\nPhone number must be digits only";
+    } else if (phone_no.length < 10)   {
+    errors.phone_no = '\nPhone number must be 10 digits long';
     }
 
     if (!unique_id.trim()) {
@@ -98,13 +100,13 @@ export default function Form() {
     if (!city.trim()) {
       errors.city = "*";
     } else if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(city)) {
-      errors.city = "\nCity name should be charcters only";
+      errors.city = "\nCity name must be charcters only";
     }
 
     if (!state.trim()) {
       errors.state = "*";
     } else if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(state)) {
-      errors.state = "\nState name should be charcters only";
+      errors.state = "\nState name must be charcters only";
     }
 
     if (!pincode.trim()) {
@@ -122,7 +124,7 @@ export default function Form() {
     }
 
     if (!cpass) {
-      errors.cpass = "*Please enter a password and confirm it";
+      errors.cpass = "*Re-enter the password to confirm it";
     } else if (password !== cpass) {
       errors.cpass = "Password do not match";
     }
@@ -135,7 +137,7 @@ export default function Form() {
   return (
     <>
       {/* <div id="body-form"> */}
-      <main>
+      
         <form onSubmit={validateForm}>
           <div className="container" id="background">
             
@@ -289,7 +291,7 @@ export default function Form() {
                 {/* <input type="text" className="form-control" /> */}{" "}
               </div>
               <div className="mb-3">
-                <button className="buton" onClick={farmer_login}>
+                <button className="btn btn-primary" onClick={farmer_login}>
                   Sign Up
                 </button>
               </div>
@@ -303,7 +305,6 @@ export default function Form() {
             
           </div>
         </form>
-      </main>
       {/* </div> */}
     </>
   )

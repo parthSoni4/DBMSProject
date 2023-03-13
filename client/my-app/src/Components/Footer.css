@@ -15,6 +15,14 @@
   padding-left: 25px;
   padding-right: 25px;
 }
+.foot--page{
+  position: relative;
+  left: 0;
+  bottom: 0;
+  padding-left: 46px;
+  padding-right: 46px;
+  font-size:25px ;
+}
 
 .icon1 {
   margin-left: 0.6em;
@@ -49,6 +57,13 @@
 }
 .icon4:hover {
   color: red;
+}
+
+a{
+  text-decoration: none;
+}
+a:hover{
+  color:white;
 }
 /*
 .row{

@@ -12,6 +12,7 @@ body{
 }
 
 form,main {
+    background-color: white;
     /* border: 2px solid yellow; */
     margin: auto;
     /* padding-left: 0px !important; */

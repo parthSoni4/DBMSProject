@@ -49,7 +49,7 @@ export default function Form() {
   useEffect(() => {
     validateForm();
     const style = document.createElement('style');
-    style.textContent = `body { background-image: url(${image}); }`;
+    style.textContent = `body { background-image: url(${image}); background-repeat: repeat; }`;
     document.head.appendChild(style);
   },)
 

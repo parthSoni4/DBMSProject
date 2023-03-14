@@ -15,12 +15,12 @@ export default function AllFarmer()
         })
 
     }
-    useEffect(() => {
-        const style = document.createElement('style');
-        style.textContent = `body { background-image: url(${image}); background-size: cover; background-repeat: no-repeat; }`;
-        document.head.appendChild(style);
+    // useEffect(() => {
+    //     const style = document.createElement('style');
+    //     style.textContent = `body { background-image: url(${image}); background-size: cover; background-repeat: no-repeat; }`;
+    //     document.head.appendChild(style);
     
-      }, )
+    //   }, )
     const[data,setdata]=useState([]);
     var display="";
     function get_value()

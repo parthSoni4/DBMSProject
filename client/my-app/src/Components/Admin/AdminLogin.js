@@ -1,11 +1,18 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import "../Form.css"
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './AdminOption';
+import image2 from "../HomeImages/flower.jpg";
 
 export default function AdminLogin() {
  
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `body { background-image: url(${image2}); background-size: cover; background-repeat: no-repeat; }`;
+    document.head.appendChild(style);
+
+  }, )
 
   const navigate=useNavigate("/root");
     

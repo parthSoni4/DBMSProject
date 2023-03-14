@@ -20,18 +20,19 @@
     /* border: 2px solid black; */
     padding: 0 !important;
     margin: 0px ;
-    width: 100%;
+    max-width: 100%;
     justify-content:space-between;
+    /* background-repeat: repeat; */
 }
 .container{
     margin-top: 3rem;
     /* border: 2px solid yellow; */
     padding: 0px;
     border: 2px solid white ;
-    box-shadow: 1px 1px 6px 1px grey;
+    /* box-shadow: 1px 1px 6px 1px grey; */
 }
 .container:hover
 {
-    box-shadow: 1px 1px 9px 2px grey;
+    /* box-shadow: 1px 1px 9px 2px grey; */
 
 }

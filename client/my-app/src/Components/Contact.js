@@ -1,6 +1,8 @@
 import React,{useEffect,useState} from 'react'
 import "./Form.css";
 import axios from "axios";
+import image from "./Farmer/FarmerSectionImage/wow.jpg";
+import image2 from "./HomeImages/lets.jpg";
 
 export default function Contact() {
     const[name,setName]=useState("");
@@ -18,6 +20,12 @@ export default function Contact() {
             console.log(response);
         });
     }
+    useEffect(() => {
+            const style = document.createElement('style');
+            style.textContent = `body { background-image: url(${image2}); background-size: cover; background-repeat: no-repeat; }`;
+            document.head.appendChild(style);
+        
+          }, )
 
     useEffect(() => {
         validateForm();

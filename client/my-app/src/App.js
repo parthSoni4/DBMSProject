@@ -23,6 +23,7 @@ import Contact from "./Components/Contact";
 import ProductDetailedDisplay from "./Components/Product/ProductDetailedDisplay";
 import Payment from "./Components/Product/Payment";
 import StripeContainer from "./Components/Product/StripeContainer";
+import Geolocation from "./Components/Geolocation";
 
 // import Trying from "./Components/Trying";
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/"  element={<Home/>}/>
         <Route path="/About"  element={<About/>}/>
         <Route path="/Form" element={<Form/>}/> 
+        <Route path="/Geolocation" element={<Geolocation/>}/> 
         <Route path="/customer_login" element={<CustomerSignup></CustomerSignup>}/>
         <Route path="/admin_login"  element={<AdminLogin></AdminLogin>}/>
         <Route path="/AdminOption"  element={<AdminOption></AdminOption>}/>

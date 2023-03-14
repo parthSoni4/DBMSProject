@@ -35,8 +35,7 @@ function App() {
       <Routes>
         <Route path="/"  element={<Home/>}/>
         <Route path="/About"  element={<About/>}/>
-        <Route path="/Form" element={<Form/>}/> 
-        <Route path="/Geolocation" element={<Geolocation/>}/> 
+        <Route path="/Form" element={<Form/>}/>  
         <Route path="/customer_login" element={<CustomerSignup></CustomerSignup>}/>
         <Route path="/admin_login"  element={<AdminLogin></AdminLogin>}/>
         <Route path="/AdminOption"  element={<AdminOption></AdminOption>}/>

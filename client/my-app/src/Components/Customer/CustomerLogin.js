@@ -48,10 +48,10 @@ export default function CustomerLogin() {
             <input type="text" placeholder="Enter your password ..." className="form-control" onChange={(e)=>{changePassword(e.target.value);}} />
         </div>
         <div>
-        <a href class="login_a" >Forgot password?</a>
+        {/* <a href class="login_a" >Forgot password?</a> */}
         </div>
         <div className="input-group">
-            <button className="btn btn-default btn-primary" onClick={check_customer}>Submit</button>
+            <button className="btn btn-default btn-primary option-button" onClick={check_customer}>Submit</button>
         </div>
         <h3>{status}</h3>
     </main>

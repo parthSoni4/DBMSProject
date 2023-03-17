@@ -1,5 +1,12 @@
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans'); */
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+
 body{
     background-color: white;
+    
+  font-family: 'Playfair Display', serif;
+  /* font-family: 'Open Sans', sans-serif; */
 }
 .display{
     /* border: 10px solid black; */
@@ -62,6 +69,7 @@ body{
      */
      background-color: rgb(236, 246, 236);
     /* opacity: 0.3; */
+    padding: 0.5rem;
 }
 
 .head-size{

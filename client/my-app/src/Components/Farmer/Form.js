@@ -7,6 +7,7 @@ import image from "./FarmerSectionImage/background14jpg.jpg";
 
 
 
+
 export default function Form() {
   const navigate = useNavigate("/root");
 
@@ -291,13 +292,13 @@ export default function Form() {
                 {/* <input type="text" className="form-control" /> */}{" "}
               </div>
               <div className="mb-3">
-                <button className="btn btn-primary" onClick={farmer_login}>
+                <button className="btn btn-primary option-button" onClick={farmer_login}>
                   Sign Up
                 </button>
               </div>
               <div>
                 <h5 className="my-3">Already have an account?</h5>
-                <button className="login_a" onClick={FarmerLoginPage}>
+                <button className="login_a option-button" onClick={FarmerLoginPage}>
                   Click Here
                 </button>
               </div>

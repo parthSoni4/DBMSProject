@@ -23,6 +23,9 @@ import Contact from "./Components/Contact";
 import ProductDetailedDisplay from "./Components/Product/ProductDetailedDisplay";
 import Payment from "./Components/Product/Payment";
 import StripeContainer from "./Components/Product/StripeContainer";
+import Allpayment from "./Components/Admin/Allpayment";
+import FarmerSales from "./Components/Farmer/FarmerSales";
+import ViewPurchase from "./Components/Customer/ViewPurchase";
 
 // import Trying from "./Components/Trying";
 
@@ -57,7 +60,7 @@ function App() {
         <Route path="/view_purchase" element={<ViewPurchase></ViewPurchase>}></Route>
         {/* <Route path="/trying" element={<Trying></Trying>}/> */}
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
     </BrowserRouter>
     
    {/* <AllFarmer></AllFarmer>

@@ -176,11 +176,11 @@ export default function CustomerSignup() {
               
         </div>
         <div className="mb-3">
-            <button className="btn btn-primary" onClick={customer_login}>Sign Up</button>
+            <button className="btn btn-default btn-primary option-button" onClick={customer_login}>Sign Up</button>
         </div>
         <div>
         <h5 className="my-3">Already have an account?</h5>
-        <button onClick={Customer_login}>Click Here</button>
+        <button className="option-button "onClick={Customer_login}>Click Here</button>
         </div>
         </form>
     </>

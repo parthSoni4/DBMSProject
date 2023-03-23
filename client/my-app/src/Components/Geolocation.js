@@ -1,46 +1,41 @@
-import React, { useState } from 'react';
-import axios from "axios";
+import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from "leaflet";
+import image from "./HomeImages/location.png";
+// import React from 'react'
 
-function Geolocation() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [location, setLocation] = useState({});
-
-  function getLocation() {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      setLocation({ 
-        latitude: position.coords.latitude, 
-        longitude: position.coords.longitude,
-      });
-      sendLocation(position.coords.latitude, position.coords.longitude);
+export default function Geolocation() {
+  var a=24.58;
+  var b=73.71;
+  const position = [a, b];
+  function CustomPopup() {
+    return (
+      <div>
+        <h3>Farmer</h3>
+        {/* <p>Custom Popup Text Goes Here...</p> */}
+      </div>
+    );
+  }
+  const icon = L.icon({
+      iconUrl: image,
+      iconSize: [25, 41],
+      iconAnchor: [12, 41]
     });
-  }
-
-
-  function sendLocation(latitude, longitude) {
-    axios.post("http://localhost:3001/Geolocation", { latitude, longitude })
-      .then(response => {
-        console.log(response);
-        setIsLoading(false);
-        setIsSuccess(true);
-      })
-      .catch(error => {
-        console.log(error);
-        setIsLoading(false);
-        setIsError(true);
-      });
-  }
-
+    
+  
   return (
-    <div>
-      <button onClick={getLocation}>Sent Location</button>
-      <br />
-      {isLoading && <div>Loading...</div>}
-      {isSuccess && <div>Location Set</div>}
-      {isError && <div>Error!</div>}
-    </div>
+    <MapContainer center={position} zoom={13} style={{ height: '200px' }}>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution="&copy; OpenStreetMap contributors"
+      />
+      <Marker position={position} icon={icon}>
+        <Popup>
+          {/* You are here <br /> Easily customizable. */}
+          <CustomPopup />
+        </Popup>
+      </Marker>
+    </MapContainer>
   );
 }
-
-export default Geolocation;

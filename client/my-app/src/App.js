@@ -27,6 +27,7 @@ import Allpayment from "./Components/Admin/Allpayment";
 import FarmerSales from "./Components/Farmer/FarmerSales";
 import ViewPurchase from "./Components/Customer/ViewPurchase";
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+import Geolocation from "./Components/Geolocation";
 
 // import Trying from "./Components/Trying";
 
@@ -59,6 +60,7 @@ function App() {
         <Route path="/AllPayment" element={<Allpayment></Allpayment>}></Route>
         <Route path="/farmer_sales" element={<FarmerSales></FarmerSales>}></Route>
         <Route path="/view_purchase" element={<ViewPurchase></ViewPurchase>}></Route>
+        <Route path="/Geolocation" element={<Geolocation></Geolocation>}></Route>
         {/* <Route path="/trying" element={<Trying></Trying>}/> */}
       </Routes>
       {/* <Footer/> */}

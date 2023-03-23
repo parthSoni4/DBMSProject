@@ -11,11 +11,31 @@ export default function ProductInsert() {
     const[type,setType]=useState("");
     const[description,setDescription]=useState("");
     const[date, setDate]=useState("");
+    const[latitude, setLatitude]=useState(null);
+    const[longitude, setLongitude]=useState(null);
+
     const location=useLocation();
 
     const farmer_id=location.state.farmer_id;
     console.log(" farmer id is",farmer_id);
-
+    const get_location=()=>{
+        console.log('yes the farmer id is', farmer_id);
+        navigator.geolocation.getCurrentPosition((position)=>{
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+            console.log(longitude);
+            console.log(latitude);
+            axios.post("http://localhost:3001/farmer_location",{
+                farmer_id: farmer_id,
+                latitude: latitude,
+                longitude: longitude
+            }).then((response)=>{
+                console.log(response);
+            })
+        }, (error)=>{
+            console.log(error);
+        })
+    }
     const handleSubmit=(event)=>{
         console.log(quantity);
         console.log(date);
@@ -44,6 +64,8 @@ export default function ProductInsert() {
         .catch((error)=>{
             console.log(error);
         })
+
+        
     }
   
     return (
@@ -88,7 +110,14 @@ export default function ProductInsert() {
 
             <button className="btn btn-default btn-primary" type="submit">Upload</button>
             </div>
+            
         </form>
+        <div>
+
+        <div>
+                <button onClick={get_location}>Give Location</button>
+            </div>
+        </div>
     </>
   )
 }

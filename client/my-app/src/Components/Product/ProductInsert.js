@@ -3,21 +3,20 @@ import axios from "axios";
 
 
 export default function ProductInsert() {
-    const [text, setText] = useState("");
-    const [file, setFile] = useState(null);
-    const [cost, setCost] = useState("");
-    const [quantity, setQuantity] = useState("");
-    const [category, setCategory] = useState("");
-    const [type, setType] = useState("");
-    const [description, setDescription] = useState("");
-    const [date, setDate] = useState("");
-    const [location, setLocation] = useState({});
+    const[text, setText]=useState("");
+    const[file,setFile]=useState(null);
+    const[cost,setCost]=useState("");
+    const[quantity,setQuantity]=useState("");
+    const[category,setCategory]=useState("");
+    const[type,setType]=useState("");
+    const[description,setDescription]=useState("");
+    const[date, setDate]=useState("");
+    const location=useLocation();
 
+    const farmer_id=location.state.farmer_id;
+    console.log(" farmer id is",farmer_id);
 
-    //const farmer_id=location.state.farmer_id;
-    //console.log(" farmer id is",farmer_id);
-
-    const handleSubmit = (event) => {
+    const handleSubmit=(event)=>{
         console.log(quantity);
         console.log(date);
         console.log(type);
@@ -76,10 +75,9 @@ export default function ProductInsert() {
           })
           .catch(error => {
             console.log(error);
-          });
-      }
-    
-
+        })
+    }
+  
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -94,37 +92,35 @@ export default function ProductInsert() {
                 <div className="input-group">
 
 
-                    <input type="number" placeholder="Enter the cost ..." value={cost} className="form-control" onChange={(event) => setCost(event.target.value)} />
-                </div>
-                <div className="input-group1">
-                    <select name="" id="" className='form-control' onChange={(e) => { setCategory(e.target.value) }}>
-                        <option value="" disabled="disabled">Select Category ...</option>
-                        <option value="Vegetables">Vegetables</option>
-                        <option value="fruits">Fruits</option>
-                        <option value="Grains">Grains</option>
-                    </select>
-                </div>
-                <div className="input-group">
-                    Organic  <input type="radio" name="Category" value="organic" onChange={(e) => { setType(e.target.value); }} />
-                    Non-organic  <input type="radio" name="Category" value="non-organic" onChange={(e) => { setType(e.target.value) }} />
-                </div>
-                <div className="input-group">
-                    <input type="text" placeholder='Enter the quantity ...' className="form-control" onChange={(e) => { setQuantity(e.target.value); }} />
-                </div>
-                <div className="input-group1">
-                    <textarea name="Description" id="" cols="30" rows="10" className="form-control" placeholder='Enter the product description ...' onChange={(e) => { setDescription(e.target.value); }}></textarea>
-                </div>
-                <div className="input-group">
-                    Enter the date when product can be received ...<input type="date" onChange={(e) => { setDate(e.target.value); }} />
-                </div>
-                <div>
-                    <button className="btn btn btn-primary" onClick={getLocation}>Set Location</button>
-                    <br />
-                </div>
-                <div className="input-group">
-                    <button className="btn btn-default btn-primary" type="submit">Upload</button>
-                </div>
-            </form>
-        </>
-    )
+            <input type="number" placeholder="Enter the cost ..." value={cost} className="form-control" onChange={(event)=>setCost(event.target.value)}/>
+            </div>
+            <div className="input-group1">
+                <select name="" id="" className='form-control' onChange={(e)=>{setCategory(e.target.value)}}>
+                    <option value="" disabled="disabled">Select Category ...</option>
+                    <option value="Vegetables">Vegetables</option>
+                    <option value="fruits">Fruits</option>
+                    <option value="Grains">Grains</option>                    
+                </select>
+            </div>
+            <div className="input-group">
+              Organic  <input type="radio" name="Category" value="organic" onChange={(e)=>{setType(e.target.value);}}/>
+              Non-organic  <input type="radio" name="Category" value="non-organic" onChange={(e)=>{setType(e.target.value)}} />
+            </div>
+            <div className="input-group">
+            <input type="text" placeholder='Enter the quantity ...' className="form-control" onChange={(e)=>{setQuantity(e.target.value);}}/>
+            </div>
+            <div className="input-group1">
+            <textarea name="Description" id="" cols="30" rows="10" className="form-control" placeholder='Enter the product description ...' onChange={(e)=>{setDescription(e.target.value);}}></textarea>
+            </div>
+            <div className="input-group">
+            Enter the date when product can be received ...<input type="date"  onChange={(e)=>{setDate(e.target.value);}} />
+            </div>
+            <div className="input-group">
+
+
+            <button className="btn btn-default btn-primary" type="submit">Upload</button>
+            </div>
+        </form>
+    </>
+  )
 }

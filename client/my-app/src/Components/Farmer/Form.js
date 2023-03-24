@@ -139,14 +139,14 @@ export default function Form() {
     <>
       {/* <div id="body-form"> */}
       
-        <form onSubmit={validateForm}>
+        <form onSubmit={validateForm} className="center">
           <div className="container" id="background">
             
               <h2 className="my-3 text-center">Farmer SignUp!</h2>
               {/* <span className="input-group-text">First and last name</span>
                  */}
               {/*<label htmlFor="" className="form-label">Enter your first and last name</label>*/}
-              <div className="input-group">
+              <div className="input-group inputbox">
                 <input
                   type="text"
                   placeholder="Enter your first name ..."
@@ -157,6 +157,7 @@ export default function Form() {
                     ChangefName(e.target.value);
                   }}
                 />
+                <span>Name</span>
                 {errors.fname && <span style={errorStyle}>{errors.fname}</span>}
               </div>
               <div className="input-group">

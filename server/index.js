@@ -505,6 +505,7 @@ app.post("/view_purchase", function (req, res) {
 
 //  nodemailer code
 const https=require("https");
+const { response } = require("express");
 const agent=new https.Agent({
     rejectUnauthorized: false
 
@@ -547,6 +548,21 @@ app.post("/reply",function(req,res){
     })
     console.log("this is email",email,"this is reply", reply);
     res.send("Thank you");
+})
+
+app.post("/farmer_location",function(req,res){
+    // console.log(req);
+    const farmer_id=req.body.farmer_id;
+    const latitude=req.body.latitude;
+    const longitude=req.body.longitude;
+    console.log(farmer_id,latitude,longitude);
+    const sql=`insert into farmer_location values(${farmer_id}, ${longitude}, ${longitude})`;
+    conn.query(sql,function(result,error)
+    {
+        if(error) console.log(error);
+        console.log(result);
+    })
+    res.send("fine");
 })
 
 app.listen(PORT, function (err) {

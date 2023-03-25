@@ -54,7 +54,7 @@ export default function Form() {
     document.head.appendChild(style);
   },)
 
-  const validateForm = () => {
+  const validateForm = (e) => {
     const errors = {};
     if (!fname) {
       errors.fname = "*";

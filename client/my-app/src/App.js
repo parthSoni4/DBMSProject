@@ -23,15 +23,13 @@ import Contact from "./Components/Contact";
 import ProductDetailedDisplay from "./Components/Product/ProductDetailedDisplay";
 import Allpayment from "./Components/Admin/Allpayment";
 import StripeContainer from "./Components/Product/StripeContainer";
-<<<<<<< Updated upstream
 import Allpayment from "./Components/Admin/Allpayment";
 import FarmerSales from "./Components/Farmer/FarmerSales";
 import ViewPurchase from "./Components/Customer/ViewPurchase";
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-=======
 import FarmerSales from "./Components/Farmer/FarmerSales";
 import ViewPurchase from "./Components/Customer/ViewPurchase";
->>>>>>> Stashed changes
+
 
 // import Trying from "./Components/Trying";
 

@@ -1,191 +1,314 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import "../Form.css";
-import Axios from "axios";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import image from "../HomeImages/customer1.jpg";
+import swal from 'sweetalert';
 
-export default function CustomerSignup() {
-    useEffect(() => {
-        validateForm();
-        const style = document.createElement('style');
-        style.textContent = `body { background-image: url(${image}); background-repeat: repeat; }`;
-        document.head.appendChild(style);
-    
-      }, )
-    const navigate=useNavigate("/root");
-    const Customer_login=()=>{
-        navigate("../CustomerLogin");
+const CustomerSignup = () => {
+  const [formData, setFormData] = useState({
+    fname: "",
+    lname: "",
+    address: "",
+    city: "",
+    state: "",
+    phone_no: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    terms: "",
+  });
 
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const navigate = useNavigate("/root");
+  const Customer_login = () => {
+    navigate("../CustomerLogin");
+
+  }
+
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const errors = {};
+
+    if (!formData.fname.trim()) {
+      errors.fname = "First name is required";
+    } else if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(formData.fname)) {
+      errors.fname = "First name must be characters only";
+    }
+
+    if (!formData.lname.trim()) {
+      errors.lname = "Last name is required";
+    } else if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(formData.lname)) {
+      errors.lname = "Last name must be characters only";
+    }
+
+    if (!formData.address.trim()) {
+      errors.address = "Address is required";
+    } else if (formData.address.length > 60) {
+      errors.address = "Address must be less than 60 characters";
+    }
+
+    if (!formData.city.trim()) {
+      errors.city = "City is required";
+    } else if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(formData.city)) {
+      errors.city = "City name must be charcters only";
+    }
+
+    if (!formData.state.trim()) {
+      errors.state = "State is required";
+    } else if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(formData.state)) {
+      errors.state = "State name must be charcters only";
     }
 
 
+    if (!formData.phone_no.trim()) {
+      errors.phone_no = "Phone number is required";
+    } else if (!/^[0-9]+$/.test(formData.phone_no)) {
+      errors.phone_no = "Phone number must be a digits only";
+    } else if (formData.phone_no.length < 10 || formData.phone_no.length > 10) {
+      errors.phone_no = "Phone number must be 10 digits long";
+    }
 
-    const[fname,changefName]=useState("");
-    const[lname,changeLname]=useState("");
-    const[address,changeAddress]=useState("");
-    const[city,changeCity]=useState("");
-    const[state,changeState]=useState("");
-    const[contact_no,changeContact_no]=useState("");
-    const[email,changeEmail]=useState("");
-    const[password,changePassword]=useState("");
-    const [cpass, changeConfirmPassword] = useState("");
-    const [errors, setErrors] = useState({});
+    if (!formData.email.trim()) {
+      errors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = "Invalid email format";
+    }
 
+    if (!formData.password.trim()) {
+      errors.password = "Password is required";
+    } else if (formData.password.length < 8) {
+      errors.password = "\nPassword must be 8 alphanumeric long";
+    } else if (!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/.test(formData.password)) {
+      errors.password = 'Password must contain at least one uppercase letter, one lowercase letter, and one digit';
+    }
 
-    const customer_login=()=>{
-        console.log("customerr login")
-        Axios.post("http://localhost:3001/customer_login",{
-            fname: fname,
-            lname: lname,
-            address: address,
-            city: city,
-            state: state,
-            contact_no: contact_no,
-            email: email,
-            password: password
-        }).them((response)=>{
-            console.log(response);
-        });
-    };
+    if (formData.password !== formData.confirmPassword) {
+      errors.confirmPassword = "Passwords do not match";
+    }
 
-    
-        
-      
+    if (!isChecked) {
+      errors.terms = "Please read and accept the terms and conditions.";
+    }
 
-    const validateForm = () => {
-        const errors = {};
-        if (!fname) {
-          errors.fname = "*";
-        } else if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(fname)) {
-          errors.fname = "First name must be characters only";
-        }
-    
-        if (!lname) {
-          errors.lname = "*";
-        } else if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(lname)) {
-          errors.lname = "\nLast name must be characters only";
-        }
-    
-        if (!contact_no.trim()) {
-          errors.contact_no = "*";
-        } else if (!/^[0-9]+$/.test(contact_no)) {
-        errors.contact_no = "\nPhone number must be digits only";
-        } else if (contact_no.length < 10)   {
-        errors.contact_no = '\nPhone number must be 10 digits long';
-        }
+    if (Object.keys(errors).length > 0) {
+      setErrors(errors);
+    }
+    else {
+      console.log("customer login")
+      swal({
+        title: "Form submitted !",
+        text: "Your Data is stored successfully and it is safe",
+        icon: "success",
+        button: "OK",
+      });
+      // post request
+      axios.post("http://localhost:3001/customer_login",{
+        fname: formData.fname,
+        lname: formData.lname,
+        address: formData.address,
+        city: formData.city,
+        state: formData.state,
+        phone_no: formData.phone_no,
+        email: formData.email,
+        password: formData.password,
+    }).them((response)=>{
+        console.log(response);
+    });
+      setFormData({
+        fname: " ",
+        lname: " ",
+        phone_no: " ",
+        email:" ",
+        address: " ",
+        city: " ",
+        state: " ",
+        password: " ",
+        confirmPassword: " ",
+        terms: " ",
+      });
+      setErrors({});
+    }
+  };
 
-        if (!address.trim()) {
-            errors.address = "*";
-          } 
+  const terms = (e) => {
+    e.preventDefault();
+    swal({
+      title: "Terms and Conditions",
+      text: "The information what you provide must be genuine and " +
+        "accurate, in case of violation admin as all the rights to remove you from the site.",
+      button: "Close",
+    });
+  }
 
-        if (!email.trim()) {
-            errors.email = "*";
-          } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-            errors.email = "\nEnter the valid email address";
-          }
-      
-        if (!city.trim()) {
-          errors.city = "*";
-        } else if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(city)) {
-          errors.city = "\nCity name must be charcters only";
-        }
-    
-        if (!state.trim()) {
-          errors.state = "*";
-        } else if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(state)) {
-          errors.state = "\nState name must be charcters only";
-        }
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `body { background-image: url(${image}); background-repeat: repeat; }`;
+    document.head.appendChild(style);
 
-        if (!password) {
-          errors.password = "*";
-        } else if (password.length < 8) {
-          errors.password = "\nPassword must be 8 alphanumeric long";
-        } else if (!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/.test(password)) {
-          errors.password = 'Password must contain at least one uppercase letter, one lowercase letter, and one digit';
-        }
-    
-        if (!cpass) {
-          errors.cpass = "*Re-enter the password to confirm it";
-        } else if (password !== cpass) {
-          errors.cpass = "Password do not match";
-        }
-    
-        setErrors(errors);
-      };
-    
-      const errorStyle = { color: "red" };
-    
+  },)
+
+  const errorStyle = { color: "red" };
 
   return (
-    <>
-    <form onSubmit={validateForm}>
-        
-        <h2 className="my-3">Customer SignUp!</h2>
-        <div className="input-group">
-        {/*<label htmlFor="" className="form-label">Enter your name</label>*/}
-        <input 
-        type="text" 
-        placeholder="Enter your first name ..." className="form-control" 
-        name="fname" 
-        onChange={(e)=>{changefName(e.target.value);}} />
-        {errors.fname && <span style={errorStyle}>{errors.fname}</span>}
-        </div>
-        <div className="input-group">
-        <input type="text" placeholder="Enter your last name ..." className="form-control" name="lname" onChange={(e)=>{changeLname(e.target.value);}}/>
-        {errors.lname && <span style={errorStyle}>{errors.lname}</span>}
-              
-        </div>
-        <div className="input-group">
-            {/*<label htmlFor="" className="form-label">Enter your contact no</label>*/}
-            <input type="text" placeholder="Enter your phone number ..."  className="form-control" name="contact_no" onChange={(e)=>{changeContact_no(e.target.value);}} />
-            {errors.contact_no && <span style={errorStyle}>{errors.contact_no}</span>}
-        </div>
-        <div className="input-group">
-            {/*<label htmlFor="" className="form-label">Enter your email</label>*/}
-            <input type="email" placeholder="Enter your email id ..."  className="form-control" name="email" onChange={(e)=>{changeEmail(e.target.value);}} />
-            {errors.email && <span style={errorStyle}>{errors.email}</span>}
-        </div>
+    <form onSubmit={handleSubmit}>
 
-        <div className="input-group">
-            {/*<label htmlFor="" className="form-label">Enter your address</label>*/}
-            <input type="text" placeholder="Enter your address ..." className="form-control" name="address" onChange={(e)=>{changeAddress(e.target.value);}} />
-            {errors.address && <span style={errorStyle}>{errors.address}</span>}
-        </div>
-        <div className="input-group">
-            {/*<label htmlFor="" className="form-label">Enter your city</label>*/}
-            <input type="text" placeholder="Enter your city ..." className='form-control' name="city" onChange={(e)=>{changeCity(e.target.value);}}/>
-            {errors.city && <span style={errorStyle}>{errors.city}</span>}
-        </div>
-        <div className="input-group">
-            {/*<label htmlFor="" className="form-label">Enter your state</label>*/}
-            <input type="text" placeholder="Enter your state ..." className="form-control" name="state" onChange={(e)=>{changeState(e.target.value);}}/>
-            {errors.state && <span style={errorStyle}>{errors.state}</span>}
-        </div>
-        
-        <div  className="input-group">
-            {/*<label htmlFor="" className="form-label">Enter your password</label>*/}
-            <input type="password" placeholder="Enter password ..." className="form-control" name="password" onChange={(e)=>{changePassword(e.target.value);}}/>
-            {errors.password && <span style={errorStyle}>{errors.password}</span>}
-        </div>
-        <div className="input-group">
-            {/*<label htmlFor="" className="form-label">Confirm your password</label>*/}
-            <input type="password" placeholder="Confirm password ..."  className="form-control"  name="cpass" onChange={(e) => {
-                    changeConfirmPassword(e.target.value);
-                  }}/>
-            {errors.cpass && <span style={errorStyle}>{errors.cpass}</span>}
-              
-        </div>
-        <div className="mb-3">
-            <button className="btn btn-default btn-primary option-button" onClick={customer_login}>Sign Up</button>
-        </div>
-        <div>
+      <h2 className="my-3">Customer SignUp!</h2>
+      <div className="input-group">
+        <input
+          type="text"
+          placeholder="Enter your first name ..."
+          id="fname"
+          name="fname"
+          className="form-control"
+          value={formData.fname}
+          onChange={handleChange}
+        />
+        {errors.fname && <p style={errorStyle}>{errors.fname}</p>}
+      </div>
+
+      <div className="input-group">
+        <input
+          type="text"
+          placeholder="Enter your last name ..."
+          id="lname"
+          name="lname"
+          className="form-control"
+          value={formData.lname}
+          onChange={handleChange}
+        />
+        {errors.lname && <p style={errorStyle}>{errors.lname}</p>}
+      </div>
+
+
+      <div className="input-group">
+        <input
+          type="text"
+          placeholder="Enter your phone number ..."
+          id="phone_no"
+          name="phone_no"
+          className="form-control"
+          value={formData.phone_no}
+          onChange={handleChange}
+        />
+        {errors.phone_no && <p style={errorStyle}>{errors.phone_no}</p>}
+      </div>
+
+      <div className="input-group">
+        <input
+          type="text"
+          placeholder="Enter your email ..."
+          id="email"
+          name="email"
+          className="form-control"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        {errors.email && <p style={errorStyle}>{errors.email}</p>}
+      </div>
+
+      <div className="input-group">
+        <input
+          type="text"
+          placeholder="Enter your address..."
+          id="address"
+          name="address"
+          className="form-control"
+          value={formData.address}
+          onChange={handleChange}
+        />
+        {errors.address && <p style={errorStyle}>{errors.address}</p>}
+      </div>
+
+      <div className="input-group">
+        <input
+          type="text"
+          placeholder="Enter your city ..."
+          id="city"
+          name="city"
+          className="form-control"
+          value={formData.city}
+          onChange={handleChange}
+        />
+        {errors.city && <p style={errorStyle}>{errors.city}</p>}
+      </div>
+
+      <div className="input-group">
+        <input
+          type="text"
+          placeholder="Enter your state ..."
+          id="state"
+          name="state"
+          className="form-control"
+          value={formData.state}
+          onChange={handleChange}
+        />
+        {errors.state && <p style={errorStyle}>{errors.state}</p>}
+      </div>
+
+      <div className="input-group">
+        <input
+          type="password"
+          placeholder="Enter your password ..."
+          id="password"
+          name="password"
+          className="form-control"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        {errors.password && <p style={errorStyle}>{errors.password}</p>}
+      </div>
+      <div className="input-group">
+        <input
+          type="password"
+          placeholder="Confirm password ..."
+          id="confirmPassword"
+          name="confirmPassword"
+          className="form-control"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+        />
+        {errors.confirmPassword && <p style={errorStyle}>{errors.confirmPassword}</p>}
+      </div><br />
+
+      <div>
+        <label>To known terms and conditions</label>
+        <button onClick={terms}>
+          Click here
+        </button>
+      </div><br /><br />
+      <div>
+        <input
+          type="checkbox"
+          id="terms"
+          name="terms"
+          checked={isChecked}
+          onChange={(e) => setIsChecked(e.target.checked)}
+        />
+        <label>I agree to the terms and conditions.</label>
+        {errors.terms && <p style={errorStyle}>{errors.terms}</p>}
+      </div>
+
+      <button type="submit" className="btn btn-primary option-button">Sign Up</button>
+      <div>
         <h5 className="my-3">Already have an account?</h5>
-        <button className="option-button "onClick={Customer_login}>Click Here</button>
-        </div>
-        </form>
-    </>
+        <button className="login_a option-button" onClick = { Customer_login }>
+          Click Here
+        </button>
+      </div>
+    </form>
   )
 }
+
+export default CustomerSignup;
 
 
 // https://global-uploads.webflow.com/5ec58288fb88c8354e4ff63a/5ed6a583e460099ef51782de_Plate%201.jpg

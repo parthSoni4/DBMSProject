@@ -82,24 +82,21 @@ app.post("/farmer_login", function (req, res) {
     conn.query("insert into farmer(fname,lname,age,aadhar_no,unique_id,phone_no,city,state,pincode,password)values('" + req.body.fname + "','" + req.body.lname + "','" + req.body.age + "','" + req.body.aadhar_no + "','" + req.body.unique_id + "','" + req.body.phone_no + "','" + req.body.city + "','" + req.body.state + "','" + req.body.pincode + "','" + req.body.password + "');", function (err, result) {
         if (err) 
             throw err;
-        
-
         console.log(result);
     });
     res.send("got this");
 })
+
 app.post("/customer_login", function (req, res) {
     console.log(req.body);
-    conn.query("insert into customer(fname, lname, phone_no,email, address, state, city, password) values('" + req.body.fname + "','" + req.body.lname + "','" + req.body.phone_no + "','" + req.body.email + "','" + req.body.address + "','" + req.body.state + "','" + req.body.city + "','" + req.body.password + "');", function (err, result) {
+    conn.query("insert into customer(fname, lname, phone_no, email, address, state, city, password) values('" + req.body.fname + "','" + req.body.lname + "','" + req.body.phone_no + "','" + req.body.email + "','" + req.body.address + "','" + req.body.state + "','" + req.body.city + "','" + req.body.password + "');", function (err, result) {
         if (err) 
             throw err;
-        
-
         console.log(result);
-    })
+    });
     res.send("we did it");
-
 })
+
 app.post("/admin_login", function (req, res) {
     console.log(req.body);
     conn.query("select * from admin where ( username='" + req.body.username + "') & ( password='" + req.body.password + "');", function (err, result) {

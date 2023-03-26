@@ -22,14 +22,14 @@ const SignupForm = () => {
   });
 
   const [isChecked, setIsChecked] = useState(false);
-  
+
   const navigate = useNavigate("/root");
   const FarmerLoginPage = () => {
     navigate("../FarmerLoginPage");
   };
 
   const [errors, setErrors] = useState({});
-  
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -156,7 +156,7 @@ const SignupForm = () => {
         pincode: "",
         unique_id: "",
         confirmPassword: "",
-        terms:"",
+        terms: "",
       });
       setErrors({});
     }
@@ -166,8 +166,8 @@ const SignupForm = () => {
     e.preventDefault();
     swal({
       title: "Terms and Conditions",
-      text: "The information what you provide must be genuine and "+ 
-      "accurate, in case of violation admin as all the rights to remove you from the site.",
+      text: "The information what you provide must be genuine and " +
+        "accurate, in case of violation admin as all the rights to remove you from the site.",
       button: "Close",
     });
   }
@@ -178,7 +178,6 @@ const SignupForm = () => {
     document.head.appendChild(style);
   },)
 
- 
   const errorStyle = { color: "red" };
 
   return (
@@ -325,25 +324,25 @@ const SignupForm = () => {
           onChange={handleChange}
         />
         {errors.confirmPassword && <p style={errorStyle}>{errors.confirmPassword}</p>}
-      </div><br/>
+      </div><br />
 
       <div>
         <label>To known terms and conditions</label>
         <button onClick={terms}>
-           Click here
+          Click here
         </button>
-      </div><br/><br/>
+      </div><br /><br />
       <div>
-      <input
-        type="checkbox"
-        id="terms"
-        name="terms"
-        checked={isChecked}
-        onChange={(e) => setIsChecked(e.target.checked)}
-      />
+        <input
+          type="checkbox"
+          id="terms"
+          name="terms"
+          checked={isChecked}
+          onChange={(e) => setIsChecked(e.target.checked)}
+        />
         <label>I agree to the terms and conditions.</label>
         {errors.terms && <p style={errorStyle}>{errors.terms}</p>}
-        </div>
+      </div>
 
       <button type="submit" className="btn btn-primary option-button" >Sign Up</button>
       <div>

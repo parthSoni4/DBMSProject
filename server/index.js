@@ -20,7 +20,7 @@ app.use(cors({
     credentials: true
 }));
 
-const conn = mysql.createConnection({host: "localhost", user: "root", password: "parth", database: "DBMS"});
+const conn = mysql.createConnection({host: "localhost", user: "root", password: "Chinnu@2000", database: "DBMS"});
 
 // const storage=multer.diskStorage({
 //     destination:(req,file,callback)=>{
@@ -35,8 +35,6 @@ const conn = mysql.createConnection({host: "localhost", user: "root", password: 
 conn.connect(function (err) {
     if (err) 
         throw err;
-    
-
     console.log("Connected!");
 })
 

@@ -304,7 +304,7 @@ const SignupForm = () => {
       <div className="input-group">
         <input
           type="password"
-          placeholder="Enter your password ..."
+          placeholder="Set your password ..."
           id="password"
           name="password"
           className="form-control"

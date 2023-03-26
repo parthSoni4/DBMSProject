@@ -59,7 +59,7 @@ conn.connect(function (err) {
 // })
 
 // ***** admin table creation ******
-// conn.query("Create table admin(username varchar(15), password varchar(15));",function(err,result)
+// conn.query("Create table admin(username varchar(15),phone_no bigint, email varchar(20), password varchar(15));",function(err,result)
 // {
 //     if(err)throw err;
 //     console.log(result);
@@ -276,11 +276,9 @@ app.get("/product_display", (req, res) => {
 });
 
 app.post("/create_admin", function (req, res) {
-    conn.query("insert into admin (username, password) values ('" + req.body.username + "','" + req.body.password + "');", function (err, result) {
+    conn.query("insert into admin(username, phone_no, email, password) values ('" + req.body.username + "','" + req.body.phone_no + "','" + req.body.email + "','" + req.body.password + "');", function (err, result) {
         if (err) 
             throw err;
-        
-
         console.log(result);
     });
 });

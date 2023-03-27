@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 import "./ProductDetailedDisplay.css";
 import StripeContainer from "./StripeContainer";
+import Geolocation from "../Geolocation";
 
 export default function ProductDetailedDisplay() {
     // console.log(product_id);
@@ -11,9 +12,30 @@ export default function ProductDetailedDisplay() {
     const [data, setData]=useState([]);
     const id=location.state.a;
     console.log("the product is ",id);
+    const [map,setMap]=useState(false);
+    const [msge,setmsge]=useState("");
     sessionStorage.setItem("product_id",id);
-    const pay=()=>{
-      console.log("Pay");
+    const show_location=()=>{
+      console.log("In show location");
+      const product_id=id;
+      console.log("in this section", product_id);
+      axios.post("http://localhost:3001/show_location",{
+        product_id: product_id
+        
+      }).then((response)=>{
+        console.log(response);
+        console.log(response.data);
+        if(data=="")
+        {
+          setmsge("The farmer does not want to share his location");
+        }
+        console.log(response.data[0].farmer_id);
+        const latitude=response.data[0].latitude;
+        const longitude=response.data[0].longitude;
+        sessionStorage.setItem("latitude", latitude);
+        sessionStorage.setItem("longitude", longitude);
+        setMap(true);
+      })
     }
 
 
@@ -25,6 +47,8 @@ export default function ProductDetailedDisplay() {
         console.log("image data",data);
         console.log("hello", data[0].cost);
         const amount=data[0].cost;
+        // const farmer_id=data[0].farmer_id;
+        // console.log("the farmer_id is", farmer_id);
         console.log("the amount is",amount);
         sessionStorage.setItem("amount",amount);
         })
@@ -51,7 +75,9 @@ export default function ProductDetailedDisplay() {
         {d.cost && <p> cost: {d.cost}</p>}
         {d.description && <p> Description: {d.description}</p>}
         {d.date && <p> Date: {d.date}</p>}
-        <button onClick={()=>pay()}>Pay</button>
+        <button onClick={()=>show_location()}>show location</button>
+        {  map && <Geolocation></Geolocation>}
+        {  msge }
         <StripeContainer></StripeContainer>
         
         </div>

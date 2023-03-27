@@ -6,8 +6,8 @@ import image from "./HomeImages/location.png";
 // import React from 'react'
 
 export default function Geolocation() {
-  var a=24.58;
-  var b=73.71;
+  var a=sessionStorage.getItem("latitude");
+  var b=sessionStorage.getItem("longitude");
   const position = [a, b];
   function CustomPopup() {
     return (

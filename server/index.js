@@ -560,7 +560,7 @@ app.post("/farmer_location",function(req,res){
     const latitude=req.body.latitude;
     const longitude=req.body.longitude;
     console.log(farmer_id,latitude,longitude);
-    const sql=`insert into farmer_location values(${farmer_id}, ${longitude}, ${longitude})`;
+    const sql=`insert into farmer_location(farmer_id, longitude, latitude) values(${farmer_id}, ${longitude}, ${latitude})`;
     conn.query(sql,function(result,error)
     {
         if(error) console.log(error);
@@ -576,6 +576,20 @@ app.get("/get_location", function(req,res){
         res.send(result);
     })
 })
+
+// giving farmer location to front end
+
+app.post("/show_location",function(req,res){
+    const product_id=req.body.product_id;
+    console.log(product_id);
+    sql=`select latitude, longitude, farmer_location.farmer_id from farmer_location, product where farmer_location.farmer_id=product.farmer_id && product_id=${product_id}; `
+    conn.query(sql,function(err,result){
+        if(err) console.log(err);
+        console.log("the result is",result);
+        res.send(result);
+    })
+})
+
 
 app.listen(PORT, function (err) {
     if (err) 

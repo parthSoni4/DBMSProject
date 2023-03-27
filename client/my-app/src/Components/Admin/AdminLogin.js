@@ -15,7 +15,7 @@ export default function AdminLogin() {
   }, )
 
   const navigate=useNavigate("/root");
-    
+  const [msge,setmsge]=useState("");  
     const handleClick=()=>{
       navigate("../AdminOption");
     };
@@ -37,6 +37,9 @@ export default function AdminLogin() {
       navigate("../AdminOption");
 
       }
+      else{
+        setmsge("Invalid username or password");
+      }
     })
   }
 
@@ -53,7 +56,12 @@ export default function AdminLogin() {
                 {/*Enter your password*/}
                 <input type="text" placeholder="Enter your password ..." className="form-control" onChange={(e)=>{changePassword(e.target.value);}}/>
             </div>
-            <button className="btn btn-primary" onClick={admin_login}>Submit</button>
+            <div>
+              <h3>
+                {msge}
+                </h3>
+            </div>
+            <button className="btn btn-primary option-button" onClick={admin_login}>Submit</button>
 
         </main>
     </>

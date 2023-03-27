@@ -5,7 +5,9 @@ import "./AllFarmer";
 import "./AllCustomer";
 import "./CreateAdmin";
 import "../Option.css";
+import Report from './Report';
 import Allpayment from './Allpayment';
+
 
 export default function AdminOption() {
  const navigate=useNavigate("/root");
@@ -27,6 +29,9 @@ export default function AdminOption() {
  const Allpayment=()=>{
   navigate("../Allpayment");
  }
+ const generate_report=()=>{
+  navigate("../Report");
+ }
 
 
    return (
@@ -43,6 +48,7 @@ export default function AdminOption() {
     <button className="option-button" onClick={AllCustomer}>View all customer</button>
     <button className="option-button" onClick={AllContact}>View all the messages</button>
     <button className="option-button" onClick={Allpayment}>View all purchase</button>
+    <button className='option-button' onClick={generate_report}>View Report </button>
       </div>
     </div>
     </>

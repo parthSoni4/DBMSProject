@@ -591,6 +591,19 @@ app.post("/show_location",function(req,res){
 })
 
 
+// Report section
+
+app.post("/total_sale",function(req,res)
+{
+    sql=`select sum(amount) AS answer from payment;`
+    conn.query(sql, function(err,result)
+    {
+        if(err)console.log(err);
+        console.log("the result is", result);
+        res.send(result);
+    })
+})
+
 app.listen(PORT, function (err) {
     if (err) 
         console.log(err);

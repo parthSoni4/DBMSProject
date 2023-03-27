@@ -5,6 +5,8 @@ const cors = require("cors");
 const multer = require("multer");
 const nodemailer=require("nodemailer");
 var PORT = 3001;
+require("dotenv").config()
+const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
 // const bodyParser=require("body-parser");
 
 

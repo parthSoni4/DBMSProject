@@ -23,6 +23,10 @@ export default function ProductDetailedDisplay() {
         setData(response.data)
         // console.log(response.data.id);
         console.log("image data",data);
+        console.log("hello", data[0].cost);
+        const amount=data[0].cost;
+        console.log("the amount is",amount);
+        sessionStorage.setItem("amount",amount);
         })
       .catch(error=>console.log(error));
     }, [])

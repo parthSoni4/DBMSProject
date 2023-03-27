@@ -39,6 +39,8 @@ export default function Payment() {
   const customer_id=sessionStorage.getItem("customer_id");
   console.log("the customer id is", customer_id);
 
+  const amount=sessionStorage.getItem("amount");
+  console.log("the amount in payment is",amount);
   const handleSubmit= async (e)=>{
     e.preventDefault();
     const{error, paymentMethod}=await stripe.createPaymentMethod({
@@ -51,7 +53,7 @@ export default function Payment() {
     try{
       const {id}=paymentMethod
       const {response}= await axios.post("http://localhost:3001/payment", {
-        amount: 1000,
+        amount: amount,
         id: id,
         customer_id: customer_id,
         product_id: product_id,

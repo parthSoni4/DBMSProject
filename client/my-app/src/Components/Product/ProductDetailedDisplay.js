@@ -33,7 +33,7 @@ export default function ProductDetailedDisplay() {
     {/* <div>ProductDetailedDisplay</div> */}
     {/* <div>{id}</div>
      */}
-    <div className="container">
+    <div className="container" id="container-display">
       {/* <div className="row"> */}
 
      {data.map(d=>(
@@ -41,7 +41,7 @@ export default function ProductDetailedDisplay() {
         
         <div className="col-sm-3">
 
-        {d.textData && <p> Name: {data.textData}</p>}
+        {d.textData && <p> Name: {d.textData}</p>}
         {d.type && <p> Type: {d.type}</p>}
         {d.quantity && <p> quantity: {d.quantity}</p>}
         {d.cost && <p> cost: {d.cost}</p>}
@@ -53,7 +53,7 @@ export default function ProductDetailedDisplay() {
         </div>
         <div className="col-sm-7">
 
-        {d.imageData && <img src={d.imageData} className="detailed-image" alt="here"/>}
+        {d.imageData && <img src={d.imageData} className="detailed-image img-responsive" alt="here"/>}
         </div>
       </div>
      ))

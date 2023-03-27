@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import axios from "axios";
 import { useLocation } from 'react-router-dom';
+import "../Farmer/FarmerOption.";
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductInsert() {
+    const navigate=useNavigate("/root");
     const[text, setText]=useState("");
     const[file,setFile]=useState(null);
     const[cost,setCost]=useState("");
@@ -57,7 +60,14 @@ export default function ProductInsert() {
         console.log(cost);
 
         axios.post("http://localhost:3001/insertProduct",formdata).then((response)=>{
-            console.log(response.data)
+            console.log("this is the ",response.data.message);
+            if(response.data.message=="successful")
+            {
+                console.log("we will redirect to the previous page")
+                // navigate("../FarmerOption")
+                navigate(`../FarmerOption/farmer_id/${farmer_id}`, { state: {farmer_id}});
+
+            }
             // console.log(response);
             // console.log(formdata);
         })

@@ -19,7 +19,7 @@ app.use(cors({
     credentials: true
 }));
 
-const conn = mysql.createConnection({host: "localhost", user: "root", password: "parth", database: "DBMS"});
+const conn = mysql.createConnection({host: "localhost", user: "root", password: "ParthS", database: "DBMS"});
 
 // const storage=multer.diskStorage({
 //     destination:(req,file,callback)=>{
@@ -254,7 +254,7 @@ app.post("/insertProduct", upload.single("file"), (req, res) => {
 })
 
 app.get("/product_display", (req, res) => {
-    const sql = "Select * from product where status='not_purchased';";
+    const sql = "Select * from product where status='not purchased';";
     conn.query(sql, (error, results, fields) => {
         if (error) {
             console.error(error);
@@ -565,6 +565,14 @@ app.post("/farmer_location",function(req,res){
         console.log(result);
     })
     res.send("fine");
+})
+
+app.get("/get_location", function(req,res){
+    const sql=`select * from farmer_location;`
+    conn.query(sql, function(result,error){
+        if(err) console.log(err);
+        res.send(result);
+    })
 })
 
 app.listen(PORT, function (err) {

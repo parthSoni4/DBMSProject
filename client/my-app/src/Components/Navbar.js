@@ -90,6 +90,11 @@ export default function Navbar() {
                             <li className="nav-item">
                                 {/* <Link className="nav-link active" aria-current="page" to="/customer">Customer</Link> */} </li>
                             <div id="google_translate_element"></div>
+                            <li className="nav-item">
+                                <Link className="navbar-brand" aria-current="page" to="/Geolocation">
+                                    Geolocation
+                                </Link>
+                            </li>
                             
                             {/* <li className="nav-item">
           <a className="nav-link active" href="/">Sign Up</a>

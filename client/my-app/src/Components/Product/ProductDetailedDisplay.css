@@ -1,10 +1,15 @@
 .detailed-image{
-    height: 100%;
+    height: 70vh;
     width: 100%;
     padding: 0;
+    /* text-align: center; */
+    /* border: 10px solid red; */
+    /* height: fit-content; */
 }
 .col-sm-7{
-    /* border: 2px solid red; */
+    display: flex;
+    justify-content: baseline;
+    /* border: 2px solid pink !important; */
     padding: 0 !important;
     margin: 0 !important;
     left: 0 !important;
@@ -34,5 +39,16 @@
 .container:hover
 {
     /* box-shadow: 1px 1px 9px 2px grey; */
+
+}
+#container-display{
+    /* border: 2px solid black !important;
+     */
+     box-shadow: 1px 1px 7px 1px grey;
+     margin-bottom: 13rem  !important;
+     max-height: 80vh;
+}
+#container-display:hover{
+    box-shadow: 1px 1px 9px 1px grey;
 
 }

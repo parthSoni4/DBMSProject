@@ -23,6 +23,7 @@ export default function ProductDisplay() {
         setImageData(response.data);
         setError('');
         // console.log(response.data);
+        console.log("hello");
         console.log(response.data.textData);
     })
   .catch(error=>{
@@ -44,6 +45,8 @@ export default function ProductDisplay() {
                 {data.quantity && <p>quantity: {data.quantity}</p>}
                 {data.cost && <p>Cost: {data.cost}</p>}
                 {data.description && <p>description: {data.description}</p>}
+                {/* {data.product.farmer_id && <p>description: {data.product.farmer_id}</p>} */}
+
                 {data.date && <p>Date: {data.date}</p>}
                 {/* <button OnClick={ProductDetailedDisplay(data.product_id)}>View details</button> */}
             </div>

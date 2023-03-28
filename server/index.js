@@ -6,7 +6,7 @@ const cors = require("cors");
 const multer = require("multer");
 const nodemailer=require("nodemailer");
 var PORT = 3001;
-
+// const bodyParser=require("body-parser");
 
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,7 +20,7 @@ app.use(cors({
     credentials: true
 }));
 
-const conn = mysql.createConnection({host: "localhost", user: "root", password: "Chinnu@2000", database: "DBMS"});
+const conn = mysql.createConnection({host: "localhost", user: "root", password: "parth", database: "DBMS"});
 
 // const storage=multer.diskStorage({
 //     destination:(req,file,callback)=>{
@@ -247,7 +247,7 @@ app.post("/insertProduct", upload.single("file"), (req, res) => {
 })
 
 app.get("/product_display", (req, res) => {
-    const sql = "Select * from product where status='not_purchased';";
+    const sql = "Select * from product where status='not purchased';";
     conn.query(sql, (error, results, fields) => {
         if (error) {
             console.error(error);
@@ -549,13 +549,48 @@ app.post("/farmer_location",function(req,res){
     const latitude=req.body.latitude;
     const longitude=req.body.longitude;
     console.log(farmer_id,latitude,longitude);
-    const sql=`insert into farmer_location values(${farmer_id}, ${longitude}, ${longitude})`;
+    const sql=`insert into farmer_location(farmer_id, longitude, latitude) values(${farmer_id}, ${longitude}, ${latitude})`;
     conn.query(sql,function(result,error)
     {
         if(error) console.log(error);
         console.log(result);
     })
     res.send("fine");
+})
+
+app.get("/get_location", function(req,res){
+    const sql=`select * from farmer_location;`
+    conn.query(sql, function(result,error){
+        if(err) console.log(err);
+        res.send(result);
+    })
+})
+
+// giving farmer location to front end
+
+app.post("/show_location",function(req,res){
+    const product_id=req.body.product_id;
+    console.log(product_id);
+    sql=`select latitude, longitude, farmer_location.farmer_id from farmer_location, product where farmer_location.farmer_id=product.farmer_id && product_id=${product_id}; `
+    conn.query(sql,function(err,result){
+        if(err) console.log(err);
+        console.log("the result is",result);
+        res.send(result);
+    })
+})
+
+
+// Report section
+
+app.post("/total_sale",function(req,res)
+{
+    sql=`select sum(amount) AS answer from payment;`
+    conn.query(sql, function(err,result)
+    {
+        if(err)console.log(err);
+        console.log("the result is", result);
+        res.send(result);
+    })
 })
 
 app.listen(PORT, function (err) {

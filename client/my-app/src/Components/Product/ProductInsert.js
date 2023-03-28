@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+<<<<<<< HEAD
 
 
 export default function ProductInsert() {
@@ -12,6 +13,24 @@ export default function ProductInsert() {
     const [description, setDescription] = useState("");
     const [date, setDate] = useState("");
     const [location, setLocation] = useState({});
+=======
+import { useLocation } from 'react-router-dom';
+import "../Farmer/FarmerOption.";
+import { useNavigate } from 'react-router-dom';
+
+export default function ProductInsert() {
+    const navigate=useNavigate("/root");
+    const[text, setText]=useState("");
+    const[file,setFile]=useState(null);
+    const[cost,setCost]=useState("");
+    const[quantity,setQuantity]=useState("");
+    const[category,setCategory]=useState("");
+    const[type,setType]=useState("");
+    const[description,setDescription]=useState("");
+    const[date, setDate]=useState("");
+    const[latitude, setLatitude]=useState(null);
+    const[longitude, setLongitude]=useState(null);
+>>>>>>> 97642b9099ecf9105a5d21403042a230135d8134
 
 
     //const farmer_id=location.state.farmer_id;
@@ -37,8 +56,20 @@ export default function ProductInsert() {
         formdata.append("farmer_id", farmer_id);
         console.log(cost);
 
+<<<<<<< HEAD
         axios.post("http://localhost:3001/insertProduct", formdata).then((response) => {
             console.log(response.data)
+=======
+        axios.post("http://localhost:3001/insertProduct",formdata).then((response)=>{
+            console.log("this is the ",response.data.message);
+            if(response.data.message=="successful")
+            {
+                console.log("we will redirect to the previous page")
+                // navigate("../FarmerOption")
+                navigate(`../FarmerOption/farmer_id/${farmer_id}`, { state: {farmer_id}});
+
+            }
+>>>>>>> 97642b9099ecf9105a5d21403042a230135d8134
             // console.log(response);
             // console.log(formdata);
         })

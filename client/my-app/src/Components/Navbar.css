@@ -28,3 +28,11 @@
     
 }
 
+
+@media screen and (max-width: 800px)
+{
+ .navbar{
+    /* background-color: red !important; */
+    height: 35vh !important;
+ }    
+}

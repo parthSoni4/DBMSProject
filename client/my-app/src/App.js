@@ -21,9 +21,8 @@ import AllContact from "./Components/Admin/AllContact";
 import Footer from "./Components/Footer";
 import Contact from "./Components/Contact";
 import ProductDetailedDisplay from "./Components/Product/ProductDetailedDisplay";
-import Payment from "./Components/Product/Payment";
-import StripeContainer from "./Components/Product/StripeContainer";
 import Allpayment from "./Components/Admin/Allpayment";
+import StripeContainer from "./Components/Product/StripeContainer";
 import FarmerSales from "./Components/Farmer/FarmerSales";
 import ViewPurchase from "./Components/Customer/ViewPurchase";
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans');
@@ -41,7 +40,7 @@ function App() {
       <Routes>
         <Route path="/"  element={<Home/>}/>
         <Route path="/About"  element={<About/>}/>
-        <Route path="/Form" element={<Form/>}/> 
+        <Route path="/Form" element={<Form/>}/>  
         <Route path="/customer_login" element={<CustomerSignup></CustomerSignup>}/>
         <Route path="/admin_login"  element={<AdminLogin></AdminLogin>}/>
         <Route path="/AdminOption"  element={<AdminOption></AdminOption>}/>

@@ -1,16 +1,15 @@
 var express = require("express");
 var mysql = require("mysql2");
 var app = express();
+var bodyParser=require("body-parser");
 const cors = require("cors");
 const multer = require("multer");
 const nodemailer=require("nodemailer");
 var PORT = 3001;
-require("dotenv").config()
-const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
 // const bodyParser=require("body-parser");
 
 
-// app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use(cors({
@@ -21,7 +20,7 @@ app.use(cors({
     credentials: true
 }));
 
-const conn = mysql.createConnection({host: "localhost", user: "root", password: "ParthS", database: "DBMS"});
+const conn = mysql.createConnection({host: "localhost", user: "root", password: "parth", database: "DBMS"});
 
 // const storage=multer.diskStorage({
 //     destination:(req,file,callback)=>{
@@ -36,8 +35,6 @@ const conn = mysql.createConnection({host: "localhost", user: "root", password: 
 conn.connect(function (err) {
     if (err) 
         throw err;
-    
-
     console.log("Connected!");
 })
 
@@ -62,25 +59,22 @@ conn.connect(function (err) {
 // })
 
 // ***** admin table creation ******
-// conn.query("Create table admin(username varchar(15), password varchar(15));",function(err,result)
+// conn.query("Create table admin(username varchar(15),phone_no bigint, email varchar(20), password varchar(15));",function(err,result)
 // {
 //     if(err)throw err;
 //     console.log(result);
 // })
 
 
-app.post("/Geolocation", function (req, res) {
+app.post("/Geolocation",function(req,res){
     console.log(req.body);
-    conn.query("insert into location(latitude, longitude) values('" + req.body.latitude + "','" + req.body.longitude + "');", function (err, result) {
-        if (err) 
-            throw err;
-        
-
-        console.log(result);
+    conn.query("insert into location(latitude, longitude) values('"+req.body.latitude+"','"+req.body.longitude+"');",function(err,result){
+        if(err)throw err;
+          console.log(result);
     });
     res.send("Location inserted");
-})
-
+  })
+  
 
 app.post("/farmer_login", function (req, res) {
     console.log(req.body);
@@ -88,24 +82,21 @@ app.post("/farmer_login", function (req, res) {
     conn.query("insert into farmer(fname,lname,age,aadhar_no,unique_id,phone_no,city,state,pincode,password)values('" + req.body.fname + "','" + req.body.lname + "','" + req.body.age + "','" + req.body.aadhar_no + "','" + req.body.unique_id + "','" + req.body.phone_no + "','" + req.body.city + "','" + req.body.state + "','" + req.body.pincode + "','" + req.body.password + "');", function (err, result) {
         if (err) 
             throw err;
-        
-
         console.log(result);
     });
     res.send("got this");
 })
+
 app.post("/customer_login", function (req, res) {
     console.log(req.body);
-    conn.query("insert into customer(fname, lname, phone_no,email, address, state, city, password) values('" + req.body.fname + "','" + req.body.lname + "','" + req.body.phone_no + "','" + req.body.email + "','" + req.body.address + "','" + req.body.state + "','" + req.body.city + "','" + req.body.password + "');", function (err, result) {
+    conn.query("insert into customer(fname, lname, phone_no, email, address, state, city, password) values('" + req.body.fname + "','" + req.body.lname + "','" + req.body.phone_no + "','" + req.body.email + "','" + req.body.address + "','" + req.body.state + "','" + req.body.city + "','" + req.body.password + "');", function (err, result) {
         if (err) 
             throw err;
-        
-
         console.log(result);
-    })
+    });
     res.send("we did it");
-
 })
+
 app.post("/admin_login", function (req, res) {
     console.log(req.body);
     conn.query("select * from admin where ( username='" + req.body.username + "') & ( password='" + req.body.password + "');", function (err, result) {
@@ -285,11 +276,9 @@ app.get("/product_display", (req, res) => {
 });
 
 app.post("/create_admin", function (req, res) {
-    conn.query("insert into admin (username, password) values ('" + req.body.username + "','" + req.body.password + "');", function (err, result) {
+    conn.query("insert into admin(username, phone_no, email, password) values ('" + req.body.username + "','" + req.body.phone_no + "','" + req.body.email + "','" + req.body.password + "');", function (err, result) {
         if (err) 
             throw err;
-        
-
         console.log(result);
     });
 });

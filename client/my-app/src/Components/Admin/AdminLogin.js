@@ -49,12 +49,10 @@ export default function AdminLogin() {
           {/* <button onClick={handleClick}>Go to login</button> */}
             <h2>Admin login</h2>
             <div className="input-group">
-                {/*Enter your username*/}
                 <input type="text" placeholder="Enter your username ..." className="form-control" onChange={(e)=>{changeUsername(e.target.value);}}/>
             </div>
             <div className="input-group">
-                {/*Enter your password*/}
-                <input type="text" placeholder="Enter your password ..." className="form-control" onChange={(e)=>{changePassword(e.target.value);}}/>
+                <input type="password" placeholder="Enter your password ..." className="form-control" onChange={(e)=>{changePassword(e.target.value);}}/>
             </div>
             <div>
               <h3>

@@ -26,12 +26,8 @@ import StripeContainer from "./Components/Product/StripeContainer";
 import FarmerSales from "./Components/Farmer/FarmerSales";
 import ViewPurchase from "./Components/Customer/ViewPurchase";
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-<<<<<<< HEAD
-
-=======
 import Geolocation from "./Components/Geolocation";
 import Report from "./Components/Admin/Report";
->>>>>>> 97642b9099ecf9105a5d21403042a230135d8134
 
 // import Trying from "./Components/Trying";
 

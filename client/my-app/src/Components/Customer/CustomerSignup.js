@@ -21,6 +21,7 @@ const CustomerSignup = () => {
 
 
   const [isChecked, setIsChecked] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate("/root");
   const Customer_login = () => {
@@ -111,7 +112,7 @@ const CustomerSignup = () => {
         button: "OK",
       });
       // post request
-      axios.post("http://localhost:3001/customer_login",{
+      axios.post("http://localhost:3001/customer_login", {
         fname: formData.fname,
         lname: formData.lname,
         address: formData.address,
@@ -120,14 +121,14 @@ const CustomerSignup = () => {
         phone_no: formData.phone_no,
         email: formData.email,
         password: formData.password,
-    }).them((response)=>{
+      }).them((response) => {
         console.log(response);
-    });
+      });
       setFormData({
         fname: " ",
         lname: " ",
         phone_no: " ",
-        email:" ",
+        email: " ",
         address: " ",
         city: " ",
         state: " ",
@@ -157,6 +158,10 @@ const CustomerSignup = () => {
   },)
 
   const errorStyle = { color: "red" };
+
+  const handleToggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -256,7 +261,7 @@ const CustomerSignup = () => {
 
       <div className="input-group">
         <input
-          type="password"
+          type={showPassword ? 'text' : 'password'}
           placeholder="Set your password ..."
           id="password"
           name="password"
@@ -265,6 +270,14 @@ const CustomerSignup = () => {
           onChange={handleChange}
         />
         {errors.password && <p style={errorStyle}>{errors.password}</p>}
+      </div>
+      <div className="input-group">
+        <input
+          type="checkbox"
+          checked={showPassword}
+          onChange={handleToggleShowPassword}
+        />
+        Show password
       </div>
       <div className="input-group">
         <input
@@ -300,7 +313,7 @@ const CustomerSignup = () => {
       <button type="submit" className="btn btn-primary option-button">Sign Up</button>
       <div>
         <h5 className="my-3">Already have an account?</h5>
-        <button className="login_a option-button" onClick = { Customer_login }>
+        <button className="login_a option-button" onClick={Customer_login}>
           Click Here
         </button>
       </div>

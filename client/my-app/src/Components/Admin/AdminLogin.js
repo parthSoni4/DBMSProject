@@ -25,7 +25,6 @@ export default function AdminLogin() {
   const [password, changePassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-
   const admin_login = () => {
     console.log("admin login")
     Axios.post("http://localhost:3001/admin_login", {
@@ -70,7 +69,7 @@ export default function AdminLogin() {
           Show password
         </div>
         <span>
-          <a href class="login_a" >Forgot password?</a>
+          <a href class="login_a">Forgot password?</a>
         </span>
         <div>
           <h3>

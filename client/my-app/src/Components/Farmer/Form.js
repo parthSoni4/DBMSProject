@@ -22,6 +22,7 @@ const SignupForm = () => {
   });
 
   const [isChecked, setIsChecked] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate("/root");
   const FarmerLoginPage = () => {
@@ -180,6 +181,10 @@ const SignupForm = () => {
 
   const errorStyle = { color: "red" };
 
+  const handleToggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
 
@@ -303,7 +308,7 @@ const SignupForm = () => {
 
       <div className="input-group">
         <input
-          type="password"
+          type={showPassword ? 'text' : 'password'}
           placeholder="Set your password ..."
           id="password"
           name="password"
@@ -312,6 +317,14 @@ const SignupForm = () => {
           onChange={handleChange}
         />
         {errors.password && <p style={errorStyle}>{errors.password}</p>}
+      </div>
+      <div className="input-group">
+        <input
+          type="checkbox"
+          checked={showPassword}
+          onChange={handleToggleShowPassword}
+        />
+        Show password
       </div>
       <div className="input-group">
         <input

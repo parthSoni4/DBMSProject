@@ -16,10 +16,10 @@ export default function ProductInsert() {
     const[date, setDate]=useState("");
     const[latitude, setLatitude]=useState(null);
     const[longitude, setLongitude]=useState(null);
-    const[location, setLocation]=useState(null);
+>>>>>>> 97642b9099ecf9105a5d21403042a230135d8134
 
 
-    const farmer_id=location.state.farmer_id;
+    //const farmer_id=location.state.farmer_id;
     //console.log(" farmer id is",farmer_id);
 
     const handleSubmit = (event) => {
@@ -71,25 +71,26 @@ export default function ProductInsert() {
             });
     }
 
-    function getLocation() {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          setLocation({ 
-            latitude: position.coords.latitude, 
-            longitude: position.coords.longitude 
-          });
-          sendLocation(position.coords.latitude, position.coords.longitude);
-        });
-      }
-    
-      function sendLocation(latitude, longitude) {
-        axios.post("http://localhost:3001/Geolocation", { latitude, longitude })
-          .then(response => {
-            console.log(response);
-          })
-          .catch(error => {
+    const get_location=()=>{
+        console.log('yes the farmer id is', farmer_id);
+        navigator.geolocation.getCurrentPosition((position)=>{
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+            console.log(longitude);
+            console.log(latitude);
+            axios.post("http://localhost:3001/farmer_location",{
+                farmer_id: farmer_id,
+                latitude: latitude,
+                longitude: longitude
+            }).then((response)=>{
+                console.log(response);
+            })
+        }, (error)=>{
             console.log(error);
-          });
-      }
+        })
+    }
+    
+      
     
 
     return (
@@ -130,7 +131,7 @@ export default function ProductInsert() {
                     Enter the date when product can be received ...<input type="date" onChange={(e) => { setDate(e.target.value); }} />
                 </div>
                 <div>
-                    <button className="btn btn btn-primary" onClick={getLocation}>Set Location</button>
+                    <button className="btn btn btn-primary" onClick={get_location}>Set Location</button>
                     <br />
                 </div>
                 <div className="input-group">

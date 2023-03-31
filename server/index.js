@@ -5,6 +5,8 @@ var bodyParser=require("body-parser");
 const cors = require("cors");
 const multer = require("multer");
 const nodemailer=require("nodemailer");
+require("dotenv").config()
+const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
 var PORT = 3001;
 // const bodyParser=require("body-parser");
 
@@ -20,7 +22,7 @@ app.use(cors({
     credentials: true
 }));
 
-const conn = mysql.createConnection({host: "localhost", user: "root", password: "Chinnu@2000", database: "DBMS"});
+const conn = mysql.createConnection({host: "localhost", user: "root", password: "parth", database: "DBMS"});
 
 // const storage=multer.diskStorage({
 //     destination:(req,file,callback)=>{
@@ -115,7 +117,7 @@ app.post("/admin_login", function (req, res) {
 
 app.post("/check_customer", function (req, res) {
     console.log(req.body);
-    const sql = "select * from customer where fname='" + req.body.name + "' && password=" + req.body.password + ";";
+    const sql = "select * from customer where fname='" + req.body.name + "' && password='" + req.body.password + "';";
     const values = [req.body.name];
     conn.query(sql, function (err, result) {
         if (err) 
@@ -136,23 +138,23 @@ app.post("/check_customer", function (req, res) {
     });
 });
 
-app.post("/check_farmer", function (req, res) {
-    console.log(req.body);
-    conn.query("select * from farmer where fname='" + req.body.name + "' && password='" + req.body.password + "';", function (err, result) {
-        if (err) 
-            console.log(err);
+// app.post("/check_farmer", function (req, res) {
+//     console.log(req.body);
+//     conn.query("select * from farmer where fname='" + req.body.name + "' && password='" + req.body.password + "';", function (err, result) {
+//         if (err) 
+//             console.log(err);
         
 
-        console.log(result);
-        if (result == "") {
-            console.log("wrong");
-            res.send("wrong");
-        } else {
-            console.log("right");
-            res.send(result);
-        }
-    });
-})
+//         console.log(result);
+//         if (result == "") {
+//             console.log("wrong");
+//             res.send("wrong");
+//         } else {
+//             console.log("right");
+//             res.send(result);
+//         }
+//     });
+// })
 
 
 app.post("/check_customer", function (req, res) {
@@ -180,7 +182,8 @@ app.post("/check_customer", function (req, res) {
 })
 app.post("/check_farmer", function (req, res) {
     console.log(req.body);
-    conn.query("select * from farmer where fname='" + req.body.name + "' && password=" + req.body.password + ";", function (err, result) {
+    const sql=`select * from farmer where fname='${req.body.name}' && password='${req.body.password}'`;
+    conn.query(sql, function (err, result) {
         if (err) 
             console.log(err);
         

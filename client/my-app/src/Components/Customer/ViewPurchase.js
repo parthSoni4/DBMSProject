@@ -66,6 +66,9 @@ export default function ViewPurchase() {
                             <div>
                                 description: {item.description}
                             </div>
+                            <div>
+                                cost: {item.cost}
+                            </div>
                         </div>
                         <div>
 

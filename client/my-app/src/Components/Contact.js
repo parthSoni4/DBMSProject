@@ -12,6 +12,8 @@ export default function Contact() {
 
     const Submit=()=>{
         console.log(name);
+        console.log(email);
+        console.log(description);
         axios.post("http://localhost:3001/contact",{
             name: name,
             email: email,

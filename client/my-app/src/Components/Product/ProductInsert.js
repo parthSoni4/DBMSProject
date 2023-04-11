@@ -75,8 +75,8 @@ export default function ProductInsert() {
         navigator.geolocation.getCurrentPosition((position)=>{
             setLatitude(position.coords.latitude);
             setLongitude(position.coords.longitude);
-            console.log(longitude);
-            console.log(latitude);
+            console.log("the longitude is", longitude);
+            console.log("the latitude is",latitude);
             axios.post("http://localhost:3001/farmer_location",{
                 farmer_id: farmer_id,
                 latitude: latitude,
@@ -129,14 +129,15 @@ export default function ProductInsert() {
                 <div className="input-group">
                     Enter the date when product can be received ...<input type="date" onChange={(e) => { setDate(e.target.value); }} />
                 </div>
-                <div>
-                    <button className="btn btn btn-primary" onClick={get_location}>Set Location</button>
-                    <br />
-                </div>
+                
                 <div className="input-group">
                     <button className="btn btn-default btn-primary" type="submit">Upload</button>
                 </div>
             </form>
+            <div>
+                    <button className="btn btn btn-primary" onClick={get_location}>Set Location</button>
+                    <br />
+                </div>
         </>
     )
 }

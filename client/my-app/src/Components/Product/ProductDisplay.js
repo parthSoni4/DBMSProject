@@ -23,8 +23,8 @@ export default function ProductDisplay() {
         setImageData(response.data);
         setError('');
         // console.log(response.data);
-        console.log("hello");
-        console.log(response.data.textData);
+        console.log("hello in product display for the first product");
+        console.log(response.data[0].cost);
     })
   .catch(error=>{
     setError("error retrieving image and text data");

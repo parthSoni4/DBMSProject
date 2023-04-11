@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import swal from 'sweetalert';
 
@@ -13,6 +13,7 @@ export default function CreateAdmin() {
   });
 
   const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -64,13 +65,13 @@ export default function CreateAdmin() {
         icon: "success",
         button: "OK",
       });
-      axios.post("http://localhost:3001/create_admin",{
+      axios.post("http://localhost:3001/create_admin", {
         username: formData.username,
         phone_no: formData.phone_no,
         email: formData.email,
         password: formData.password,
-       
-      }).then((response)=>{
+
+      }).then((response) => {
         console.log(response);
       });
       setFormData({
@@ -86,79 +87,90 @@ export default function CreateAdmin() {
 
   const errorStyle = { color: "red" };
 
+  const handleToggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
 
     <>
-    <form onSubmit={handleSubmit}>
-      <h2>Create Admin</h2>
-      <div className="input-group">
-        <input
-          type="text"
-          placeholder="Enter your user name ..."
-          id="username"
-          name="username"
-          className="form-control"
-          value={formData.username}
-          onChange={handleChange}
-        />
-        {errors.username && <p style={errorStyle}>{errors.username}</p>}
-      </div>
-      
-      <div className="input-group">
-        <input
-          type="text"
-          placeholder="Enter your phone number ..."
-          id="phone_no"
-          name="phone_no"
-          className="form-control"
-          value={formData.phone_no}
-          onChange={handleChange}
-        />
-        {errors.phone_no && <p style={errorStyle}>{errors.phone_no}</p>}
-      </div>
+      <form onSubmit={handleSubmit}>
+        <h2>Create Admin</h2>
+        <div className="input-group">
+          <input
+            type="text"
+            placeholder="Enter your user name ..."
+            id="username"
+            name="username"
+            className="form-control"
+            value={formData.username}
+            onChange={handleChange}
+          />
+          {errors.username && <p style={errorStyle}>{errors.username}</p>}
+        </div>
 
-      <div className="input-group">
-        <input
-          type="text"
-          placeholder="Enter your email ..."
-          id="email"
-          name="email"
-          className="form-control"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        {errors.email && <p style={errorStyle}>{errors.email}</p>}
-      </div>
+        <div className="input-group">
+          <input
+            type="text"
+            placeholder="Enter your phone number ..."
+            id="phone_no"
+            name="phone_no"
+            className="form-control"
+            value={formData.phone_no}
+            onChange={handleChange}
+          />
+          {errors.phone_no && <p style={errorStyle}>{errors.phone_no}</p>}
+        </div>
 
-      <div className="input-group">
-        <input
-          type="password"
-          placeholder="Set password ..."
-          id="password"
-          name="password"
-          className="form-control"
-          value={formData.password}
-          onChange={handleChange}
-        />
-        {errors.password && <p style={errorStyle}>{errors.password}</p>}
-      </div>
+        <div className="input-group">
+          <input
+            type="text"
+            placeholder="Enter your email ..."
+            id="email"
+            name="email"
+            className="form-control"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          {errors.email && <p style={errorStyle}>{errors.email}</p>}
+        </div>
 
-      <div className="input-group">
-        <input
-          type="password"
-          placeholder="Confirm password ..."
-          id="confirmPassword"
-          name="confirmPassword"
-          className="form-control"
-          value={formData.confirmPassword}
-          onChange={handleChange}
-        />
-        {errors.confirmPassword && <p style={errorStyle}>{errors.confirmPassword}</p>}
-      </div><br />
+        <div className="input-group">
+          <input
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Set password ..."
+            id="password"
+            name="password"
+            className="form-control"
+            value={formData.password}
+            onChange={handleChange}
+          />
+          {errors.password && <p style={errorStyle}>{errors.password}</p>}
+        </div>
+        <div className="input-group">
+          <input
+            type="checkbox"
+            checked={showPassword}
+            onChange={handleToggleShowPassword}
+          />
+          Show password
+        </div>
+        <div className="input-group">
+          <input
+            type="password"
+            placeholder="Confirm password ..."
+            id="confirmPassword"
+            name="confirmPassword"
+            className="form-control"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+          />
+          {errors.confirmPassword && <p style={errorStyle}>{errors.confirmPassword}</p>}
+        </div><br />
 
 
-      <button>Submit</button>
-    </form>
+        <button>Submit</button>
+      </form>
     </>
   )
 };

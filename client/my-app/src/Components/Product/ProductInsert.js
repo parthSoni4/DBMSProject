@@ -16,10 +16,11 @@ export default function ProductInsert() {
     const[date, setDate]=useState("");
     const[latitude, setLatitude]=useState(null);
     const[longitude, setLongitude]=useState(null);
+>>>>>>> 97642b9099ecf9105a5d21403042a230135d8134
 
 
-    const farmer_id=sessionStorage.getItem("farmer_id");
-    console.log(" farmer id is",farmer_id);
+    //const farmer_id=location.state.farmer_id;
+    //console.log(" farmer id is",farmer_id);
 
     const handleSubmit = (event) => {
         console.log(quantity);
@@ -43,7 +44,7 @@ export default function ProductInsert() {
 
         axios.post("http://localhost:3001/insertProduct",formdata).then((response)=>{
             console.log("this is the ",response.data.message);
-            if(response.data.message=="successful")
+            if(response.data.message==="successful")
             {
                 console.log("we will redirect to the previous page")
                 // navigate("../FarmerOption")

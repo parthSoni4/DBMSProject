@@ -79,3 +79,33 @@ body{
 .para-size{
     font-size: 1.5rem;
 }
+
+.second-part{
+    background-image: url("./HomeImages/home2.jpg");
+    height: 150vh;
+    margin-top: 15rem;
+    margin-bottom: 15rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.row-2{
+    margin-top: 4rem !important;
+    margin-bottom: 4rem !important;
+    /* border: 2px solid red */
+}
+
+
+.row-2-para{
+    padding: 3rem !important;
+    font-size: 1.4em;
+}
+
+.col-md-7{
+    border: 0px !important
+}

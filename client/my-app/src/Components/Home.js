@@ -12,6 +12,9 @@ import color2 from "./HomeImages/color2.jpeg";
 import sunrise from "./HomeImages/sunrise4.jpeg";
 import Footer from "./Footer";
 import "./Home.css"
+import display from "./HomeImages/picture.jpg";
+import display2 from "./HomeImages/picture2.jpg";
+
 
 export default function Home() {
   return (
@@ -97,6 +100,45 @@ export default function Home() {
         </div>
         </div>
       </div>
+
+
+      <section className="second-part">
+        <br />
+        <br />
+        <br />
+        <br />
+        <h2> Get Involved with Mother Nature</h2>
+        <p> One of the main goal of our organiation is to reduce the distance our generation and mother nature</p>
+        <p>The new Generation will understand the beauty of mother earth, how plants grow and how difficult our farmer face </p>
+      </section>
+
+
+      <section className="two-image">
+        <div className="container-fluid">
+          <div className="row row-2">
+            <div className="col-md-5">
+                  <h2 className='text-center'> Our Farms </h2>
+                  <p className='text-center row-2-para' >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem inventore laboriosam nemo dignissimos beatae ab at. Aut officiis, repudiandae suscipit sunt ex tempore delectus esse ipsa totam commodi aliquam minus.
+                  </p>
+            </div>
+            <div className="col-md-7">
+                <img src={display} alt="" className='img-cl'/>
+            </div>
+          </div>
+          <div className="row row-2">
+            <div className="col-md-7">
+                  <img src={display2} alt="" className="img-cl" />
+            </div>
+            <div className="col-md-5">
+              <h2 className="text-center">Family visit</h2>
+            <p className='text-center'>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est, distinctio? Autem exercitationem esse consequatur veniam, deleniti nesciunt voluptate, fugiat molestias voluptatibus temporibus facere officiis ipsam et doloremque beatae est debitis. Quae dicta deserunt, excepturi iure temporibus amet beatae culpa dolorem quo natus ex est iste ratione facere perspiciatis, in autem!
+            </p>
+            </div>
+          </div>
+        </div>
+      </section>
       <Footer></Footer>      
     </>
   )

@@ -4,6 +4,8 @@ import "./loginCustomer.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
+import image from "../HomeImages/count2.png";
+
 
 export default function CustomerLogin() {
     const navigate = useNavigate("/root");
@@ -43,7 +45,11 @@ export default function CustomerLogin() {
     };
 
     return (
-        <main>
+        <main className="main-fl">
+            <div className="container container-fl">
+            <div className="row">
+                <div className="col-md-6 col-6-text">
+
             <h2>Customer Login </h2>
             <div className="input-group">
                 <input type="text" placeholder="Enter your name ..." className="form-control" onChange={(e) => { changeName(e.target.value); }} />
@@ -66,6 +72,16 @@ export default function CustomerLogin() {
                 <button className="btn btn-default btn-primary option-button" onClick={check_customer}>Submit</button>
             </div>
             <h3>{status}</h3>
+
+            </div>
+            <div className="col-md-6">
+                <img src={image} alt="" className="img-responsive img-cl" />
+            </div>
+
+            </div>
+
+            </div>
+
         </main>
     )
 }

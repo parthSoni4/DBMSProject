@@ -3,7 +3,9 @@ import "../Form.css"
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './AdminOption';
-import image2 from "../HomeImages/flower.jpg";
+import "./All.css";
+import image2 from "../HomeImages/count3.png";
+
 
 export default function AdminLogin() {
 
@@ -49,7 +51,11 @@ export default function AdminLogin() {
 
   return (
     <>
-      <main>
+      <main className='main-fl'>
+        <div className="container container-fl">
+          <div className="row">
+          <div className="col-md-6 col-6-text">
+
         {/* <button onClick={handleClick}>Go to login</button> */}
         <h2>Admin login</h2>
         <div className="input-group">
@@ -77,6 +83,14 @@ export default function AdminLogin() {
           </h3>
         </div>
         <button className="btn btn-primary option-button" onClick={admin_login}>Submit</button>
+        </div>
+        <div className="col-md-6">
+          
+          <img src={image2} alt="" className='img-responsive img-cl' />
+        </div>
+        </div>
+
+        </div> 
 
       </main>
     </>

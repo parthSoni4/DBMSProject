@@ -16,10 +16,11 @@ export default function ProductInsert() {
     const[date, setDate]=useState("");
     const[latitude, setLatitude]=useState(null);
     const[longitude, setLongitude]=useState(null);
+>>>>>>> 97642b9099ecf9105a5d21403042a230135d8134
 
 
-    const farmer_id=sessionStorage.getItem("farmer_id");
-    console.log(" farmer id is",farmer_id);
+    //const farmer_id=location.state.farmer_id;
+    //console.log(" farmer id is",farmer_id);
 
     const handleSubmit = (event) => {
         console.log(quantity);
@@ -75,8 +76,8 @@ export default function ProductInsert() {
         navigator.geolocation.getCurrentPosition((position)=>{
             setLatitude(position.coords.latitude);
             setLongitude(position.coords.longitude);
-            console.log(longitude);
-            console.log(latitude);
+            console.log("the longitude is", longitude);
+            console.log("the latitude is",latitude);
             axios.post("http://localhost:3001/farmer_location",{
                 farmer_id: farmer_id,
                 latitude: latitude,
@@ -129,14 +130,15 @@ export default function ProductInsert() {
                 <div className="input-group">
                     Enter the date when product can be received ...<input type="date" onChange={(e) => { setDate(e.target.value); }} />
                 </div>
-                <div>
-                    <button className="btn btn btn-primary" onClick={get_location}>Set Location</button>
-                    <br />
-                </div>
+                
                 <div className="input-group">
                     <button className="btn btn-default btn-primary" type="submit">Upload</button>
                 </div>
             </form>
+            <div>
+                    <button className="btn btn btn-primary" onClick={get_location}>Set Location</button>
+                    <br />
+                </div>
         </>
     )
 }

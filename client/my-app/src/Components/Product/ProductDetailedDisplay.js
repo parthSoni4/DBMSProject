@@ -45,11 +45,15 @@ export default function ProductDetailedDisplay() {
         setData(response.data)
         // console.log(response.data.id);
         console.log("image data",data);
-        console.log("hello", data[0].cost);
-        const amount=data[0].cost;
+        console.log("hello this is here", response.data[0].cost);
+        const amount=response.data[0].cost;
+        console.log(data.cost);
         // const farmer_id=data[0].farmer_id;
         // console.log("the farmer_id is", farmer_id);
         console.log("the amount is",amount);
+        
+        console.log("here the paymentt is",amount);
+        
         sessionStorage.setItem("amount",amount);
         })
       .catch(error=>console.log(error));

@@ -16,6 +16,8 @@ export default function AllContact() {
     const [reply, setReply]=useState();
 
     const sendEmail=(e)=>{
+        console.log();
+       
         e.preventDefault();
         console.log(e);
         emailjs.sendForm('service_e8rm178', 'template_uong9ad', form.current, 'H1nhxEIsnh11f8ZEl')

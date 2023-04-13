@@ -166,7 +166,7 @@ const SignupForm = () => {
   const terms = (e) => {
     e.preventDefault();
     swal({
-      title: "Terms and Conditions",
+      title: "Terms and Conditions!",
       text: "The information what you provide must be genuine and " +
         "accurate, in case of violation admin as all the rights to remove you from the site.",
       button: "Close",
@@ -244,7 +244,7 @@ const SignupForm = () => {
       <div className="input-group">
         <input
           type="text"
-          placeholder="Enter your unique number ..."
+          placeholder="Enter your unique number (Farmer unique ID given by Govt.) ..."
           id="unique_id"
           name="unique_id"
           className="form-control"

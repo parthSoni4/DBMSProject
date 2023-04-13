@@ -22,12 +22,12 @@ export default function Contact() {
             console.log(response);
         });
     }
-    useEffect(() => {
-            const style = document.createElement('style');
-            style.textContent = `body { background-image: url(${image2}); background-size: cover; background-repeat: no-repeat; }`;
-            document.head.appendChild(style);
+    // useEffect(() => {
+    //         const style = document.createElement('style');
+    //         style.textContent = `body { background-image: url(${image2}); background-size: cover; background-repeat: no-repeat; }`;
+    //         document.head.appendChild(style);
         
-          }, )
+    //       }, )
 
     useEffect(() => {
         validateForm();
@@ -73,7 +73,7 @@ export default function Contact() {
             <textarea placeholder='Enter your message and description ...' name="description" cols="30" rows="10" className="form-control" onChange={(e)=>{setDescription(e.target.value);}} />
         </div>
         <div className="input-group">
-            <button className="btn btn-primary" onClick={Submit}>Submit</button>
+            <button className="btn btn-primary option-button" onClick={Submit}>Submit</button>
         </div>
     </form>
     </>

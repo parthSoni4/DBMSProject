@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "../Form.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import pic4 from "./FarmerSectionImage/farmer1.png";
+import pic4 from "./FarmerSectionImage/farmer2.png";
 
 
 export default function FarmerLoginPage() {
@@ -39,14 +39,14 @@ export default function FarmerLoginPage() {
 
     return (
         <>
-            <main>
-                <div className="container">
+            <main className='main-fl'>
+                <div className="container container-fl">
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-6 col-6-text">
 
 
 
-                            <h2>Login Page for farmer</h2>
+                            <h2 className='text-center'>Login Page for farmer</h2>
                             <div className="input-group">
                                 <input type="text" className="form-control" placeholder='Enter your Username ...' onChange={(e) => { changeName(e.target.value); }} />
                             </div>
@@ -66,13 +66,13 @@ export default function FarmerLoginPage() {
                                 <a href class="login_a" >Forgot password?</a>
                             </span>
                             <div className="input-group">
-                                <button className="btn btn-default btn-primary" onClick={check_farmer}>Submit</button>
+                                <button className="btn btn-default btn-primary option-button" onClick={check_farmer}>Submit</button>
                             </div>
                             <h3>{status}</h3>
                         </div>
                         <div className="col-md-6">
 
-                            <img src={pic4} className="img-fluid my-3" alt="" />
+                            <img src={pic4} className="img-fluid pic4" alt="" />
                         </div>
                     </div>
                 </div>

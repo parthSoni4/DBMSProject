@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "../Form.css";
+import "./loginCustomer.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
@@ -32,10 +33,10 @@ export default function CustomerLogin() {
         })
     };
 
-    useEffect(() => {
-        document.body.style.backgroundColor = "pink";
-        //   document.body.style.backgroundColor="red";
-    }, [])
+    // useEffect(() => {
+    //     document.body.style.backgroundColor = "pink";
+    //     //   document.body.style.backgroundColor="red";
+    // }, [])
 
     const handleToggleShowPassword = () => {
         setShowPassword(!showPassword);

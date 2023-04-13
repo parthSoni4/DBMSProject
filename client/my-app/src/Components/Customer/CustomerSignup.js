@@ -150,12 +150,12 @@ const CustomerSignup = () => {
     });
   }
 
-  useEffect(() => {
-    const style = document.createElement('style');
-    style.textContent = `body { background-image: url(${image}); background-repeat: repeat; }`;
-    document.head.appendChild(style);
+  // useEffect(() => {
+  //   const style = document.createElement('style');
+  //   style.textContent = `body { background-image: url(${image}); background-repeat: repeat; }`;
+  //   document.head.appendChild(style);
 
-  },)
+  // },)
 
   const errorStyle = { color: "red" };
 

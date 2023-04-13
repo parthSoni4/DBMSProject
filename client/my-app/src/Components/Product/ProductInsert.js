@@ -18,7 +18,8 @@ export default function ProductInsert() {
     const[longitude, setLongitude]=useState(null);
 
 
-    //const farmer_id=location.state.farmer_id;
+    const farmer_id=sessionStorage.getItem("farmer_id");
+    // const farmer_id=location.state.farmer_id;
     //console.log(" farmer id is",farmer_id);
 
     const handleSubmit = (event) => {

@@ -16,7 +16,6 @@ export default function ProductInsert() {
     const[date, setDate]=useState("");
     const[latitude, setLatitude]=useState(null);
     const[longitude, setLongitude]=useState(null);
->>>>>>> 97642b9099ecf9105a5d21403042a230135d8134
 
 
     //const farmer_id=location.state.farmer_id;

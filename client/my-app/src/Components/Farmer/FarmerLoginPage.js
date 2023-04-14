@@ -69,11 +69,12 @@ export default function FarmerLoginPage() {
                                 <button className="btn btn-default btn-primary option-button" onClick={check_farmer}>Submit</button>
                             </div>
                             <h3>{status}</h3>
-                        </div>
-                        <span>
+                            <span>
                             <h5>Don't have an account?</h5>
                             <Link className="dropdown-item" aria-current="page" to="/Form">Click here!</Link>
                         </span>
+                        </div>
+                        
                         <div className="col-md-6">
                             <img src={pic4} className="img-fluid pic4" alt="" />
                         </div>

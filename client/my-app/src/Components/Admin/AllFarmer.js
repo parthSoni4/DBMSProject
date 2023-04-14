@@ -48,12 +48,12 @@ export default function AllFarmer()
             {
                 data.map(item=>(
                     <div className="row row-display"  key={item.farmer_id}>
-                    <div> First name: {item.fname}  <br></br>       last name: {item.lname}         <br></br>      age: {item.age}</div>
-                    <div> aadhar no: {item.aadhar_no}    <br></br>         unique id: {item.unique_id}        <br></br>     phone no{item.phone_no} </div>
-                    <div> city:  {item.city}   <br></br>         state: {item.state}        <br></br>    pincode: {item.pincode}     <br></br>         password: {item.password}</div>
+                    <div> First name: {item.fname}      &nbsp; &nbsp;&nbsp;      last name: {item.lname}        &nbsp; &nbsp;&nbsp;       age: {item.age}</div>
+                    <div> aadhar no: {item.aadhar_no}       &nbsp; &nbsp;&nbsp;      unique id: {item.unique_id}        <br></br>     phone no{item.phone_no} </div>
+                    <div> city:  {item.city}   &nbsp; &nbsp;&nbsp;        state: {item.state}        &nbsp; &nbsp;&nbsp;  pincode: {item.pincode}     <br></br>         password: {item.password}</div>
                    <div>
 
-                    <button className="btn btn-default btn-primary" onClick={()=>{Delete(item.farmer_id)}}>Delete</button>
+                    <button className="btn btn-default btn-primary option-button2" onClick={()=>{Delete(item.farmer_id)}}>Delete</button>
                    </div>
                 </div>
             ))

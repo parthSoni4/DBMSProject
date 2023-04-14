@@ -169,7 +169,7 @@ export default function CreateAdmin() {
         </div><br />
 
 
-        <button>Submit</button>
+        <button className='option-button'>Submit</button>
       </form>
     </>
   )

@@ -1,34 +1,77 @@
-.navbar{
-    background-color: white  !important;
-    font-family:'Times New Roman', Times, serif;
-    /* position:sticky; */
-    /* background-color: black; */
-    /* box-shadow: 2px 2px 7px 2px grey; */
-    overflow: hidden;
-    /* position: fixed; */
-    /*top: 0;*/
-    width: 100%;
-    z-index: 2;
-    height: 30% !important;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    /*position: sticky;*/
+.navbar {
+    position: sticky;
     top: 0;
-    border-bottom: 2px solid white !important;
-}
-.navbar-brand{
-    color: green;
+    background-color: white;
+    padding: 8px;
+    padding-left: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+    z-index: 100;
+    border: 2px solid green;
+    border-radius: 30px;
+    /* Add any additional styles for the navbar */
 }
 
-.navbar-brand:hover, .nav-link:hover{
-    border-radius: 10px;  
-    padding: 0.3rem;
-    color: yellowgreen;  
+.navbar-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-@media screen and (max-width: 800px)
-{
- .navbar{
-    /* background-color: red !important; */
-    height: 35vh !important;
- }    
+.navbar-item {
+    margin-right: 15px;
+    margin-top: 7px;
+}
+
+.navbar-brand:active{
+    color:darkgreen;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+    /* Add any additional styles for the dropdown menu */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 12vh;
+    /* Add any additional styles when the dropdown is shown */
+}
+
+.dropdown-item {
+    color: rgb(21, 225, 21);
+}
+
+.dropdown-item:hover {
+    color: darkgreen;
+}
+
+.navbar-brand {
+    color: rgb(21, 225, 21);
+}
+
+.navbar-brand:hover {
+    color:darkgreen;
+    display: block;
+}
+.img1{
+    width:12vm;
+    height:12vh;
+    margin-top: 7px;
+}
+.company-name{
+    color:rgba(25, 168, 25, 0.879);
+    padding-right: 25px;
+    padding-left: 5px;
+    margin-top: 7px;
 }

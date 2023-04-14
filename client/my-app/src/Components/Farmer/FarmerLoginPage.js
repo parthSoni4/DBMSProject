@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "../Form.css";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { Link , useNavigate } from 'react-router-dom';
 import pic4 from "./FarmerSectionImage/farmer2.png";
 
 
@@ -46,7 +46,7 @@ export default function FarmerLoginPage() {
 
 
 
-                            <h2 className='text-center'>Login Page for farmer</h2>
+                            <h2 className='text-center'>Farmer login!</h2>
                             <div className="input-group">
                                 <input type="text" className="form-control" placeholder='Enter your Username ...' onChange={(e) => { changeName(e.target.value); }} />
                             </div>
@@ -70,8 +70,11 @@ export default function FarmerLoginPage() {
                             </div>
                             <h3>{status}</h3>
                         </div>
+                        <span>
+                            <h5>Don't have an account?</h5>
+                            <Link className="dropdown-item" aria-current="page" to="/Form">Click here!</Link>
+                        </span>
                         <div className="col-md-6">
-
                             <img src={pic4} className="img-fluid pic4" alt="" />
                         </div>
                     </div>

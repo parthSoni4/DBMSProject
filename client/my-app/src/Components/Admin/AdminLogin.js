@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "../Form.css"
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './AdminOption';
 import "./All.css";
 import image2 from "../HomeImages/count3.png";
@@ -54,43 +54,47 @@ export default function AdminLogin() {
       <main className='main-fl'>
         <div className="container container-fl">
           <div className="row">
-          <div className="col-md-6 col-6-text">
+            <div>
+              <Link className="dropdown-item" aria-current="page" to="/">
+                Back</Link>
+            </div>
+            <div className="col-md-6 col-6-text">
 
-        {/* <button onClick={handleClick}>Go to login</button> */}
-        <h2>Admin login</h2>
-        <div className="input-group">
-          <input type="text" placeholder="Enter your username ..." className="form-control" onChange={(e) => { changeUsername(e.target.value); }} />
-        </div>
-        <div className="input-group">
-          <input
-            type={showPassword ? 'text' : 'password'}
-            placeholder="Enter your password ..." className="form-control" onChange={(e) => { changePassword(e.target.value); }} />
-        </div>
-        <div className="input-group">
-          <input
-            type="checkbox"
-            checked={showPassword}
-            onChange={handleToggleShowPassword}
-          />
-          Show password
-        </div>
-        <span>
-          <a href class="login_a">Forgot password?</a>
-        </span>
-        <div>
-          <h3>
-            {msge}
-          </h3>
-        </div>
-        <button className="btn btn-primary option-button" onClick={admin_login}>Submit</button>
-        </div>
-        <div className="col-md-6">
-          
-          <img src={image2} alt="" className='img-responsive img-cl' />
-        </div>
-        </div>
+              {/* <button onClick={handleClick}>Go to login</button> */}
+              <h2>Admin login!</h2>
+              <div className="input-group">
+                <input type="text" placeholder="Enter your username ..." className="form-control" onChange={(e) => { changeUsername(e.target.value); }} />
+              </div>
+              <div className="input-group">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Enter your password ..." className="form-control" onChange={(e) => { changePassword(e.target.value); }} />
+              </div>
+              <div className="input-group">
+                <input
+                  type="checkbox"
+                  checked={showPassword}
+                  onChange={handleToggleShowPassword}
+                />
+                Show password
+              </div>
+              <span>
+                <a href class="login_a">Forgot password?</a>
+              </span>
+              <div>
+                <h3>
+                  {msge}
+                </h3>
+              </div>
+              <button className="btn btn-primary option-button" onClick={admin_login}>Submit</button>
+            </div>
+            <div className="col-md-6">
 
-        </div> 
+              <img src={image2} alt="" className='img-responsive img-cl' />
+            </div>
+          </div>
+
+        </div>
 
       </main>
     </>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "../Form.css";
 import "./loginCustomer.css";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { Link , useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
 import image from "../HomeImages/count2.png";
 
@@ -47,38 +47,42 @@ export default function CustomerLogin() {
     return (
         <main className="main-fl">
             <div className="container container-fl">
-            <div className="row">
-                <div className="col-md-6 col-6-text">
+                <div className="row">
+                    <div className="col-md-6 col-6-text">
 
-            <h2>Customer Login </h2>
-            <div className="input-group">
-                <input type="text" placeholder="Enter your name ..." className="form-control" onChange={(e) => { changeName(e.target.value); }} />
-            </div>
-            <div className="input-group">
-                <input type={showPassword ? 'text' : 'password'} placeholder="Enter your password ..." className="form-control" onChange={(e) => { changePassword(e.target.value); }} />
-            </div>
-            <div className="input-group">
-                <input
-                    type="checkbox"
-                    checked={showPassword}
-                    onChange={handleToggleShowPassword}
-                />
-                Show password
-            </div>
-            <span>
-                <a href class="login_a" >Forgot password?</a>
-            </span>
-            <div className="input-group">
-                <button className="btn btn-default btn-primary option-button" onClick={check_customer}>Submit</button>
-            </div>
-            <h3>{status}</h3>
+                        <h2>Customer login!</h2>
+                        <div className="input-group">
+                            <input type="text" placeholder="Enter your name ..." className="form-control" onChange={(e) => { changeName(e.target.value); }} />
+                        </div>
+                        <div className="input-group">
+                            <input type={showPassword ? 'text' : 'password'} placeholder="Enter your password ..." className="form-control" onChange={(e) => { changePassword(e.target.value); }} />
+                        </div>
+                        <div className="input-group">
+                            <input
+                                type="checkbox"
+                                checked={showPassword}
+                                onChange={handleToggleShowPassword}
+                            />
+                            Show password
+                        </div>
+                        <span>
+                            <a href class="login_a" >Forgot password?</a>
+                        </span>
+                        <div className="input-group">
+                            <button className="btn btn-default btn-primary option-button" onClick={check_customer}>Submit</button>
+                        </div>
+                        <h3>{status}</h3>
 
-            </div>
-            <div className="col-md-6">
-                <img src={image} alt="" className="img-responsive img-cl" />
-            </div>
-
-            </div>
+                    </div>
+                    <span>
+                        <h5>Don't have an account?</h5>
+                        <Link className="dropdown-item" aria-current="page" to="/Customer_login">
+                            Click here!</Link>
+                    </span>
+                    <div className="col-md-6">
+                        <img src={image} alt="" className="img-responsive img-cl" />
+                    </div>
+                </div>
 
             </div>
 

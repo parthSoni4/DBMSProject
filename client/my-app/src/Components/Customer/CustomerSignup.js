@@ -143,9 +143,10 @@ const CustomerSignup = () => {
   const terms = (e) => {
     e.preventDefault();
     swal({
-      title: "Terms and Conditions!",
+      title: "Terms and Conditions",
       text: "The information what you provide must be genuine and " +
         "accurate, in case of violation admin as all the rights to remove you from the site.",
+      icon: "info",
       button: "Close",
     });
   }

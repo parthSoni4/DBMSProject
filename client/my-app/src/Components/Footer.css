@@ -1,74 +1,83 @@
 .content-container {
-    min-height: calc(7vh - 34px);
-    text-align: center;
-    /* border: 22px solid black; */
-    background-color: lightgrey;
-    /* height: 22vh; */
-    padding: 25px;
-    margin-top: 3.4rem;
-  }
-
-.footer--pin {
+  min-height: calc(7vh - 34px);
+  text-align: center;
+  /* border: 22px solid black; */
+  background-color: rgb(183, 181, 181);
+  /* height: 22vh; */
+  padding: 25px;
+  margin-top: 3.4rem;
+  padding-top: 3em;
   position: relative;
-  left: 0;
   bottom: 0;
-  padding-left: 25px;
-  padding-right: 25px;
+  width: 100%;
 }
-.foot--page{
+.soical-container{
+  padding-top: 3em;
   position: relative;
-  left: 0;
   bottom: 0;
-  padding-left: 46px;
-  padding-right: 46px;
-  font-size:25px ;
+  width: 100%;
+}
+
+h4{
+  padding-bottom: 8px;
+}
+
+li{
+  color:white;
+  padding-bottom: 8px;
+  font-size: 20px;
 }
 
 .icon1 {
-  margin-left: 0.6em;
-  color: white;
+margin-left: 0.6em;
+color: white;
 }
 
 .icon1:hover {
-  color: #3b5998;
+color: #3b5998;
 }
 
 .icon2 {
-  margin-left: 2.5em;
-  color: white;
+margin-left: 0em;
+color: white;
 }
 
 .icon2:hover {
-  color: #00acee;
+color: #00acee;
 }
 
 .icon3 {
-  margin-left: 2.5em;
-  color: white;
+margin-left: 1em;
+color: white;
 }
 
 .icon3:hover {
-  color: #b70068;
+color: #b70068;
 }
 
 .icon4 {
-  margin-left: 2.5em;
-  color: white;
+margin-left: 0.4em;
+color: white;
 }
 .icon4:hover {
-  color: red;
+color: red;
 }
 
 a{
-  text-decoration: none;
+text-decoration: none;
 }
 a:hover{
-  color:white;
+color:white;
+}
+
+.terms{
+  color: black;
 }
 /*
 .row{
-    border: 3px solid green;  
+  border: 3px solid green;  
 }
 .col-sm-4{
-    border: 2px solid black;  
+  border: 2px solid black;  
 }*/
+

@@ -24,7 +24,7 @@
     margin-top: 7px;
 }
 
-.navbar-brand:active{
+.navbar:active{
     color:darkgreen;
 }
 
@@ -44,7 +44,7 @@
 
 .dropdown:hover .dropdown-menu {
     display: block;
-    margin-top: 12vh;
+    margin-top: 12.5vh;
     /* Add any additional styles when the dropdown is shown */
 }
 

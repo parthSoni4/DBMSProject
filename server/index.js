@@ -596,6 +596,48 @@ app.post("/total_sale",function(req,res)
     })
 })
 
+
+app.post("/total_farmer", function(req,res){
+    sql="select count(*) AS answer from farmer";
+    conn.query(sql,function(err,result)
+    {
+        if(err)console.log(err);
+        console.log(result);
+        res.send(result);
+    })
+})
+
+app.post("/total_customer", function(req,res){
+    sql="select count(*) AS answer from customer";
+    conn.query(sql,function(err,result)
+    {
+        if(err)console.log(err);
+        console.log(result);
+        res.send(result);
+    })
+})
+app.post("/total_product", function(req,res){
+    sql="select count(*) AS answer from product";
+    conn.query(sql,function(err,result)
+    {
+        if(err)console.log(err);
+        console.log(result);
+        res.send(result);
+    })
+})
+app.post("/total_payment", function(req,res){
+    sql="select count(*) AS answer from payment";
+    conn.query(sql,function(err,result)
+    {
+        if(err)console.log(err);
+        console.log("payment is", result);
+        res.send(result);
+    })
+})
+
+
+
+
 app.listen(PORT, function (err) {
     if (err) 
         console.log(err);

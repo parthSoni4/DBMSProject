@@ -29,3 +29,19 @@ body{
     border: 0px;
     margin: 1rem;
 }
+
+.report-container{
+    margin-bottom: 16.9em !important; 
+    box-shadow: 1px 1px 4px 1px grey !important;
+    /* border: 2px solid black !important; */
+    
+}
+.report-container:hover
+{
+    box-shadow: 1px 1px 6px 1px grey !important;
+
+}
+
+.row-report{
+    font-size: 1.3rem;
+}

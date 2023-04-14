@@ -46,17 +46,17 @@ export default function AllCustomer() {
                            first name: {item.fname}
                         </div>
                         <div>
-                           last name: {item.lname} <br></br>
+                           last name: {item.lname} &nbsp; &nbsp;&nbsp; 
                             {/* {item.lname} <br></br> */}
                             phone no: {item.phone_no} <br></br>
-                           email: {item.email} <br></br>
+                           email: {item.email} &nbsp; &nbsp;&nbsp; 
                            address: {item.address} <br></br>
-                           state: {item.state} <br></br>
+                           state: {item.state} &nbsp; &nbsp;&nbsp; 
                            city:  {item.city} <br></br>
                            password:  {item.password} <br></br>
                         </div>
                         <div>
-                          <button className="btn btn-default btn-primary" onClick={()=>{Delete(item.customer_id)}}>Delete</button>
+                          <button className="btn btn-default btn-primary option-button2" onClick={()=>{Delete(item.customer_id)}}>Delete</button>
                         </div>
                     </div>
 

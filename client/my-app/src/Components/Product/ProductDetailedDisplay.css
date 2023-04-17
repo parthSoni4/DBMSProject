@@ -46,7 +46,7 @@
      */
      box-shadow: 1px 1px 7px 1px grey;
      margin-bottom: 13rem  !important;
-     max-height: 80vh;
+     min-height: 80vh;
 }
 #container-display:hover{
     box-shadow: 1px 1px 9px 1px grey;

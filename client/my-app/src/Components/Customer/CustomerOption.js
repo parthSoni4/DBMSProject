@@ -25,8 +25,8 @@ export default function CustomerOption() {
     
       <div className="row row-option">
 
-    <button className="option-button"  onClick={view_products}>View the products</button>
-    <button className="option-button" onClick={view_purchase}>View purchase</button>
+    <button className="option-button2 option-button3"  onClick={view_products}>View the products</button>
+    <button className="option-button2 option-button3" onClick={view_purchase}>View purchase</button>
       </div>
     </div>
     {/* <button></button> */}

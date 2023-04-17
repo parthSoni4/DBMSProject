@@ -3,9 +3,12 @@
  min-width: 20em;
  color: black !important; 
  min-height: 2em; 
- background-color: red;
+ /* background-color: red; */
 }
 .FormGroup{
     /* border: 2px solid red; */
     color: yellow !important;
+}
+.payment-form{
+    width: fit-content !important;
 }

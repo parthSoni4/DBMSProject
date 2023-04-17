@@ -311,10 +311,10 @@ const CustomerSignup = () => {
         {errors.terms && <p style={errorStyle}>{errors.terms}</p>}
       </div>
 
-      <button type="submit" className="btn btn-primary option-button">Sign Up</button>
+      <button type="submit" className="btn btn-primary option-button2">Sign Up</button>
       <div>
         <h5 className="my-3">Already have an account?</h5>
-        <button className="login_a option-button" onClick={Customer_login}>
+        <button className="login_a option-button2" onClick={Customer_login}>
           Click Here
         </button>
       </div>

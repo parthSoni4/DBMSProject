@@ -28,9 +28,9 @@ export default function FarmerOption() {
     </div>
     <div className="row row-option">
 
-    <button className="option-button" onClick={farmer_sales}>View all your sales</button>
-    <button className="option-button" onClick={Inserting_product}>Insert product</button>
-    <button className="option-button" >View your product</button>
+    <button className=" option-button2 option-button3" onClick={farmer_sales}>View all your sales</button>
+    <button className=" option-button2 option-button3" onClick={Inserting_product}>Insert product</button>
+    <button className=" option-button2 option-button3" >View your product</button>
     </div>
     </div>
     </>

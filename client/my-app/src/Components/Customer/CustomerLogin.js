@@ -69,7 +69,7 @@ export default function CustomerLogin() {
                             <a href class="login_a" >Forgot password?</a>
                         </span>
                         <div className="input-group">
-                            <button className="btn btn-default btn-primary option-button" onClick={check_customer}>Submit</button>
+                            <button className="btn btn-default btn-primary option-button2" onClick={check_customer}>Submit</button>
                         </div>
                         <h3>{status}</h3>
 

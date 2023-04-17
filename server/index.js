@@ -250,7 +250,7 @@ app.post("/insertProduct", upload.single("file"), (req, res) => {
 })
 
 app.get("/product_display", (req, res) => {
-    const sql = "Select * from product where status='not purchased';";
+    const sql = "Select * from product where status='not_purchased';";
     conn.query(sql, (error, results, fields) => {
         if (error) {
             console.error(error);

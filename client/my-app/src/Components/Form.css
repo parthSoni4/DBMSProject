@@ -188,3 +188,8 @@ main{
     /* border: 2px solid red; */
     padding: 0.9rem !important;
 }
+
+.container-option{
+    margin-bottom: 12rem;
+    margin-top: 6rem;
+}

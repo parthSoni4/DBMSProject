@@ -125,16 +125,16 @@ const CustomerSignup = () => {
         console.log(response);
       });
       setFormData({
-        fname: " ",
-        lname: " ",
-        phone_no: " ",
-        email: " ",
-        address: " ",
-        city: " ",
-        state: " ",
-        password: " ",
-        confirmPassword: " ",
-        terms: " ",
+        fname: "",
+        lname: "",
+        phone_no: "",
+        email: "",
+        address: "",
+        city: "",
+        state: "",
+        password: "",
+        confirmPassword: "",
+        terms: "",
       });
       setErrors({});
     }

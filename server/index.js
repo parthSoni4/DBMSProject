@@ -1,17 +1,17 @@
 var express = require("express");
 var mysql = require("mysql2");
 var app = express();
-var bodyParser=require("body-parser");
+var bodyParser = require("body-parser");
 const cors = require("cors");
 const multer = require("multer");
-const nodemailer=require("nodemailer");
+const nodemailer = require("nodemailer");
 require("dotenv").config()
 const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
 var PORT = 3001;
 // const bodyParser=require("body-parser");
 
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(cors({
@@ -22,7 +22,7 @@ app.use(cors({
     credentials: true
 }));
 
-const conn = mysql.createConnection({host: "localhost", user: "root", password: "parth", database: "DBMS"});
+const conn = mysql.createConnection({ host: "localhost", user: "root", password: "Chinnu@2000", database: "DBMS" });
 
 // const storage=multer.diskStorage({
 //     destination:(req,file,callback)=>{
@@ -35,7 +35,7 @@ const conn = mysql.createConnection({host: "localhost", user: "root", password: 
 
 // const upload=multer({storage: storage});
 conn.connect(function (err) {
-    if (err) 
+    if (err)
         throw err;
     console.log("Connected!");
 })
@@ -68,31 +68,34 @@ conn.connect(function (err) {
 // })
 
 
-app.post("/Geolocation",function(req,res){
+app.post("/Geolocation", function (req, res) {
     console.log(req.body);
-    conn.query("insert into location(latitude, longitude) values('"+req.body.latitude+"','"+req.body.longitude+"');",function(err,result){
-        if(err)throw err;
-          console.log(result);
+    conn.query("insert into location(latitude, longitude) values('" + req.body.latitude + "','" + req.body.longitude + "');", function (err, result) {
+        if (err) throw err;
+        console.log(result);
     });
     res.send("Location inserted");
-  })
-  
+})
+
 
 app.post("/farmer_login", function (req, res) {
     console.log(req.body);
     console.log("Hi");
     conn.query("insert into farmer(fname,lname,age,aadhar_no,unique_id,phone_no,city,state,pincode,password)values('" + req.body.fname + "','" + req.body.lname + "','" + req.body.age + "','" + req.body.aadhar_no + "','" + req.body.unique_id + "','" + req.body.phone_no + "','" + req.body.city + "','" + req.body.state + "','" + req.body.pincode + "','" + req.body.password + "');", function (err, result) {
-        if (err) 
+        if (err)
             throw err;
         console.log(result);
     });
     res.send("got this");
 })
 
+
+
+
 app.post("/customer_login", function (req, res) {
     console.log(req.body);
     conn.query("insert into customer(fname, lname, phone_no, email, address, state, city, password) values('" + req.body.fname + "','" + req.body.lname + "','" + req.body.phone_no + "','" + req.body.email + "','" + req.body.address + "','" + req.body.state + "','" + req.body.city + "','" + req.body.password + "');", function (err, result) {
-        if (err) 
+        if (err)
             throw err;
         console.log(result);
     });
@@ -120,9 +123,9 @@ app.post("/check_customer", function (req, res) {
     const sql = "select * from customer where fname='" + req.body.name + "' && password='" + req.body.password + "';";
     const values = [req.body.name];
     conn.query(sql, function (err, result) {
-        if (err) 
+        if (err)
             console.error(err);
-        
+
 
         console.log(sql);
         console.log(result);
@@ -143,7 +146,7 @@ app.post("/check_customer", function (req, res) {
 //     conn.query("select * from farmer where fname='" + req.body.name + "' && password='" + req.body.password + "';", function (err, result) {
 //         if (err) 
 //             console.log(err);
-        
+
 
 //         console.log(result);
 //         if (result == "") {
@@ -163,9 +166,9 @@ app.post("/check_customer", function (req, res) {
     const values = [req.body.name];
     conn.query(sql, function (err, result) {
 
-        if (err) 
+        if (err)
             console.error(err);
-        
+
 
         console.log(sql);
         console.log(result);
@@ -182,11 +185,11 @@ app.post("/check_customer", function (req, res) {
 })
 app.post("/check_farmer", function (req, res) {
     console.log(req.body);
-    const sql=`select * from farmer where fname='${req.body.name}' && password='${req.body.password}'`;
+    const sql = `select * from farmer where fname='${req.body.name}' && password='${req.body.password}'`;
     conn.query(sql, function (err, result) {
-        if (err) 
+        if (err)
             console.log(err);
-        
+
 
         console.log(result);
         if (result == "") {
@@ -200,6 +203,26 @@ app.post("/check_farmer", function (req, res) {
     })
 })
 
+app.post('/getUserData', (req, res) => {
+    const { farmerId } = req.body;
+    const sql = "select fname,lname from customer where farmer_id='" + req.body + "';";
+    conn.query(sql, function (err, result) {
+        if (err)
+            console.log(err);
+
+
+        console.log(result);
+        if (result == "") {
+            console.log("wrong");
+            res.send("wrong");
+        } else {
+            console.log("right");
+            res.send(result);
+        }
+
+    })
+
+});
 
 // app.post("/insertProduct",upload.fields([{name:"text"},{name:"file"}]),function(req,res){
 //     const{text,file}=req.body;
@@ -241,9 +264,9 @@ app.post("/insertProduct", upload.single("file"), (req, res) => {
     conn.query(sql, values, (err, results, fields) => {
         if (err) {
             console.log(err);
-            res.status(500).json({error: "uploading image and text"});
+            res.status(500).json({ error: "uploading image and text" });
         } else {
-            res.json({message: "successful"});
+            res.json({ message: "successful" });
         }
     });
 
@@ -254,7 +277,7 @@ app.get("/product_display", (req, res) => {
     conn.query(sql, (error, results, fields) => {
         if (error) {
             console.error(error);
-            res.status(500).json({error: "error in fetching"});
+            res.status(500).json({ error: "error in fetching" });
         } else {
             const imageData = results.map((row) => {
                 const imageBase64 = Buffer.from(row.file).toString("base64");
@@ -280,7 +303,7 @@ app.get("/product_display", (req, res) => {
 
 app.post("/create_admin", function (req, res) {
     conn.query("insert into admin(username, phone_no, email, password) values ('" + req.body.username + "','" + req.body.phone_no + "','" + req.body.email + "','" + req.body.password + "');", function (err, result) {
-        if (err) 
+        if (err)
             throw err;
         console.log(result);
     });
@@ -292,9 +315,9 @@ app.get("/", function (req, res) {
 
 app.post("/create_admin", function (req, res) {
     conn.query("insert into admin (username, password) values ('" + req.body.username + "','" + req.body.password + "');", function (err, result) {
-        if (err) 
+        if (err)
             throw err;
-        
+
 
         console.log(result);
     })
@@ -306,9 +329,9 @@ app.get("/", function (req, res) {
 
 app.get("/AllFarmer", function (req, res) {
     conn.query("Select * from farmer;", function (err, Result) {
-        if (err) 
+        if (err)
             throw err;
-        
+
 
         console.log(Result);
         res.send(Result);
@@ -317,9 +340,9 @@ app.get("/AllFarmer", function (req, res) {
 
 app.get("/AllCustomer", function (req, res) {
     conn.query("select * from customer;", function (err, Result) {
-        if (err) 
+        if (err)
             throw err;
-        
+
 
         console.log(Result);
         res.send(Result);
@@ -339,9 +362,9 @@ app.post("/contact", function (req, res) {
     sql = `insert into contact (name, email,description) values ('${name}','${email}',
     '${description}');`;
     conn.query(sql, function (err, result) {
-        if (err) 
+        if (err)
             console.log(err);
-        
+
 
         console.log(result);
         res.send("successful");
@@ -358,7 +381,7 @@ app.post("/product_detailed_display", (req, res) => {
     conn.query(sql, (error, results, fields) => {
         if (error) {
             console.error(error);
-            res.status(500).json({error: "error in fetching"});
+            res.status(500).json({ error: "error in fetching" });
         } else {
             const imageData = results.map((row) => {
                 const imageBase64 = Buffer.from(row.file).toString("base64");
@@ -398,10 +421,10 @@ app.post("/payment", cors(), async (req, res) => { // let { amount, id } = req.b
         console.log("Payment is completed", payment)
         sql = `insert into payment(customer_id, product_id, amount ) values ( ${customer_id}, ${product_id}, ${amount})`;
         conn.query(sql, function (err, result) {
-            if (err) 
-                throw(err)
+            if (err)
+                throw (err)
 
-            
+
 
             console.log(result);
         })
@@ -418,9 +441,9 @@ app.post("/farmer_delete", (req, res) => {
     const farmer_id = req.body.farmer_id;
     const sql = `delete from farmer where farmer_id=${farmer_id}`;
     conn.query(sql, function (err, result) {
-        if (err) 
+        if (err)
             throw err;
-        
+
 
         console.log(result);
     })
@@ -432,9 +455,9 @@ app.post("/customer_delete", function (req, res) {
     const customer_id = req.body.customer_id;
     const sql = `delete from customer where customer_id=${customer_id};`
     conn.query(sql, function (err, result) {
-        if (err) 
+        if (err)
             throw err;
-        
+
 
         console.log(result);
     })
@@ -446,9 +469,9 @@ app.post("/customer_delete", function (req, res) {
 app.get("/AllContact", function (req, res) {
     sql = "select * from contact";
     conn.query(sql, function (err, result) {
-        if (err) 
+        if (err)
             throw err;
-        
+
 
         console.log(result);
         res.send(result);
@@ -461,9 +484,9 @@ app.get("/Allpayment", function (req, res) {
     sql = "select payment.product_id, product.farmer_id, payment.customer_id, payment_id ,customer.fname as customerFname, customer.lname as customerLname, customer.phone_no as customer_phone_no , text, category, type, quantity, description, product_date, email, farmer.fname as farmerFname, farmer.lname as farmerLname, farmer.phone_no as farmer_phone_no from payment, product, farmer, customer where (payment.product_id=product.product_id) && (product.farmer_id=farmer.farmer_id) && (customer.customer_id=payment.customer_id);"
 
     conn.query(sql, function (err, result) {
-        if (err) 
+        if (err)
             throw err;
-        
+
 
         console.log(result);
         res.send(result);
@@ -474,9 +497,9 @@ app.post("/farmer_sales", function (req, res) {
     const farmer_id = req.body.farmer_id;
     sql = `select payment.product_id, product.farmer_id, payment.customer_id, payment_id ,customer.fname as customerFname, customer.lname as customerLname, customer.phone_no as customer_phone_no , text, category, type, quantity, description, product_date, email, farmer.fname as farmerFname, farmer.lname as farmerLname, farmer.phone_no as farmer_phone_no from payment, product, farmer, customer where (payment.product_id=product.product_id) && (product.farmer_id=farmer.farmer_id) && (customer.customer_id=payment.customer_id) && (farmer.farmer_id=${farmer_id});`;
     conn.query(sql, function (err, result) {
-        if (err) 
+        if (err)
             throw err;
-        
+
 
         console.log(result);
         res.send(result);
@@ -488,9 +511,9 @@ app.post("/view_purchase", function (req, res) {
     const customer_id = req.body.customer_id;
     sql = `select payment.product_id, product.farmer_id, product.cost, payment.customer_id, payment_id ,customer.fname as customerFname, customer.lname as customerLname, customer.phone_no as customer_phone_no , text, category, type, quantity, description, product_date, email, farmer.fname as farmerFname, farmer.lname as farmerLname, farmer.phone_no as farmer_phone_no from payment, product, farmer, customer where (payment.product_id=product.product_id) && (product.farmer_id=farmer.farmer_id) && (customer.customer_id=payment.customer_id) && (customer.customer_id=${customer_id});`;
     conn.query(sql, function (err, result) {
-        if (err) 
+        if (err)
             throw err;
-        
+
 
         console.log(result);
         res.send(result);
@@ -500,84 +523,82 @@ app.post("/view_purchase", function (req, res) {
 //  sending reply in nodejs
 
 //  nodemailer code
-const https=require("https");
+const https = require("https");
 const { response } = require("express");
-const agent=new https.Agent({
+const agent = new https.Agent({
     rejectUnauthorized: false
 
 })
 
-let transporter=nodemailer.createTransport({
+let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
     secure: false,
 
-    auth:{
+    auth: {
         user: "82641.parthsoni@gmail.com",
         pass: "parthsoni04082000"
     },
     // authMethod: "LOGIN",
-    tls:{
+    tls: {
         rejectUnauthorized: false,
         agent: agent
     }
 });
 
 
-app.post("/reply",function(req,res){
-    const email=req.body.email;
-    const reply=req.body.reply;
-    let mailOptions={
+app.post("/reply", function (req, res) {
+    const email = req.body.email;
+    const reply = req.body.reply;
+    let mailOptions = {
         from: "82641.parthsoni@gmail.com",
         to: email,
         subject: "test email",
         text: "This is a test email"
     };
-    transporter.sendMail(mailOptions,(error, info)=>{
-        if(error)
-        {
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
             console.log(error);
         }
-        else{
-            console.log("email sent"+info.response);
+        else {
+            console.log("email sent" + info.response);
         }
     })
-    console.log("this is email",email,"this is reply", reply);
+    console.log("this is email", email, "this is reply", reply);
     res.send("Thank you");
 })
 
-app.post("/farmer_location",function(req,res){
+app.post("/farmer_location", function (req, res) {
     // console.log(req);
-    const farmer_id=req.body.farmer_id;
-    const latitude=req.body.latitude;
-    const longitude=req.body.longitude;
-    console.log(farmer_id,latitude,longitude);
-    const sql=`insert into farmer_location(farmer_id, longitude, latitude) values(${farmer_id}, ${longitude}, ${latitude})`;
-    conn.query(sql,function(result,error)
-    {
-        if(error) console.log(error);
+    const farmer_id = req.body.farmer_id;
+    const latitude = req.body.latitude;
+    const longitude = req.body.longitude;
+    console.log(farmer_id, latitude, longitude);
+    const sql = `insert into farmer_location(farmer_id, longitude, latitude) values(${farmer_id}, ${longitude}, ${latitude})`;
+    conn.query(sql, function (result, error) {
+        if (error) console.log(error);
         console.log(result);
     })
     res.send("fine");
 })
 
-app.get("/get_location", function(req,res){
-    const sql=`select * from farmer_location;`
-    conn.query(sql, function(result,error){
-        if(err) console.log(err);
+app.get("/get_location", function (req, res) {
+    const sql = `select * from farmer_location;`
+    conn.query(sql, function (result, error) {
+        if (err) console.log(err);
         res.send(result);
     })
 })
 
 // giving farmer location to front end
 
-app.post("/show_location",function(req,res){
-    const product_id=req.body.product_id;
+app.post("/show_location", function (req, res) {
+    const product_id = req.body.product_id;
     console.log(product_id);
-    sql=`select latitude, longitude, farmer_location.farmer_id from farmer_location, product where farmer_location.farmer_id=product.farmer_id && product_id=${product_id}; `
-    conn.query(sql,function(err,result){
-        if(err) console.log(err);
-        console.log("the result is",result);
+    sql = `select latitude, longitude, farmer_location.farmer_id from farmer_location, product where farmer_location.farmer_id=product.farmer_id && product_id=${product_id}; `
+    conn.query(sql, function (err, result) {
+        if (err) console.log(err);
+        console.log("the result is", result);
         res.send(result);
     })
 })
@@ -585,63 +606,137 @@ app.post("/show_location",function(req,res){
 
 // Report section
 
-app.post("/total_sale",function(req,res)
-{
-    sql=`select sum(amount) AS answer from payment;`
-    conn.query(sql, function(err,result)
-    {
-        if(err)console.log(err);
+app.post("/total_sale", function (req, res) {
+    sql = `select sum(amount) AS answer from payment;`
+    conn.query(sql, function (err, result) {
+        if (err) console.log(err);
         console.log("the result is", result);
         res.send(result);
     })
 })
 
 
-app.post("/total_farmer", function(req,res){
-    sql="select count(*) AS answer from farmer";
-    conn.query(sql,function(err,result)
-    {
-        if(err)console.log(err);
+app.post("/total_farmer", function (req, res) {
+    sql = "select count(*) AS answer from farmer";
+    conn.query(sql, function (err, result) {
+        if (err) console.log(err);
         console.log(result);
         res.send(result);
     })
 })
 
-app.post("/total_customer", function(req,res){
-    sql="select count(*) AS answer from customer";
-    conn.query(sql,function(err,result)
-    {
-        if(err)console.log(err);
+app.post("/total_customer", function (req, res) {
+    sql = "select count(*) AS answer from customer";
+    conn.query(sql, function (err, result) {
+        if (err) console.log(err);
         console.log(result);
         res.send(result);
     })
 })
-app.post("/total_product", function(req,res){
-    sql="select count(*) AS answer from product";
-    conn.query(sql,function(err,result)
-    {
-        if(err)console.log(err);
+app.post("/total_product", function (req, res) {
+    sql = "select count(*) AS answer from product";
+    conn.query(sql, function (err, result) {
+        if (err) console.log(err);
         console.log(result);
         res.send(result);
     })
 })
-app.post("/total_payment", function(req,res){
-    sql="select count(*) AS answer from payment";
-    conn.query(sql,function(err,result)
-    {
-        if(err)console.log(err);
+app.post("/total_payment", function (req, res) {
+    sql = "select count(*) AS answer from payment";
+    conn.query(sql, function (err, result) {
+        if (err) console.log(err);
         console.log("payment is", result);
         res.send(result);
     })
 })
 
+//read_update_account
+app.get('/read_farmer_account/:farmer_id', (req, res) => {
+    const farmer_id = req.params.farmer_id;
+    console.log(farmer_id)
+    let send_data = {
+        farmer_id: 0,
+        fname: "",
+        lname: "",
+        age:0,
+        aadhar_no:0,
+        unique_id:"",
+        phone_no: 0,
+        state: "",
+        city: "",
+        password: "",
+        pincode:0
+    }
+    const readFarmerQ = 'select * from farmer where farmer_id =  ' + [farmer_id];
+    conn.query(readFarmerQ, (err, result) => {
+        if (err)
+            throw err;
+        else {
+            console.log("here");
+              send_data.farmer_id= result[0].farmer_id;
+              send_data.fname= result[0].fname;
+              send_data.lname= result[0].lname;
+              send_data.phone_no= result[0].phone_no;
+              send_data.unique_id= result[0].unique_id;
+              send_data.aadhar_no= result[0].aadhar_no;
+              send_data.age= result[0].age;
+              send_data.pincode= result[0].pincode;
+              send_data.state= result[0].state;
+              send_data.city= result[0].city;
+              send_data.password= result[0].password;
+              console.log(JSON.stringify(send_data));
+              res.send(send_data);
+        }
+    })
+
+}
+)
+
+
+
+//read_update_account
+app.get('/read_customer_account/:customer_id', (req, res) => {
+    const customer_id = req.params.customer_id;
+    console.log(customer_id)
+    let send_data = {
+        fname: '', 
+        lname: '', 
+        phone_no:0, 
+        email: '', 
+        address:'', 
+        state:'',
+        city:'',
+        password:''
+    }
+    const readcustomerQ = 'select * from customer where customer_id =  ' + [customer_id];
+    conn.query(readcustomerQ, (err, result) => {
+        if (err)
+            throw err;
+        else {
+            console.log("here");
+              send_data.customer_id= result[0].customer_id;
+              send_data.fname= result[0].fname;
+              send_data.lname= result[0].lname;
+              send_data.phone_no= result[0].phone_no;
+              send_data.email= result[0].email;
+              send_data.address= result[0].address;
+              send_data.state= result[0].state;
+              send_data.city= result[0].city;
+              send_data.password= result[0].password;
+              console.log(JSON.stringify(send_data));
+              res.send(send_data);
+        }
+    })
+
+}
+)
 
 
 
 app.listen(PORT, function (err) {
-    if (err) 
+    if (err)
         console.log(err);
-    
+
 
     console.log("Server listening at port ", PORT);
 })

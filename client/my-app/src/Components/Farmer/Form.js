@@ -32,8 +32,7 @@ const SignupForm = () => {
     const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
+        setFormData({...formData,
             [e.target.name]: e.target.value
         });
     };

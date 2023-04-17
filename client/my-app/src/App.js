@@ -28,6 +28,8 @@ import ViewPurchase from "./Components/Customer/ViewPurchase";
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 import Geolocation from "./Components/Geolocation";
 import Report from "./Components/Admin/Report";
+import FarmerAccount from "./Components/Farmer/FarmerAccount";
+import CustomerAccount from "./Components/Customer/CustomerAccount";
 
 // import Trying from "./Components/Trying";
 
@@ -62,6 +64,8 @@ function App() {
           <Route path="/view_purchase" element={<ViewPurchase></ViewPurchase>}></Route>
           <Route path="/Geolocation" element={<Geolocation></Geolocation>}></Route>
           <Route path="/Report" element={<Report></Report>}></Route>
+          <Route path="/FarmerAccount" element={<FarmerAccount></FarmerAccount>}></Route>
+          <Route path="/CustomerAccount" element={<CustomerAccount></CustomerAccount>}></Route>
           {/* <Route path="/trying" element={<Trying></Trying>}/> */}
         </Routes>
         

@@ -4,7 +4,7 @@ import "./loginCustomer.css";
 import axios from "axios";
 import { Link , useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
-import image from "../HomeImages/count2.png";
+import image from "../HomeImages/front2.avif";
 
 
 export default function CustomerLogin() {
@@ -69,16 +69,16 @@ export default function CustomerLogin() {
                             <a href class="login_a" >Forgot password?</a>
                         </span>
                         <div className="input-group">
-                            <button className="btn btn-default btn-primary option-button" onClick={check_customer}>Submit</button>
+                            <button className="btn btn-default btn-primary option-button2" onClick={check_customer}>Submit</button>
                         </div>
                         <h3>{status}</h3>
 
-                    </div>
                     <span>
                         <h5>Don't have an account?</h5>
                         <Link className="dropdown-item" aria-current="page" to="/Customer_login">
                             Click here!</Link>
                     </span>
+                    </div>
                     <div className="col-md-6">
                         <img src={image} alt="" className="img-responsive img-cl" />
                     </div>

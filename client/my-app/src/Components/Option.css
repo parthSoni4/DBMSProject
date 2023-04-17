@@ -37,3 +37,25 @@
 
     
 }
+
+
+.container-option
+{
+    box-shadow: 1px 1px 4px 1px grey;
+    padding: 1.2rem !important;
+}
+.container-option:hover
+{
+    box-shadow: 1px 1px 6px 1px grey;
+
+}
+
+.option-button3{
+    border-radius: 6px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}
+.row-option{
+    display: flex;
+    flex-direction: row;
+}

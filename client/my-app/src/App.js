@@ -27,9 +27,8 @@ import FarmerSales from "./Components/Farmer/FarmerSales";
 import ViewPurchase from "./Components/Customer/ViewPurchase";
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 import Geolocation from "./Components/Geolocation";
+import Weather from "./Components/Weather";
 import Report from "./Components/Admin/Report";
-import FarmerAccount from "./Components/Farmer/FarmerAccount";
-import CustomerAccount from "./Components/Customer/CustomerAccount";
 
 // import Trying from "./Components/Trying";
 
@@ -63,9 +62,8 @@ function App() {
           <Route path="/farmer_sales" element={<FarmerSales></FarmerSales>}></Route>
           <Route path="/view_purchase" element={<ViewPurchase></ViewPurchase>}></Route>
           <Route path="/Geolocation" element={<Geolocation></Geolocation>}></Route>
+          <Route path="/Weather" element={<Weather></Weather>}></Route>
           <Route path="/Report" element={<Report></Report>}></Route>
-          <Route path="/FarmerAccount" element={<FarmerAccount></FarmerAccount>}></Route>
-          <Route path="/CustomerAccount" element={<CustomerAccount></CustomerAccount>}></Route>
           {/* <Route path="/trying" element={<Trying></Trying>}/> */}
         </Routes>
         

@@ -273,7 +273,38 @@ app.post("/insertProduct", upload.single("file"), (req, res) => {
 })
 
 app.get("/product_display", (req, res) => {
-    const sql = "Select * from product where status='not purchased';";
+    const sql = "Select * from product where status='not_purchased';";
+    conn.query(sql, (error, results, fields) => {
+        if (error) {
+            console.error(error);
+            res.status(500).json({error: "error in fetching"});
+        } else {
+            const imageData = results.map((row) => {
+                const imageBase64 = Buffer.from(row.file).toString("base64");
+                const imageUrl = `data:image/jpeg;base64,${imageBase64}`;
+                return {
+                    id: row.id,
+                    imageData: imageUrl,
+                    textData: row.text,
+                    cost: row.cost,
+                    quantity: row.quantity,
+                    category: row.category,
+                    type: row.type,
+                    description: row.description,
+                    id: row.product_id,
+                    date: row.product_date
+                };
+            });
+            console.log(imageData);
+            res.json(imageData);
+        }
+    });
+});
+
+
+app.post("/product_display_farmer", (req, res) => {
+    const farmer_id=req.body.farmer_id;
+    const sql = `Select * from product where farmer_id=${farmer_id};`;
     conn.query(sql, (error, results, fields) => {
         if (error) {
             console.error(error);
@@ -467,7 +498,7 @@ app.post("/customer_delete", function (req, res) {
 // get customer, farmer and viewer messages
 
 app.get("/AllContact", function (req, res) {
-    sql = "select * from contact";
+    sql = "select * from contact where status='pending'";
     conn.query(sql, function (err, result) {
         if (err)
             throw err;
@@ -633,10 +664,39 @@ app.post("/total_customer", function (req, res) {
         res.send(result);
     })
 })
-app.post("/total_product", function (req, res) {
-    sql = "select count(*) AS answer from product";
-    conn.query(sql, function (err, result) {
-        if (err) console.log(err);
+
+app.post("/query", function(req,res){
+    conn.query("select count(*) AS answer from contact;",function(err,result)
+    {
+        if(err)console.log(err);
+        console.log(result);
+        res.send(result);
+    });
+
+})
+app.post("/Pquery", function(req,res){
+    conn.query("select count(*) AS answer from contact where status='pending';",function(err,result)
+    {
+        if(err)console.log(err);
+        console.log(result);
+        res.send(result);
+    });
+
+})
+app.post("/Aquery", function(req,res){
+    conn.query("select count(*) AS answer from contact where status='answered';",function(err,result)
+    {
+        if(err)console.log(err);
+        console.log(result);
+        res.send(result);
+    });
+
+})
+app.post("/total_product", function(req,res){
+    sql="select count(*) AS answer from product";
+    conn.query(sql,function(err,result)
+    {
+        if(err)console.log(err);
         console.log(result);
         res.send(result);
     })
@@ -650,87 +710,17 @@ app.post("/total_payment", function (req, res) {
     })
 })
 
-//read_update_account
-app.get('/read_farmer_account/:farmer_id', (req, res) => {
-    const farmer_id = req.params.farmer_id;
-    console.log(farmer_id)
-    let send_data = {
-        farmer_id: 0,
-        fname: "",
-        lname: "",
-        age:0,
-        aadhar_no:0,
-        unique_id:"",
-        phone_no: 0,
-        state: "",
-        city: "",
-        password: "",
-        pincode:0
-    }
-    const readFarmerQ = 'select * from farmer where farmer_id =  ' + [farmer_id];
-    conn.query(readFarmerQ, (err, result) => {
-        if (err)
-            throw err;
-        else {
-            console.log("here");
-              send_data.farmer_id= result[0].farmer_id;
-              send_data.fname= result[0].fname;
-              send_data.lname= result[0].lname;
-              send_data.phone_no= result[0].phone_no;
-              send_data.unique_id= result[0].unique_id;
-              send_data.aadhar_no= result[0].aadhar_no;
-              send_data.age= result[0].age;
-              send_data.pincode= result[0].pincode;
-              send_data.state= result[0].state;
-              send_data.city= result[0].city;
-              send_data.password= result[0].password;
-              console.log(JSON.stringify(send_data));
-              res.send(send_data);
-        }
+// changing pending emails
+app.post("/answered_email",function(req,res)
+{
+    const email=req.body.emailId;
+    conn.query(`update contact set status='answered' where email= '${email}'`,function(err,result)
+    {
+        if(err)throw console.log(err);
+        console.log(result);
+        res.send("yes");
     })
-
-}
-)
-
-
-
-//read_update_account
-app.get('/read_customer_account/:customer_id', (req, res) => {
-    const customer_id = req.params.customer_id;
-    console.log(customer_id)
-    let send_data = {
-        fname: '', 
-        lname: '', 
-        phone_no:0, 
-        email: '', 
-        address:'', 
-        state:'',
-        city:'',
-        password:''
-    }
-    const readcustomerQ = 'select * from customer where customer_id =  ' + [customer_id];
-    conn.query(readcustomerQ, (err, result) => {
-        if (err)
-            throw err;
-        else {
-            console.log("here");
-              send_data.customer_id= result[0].customer_id;
-              send_data.fname= result[0].fname;
-              send_data.lname= result[0].lname;
-              send_data.phone_no= result[0].phone_no;
-              send_data.email= result[0].email;
-              send_data.address= result[0].address;
-              send_data.state= result[0].state;
-              send_data.city= result[0].city;
-              send_data.password= result[0].password;
-              console.log(JSON.stringify(send_data));
-              res.send(send_data);
-        }
-    })
-
-}
-)
-
+})
 
 
 app.listen(PORT, function (err) {

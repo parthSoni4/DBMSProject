@@ -67,12 +67,19 @@ export default function Navbar() {
                             </li>
                             <li className="navbar-item">
                             </li>
-                            
+                            <li className="navbar-item">
+                            <Link className="dropdown-item" aria-current="page" to="/Admin_login">
+                                            Admin Login</Link> 
+                            </li>
 
+                            <li className="navbar-item">
+                                <Link className="navbar-brand" aria-current="page" to="/Weather">
+                                Weather
+                                </Link>
+                            </li>
                             <li className="navbar-item">
                             </li>
                             <div id="google_translate_element"></div>
-
                         </ul>
                     </div>
                     <span><img src="/logo.png" className="img1"></img></span>

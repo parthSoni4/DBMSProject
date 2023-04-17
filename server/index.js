@@ -722,6 +722,86 @@ app.post("/answered_email",function(req,res)
     })
 })
 
+//read_update_account
+app.get('/read_farmer_account/:farmer_id', (req, res) => {
+    const farmer_id = req.params.farmer_id;
+    console.log(farmer_id)
+    let send_data = {
+        farmer_id: 0,
+        fname: "",
+        lname: "",
+        age:0,
+        aadhar_no:0,
+        unique_id:"",
+        phone_no: 0,
+        state: "",
+        city: "",
+        password: "",
+        pincode:0
+    }
+    const readFarmerQ = 'select * from farmer where farmer_id =  ' + [farmer_id];
+    conn.query(readFarmerQ, (err, result) => {
+        if (err)
+            throw err;
+        else {
+            console.log("here");
+              send_data.farmer_id= result[0].farmer_id;
+              send_data.fname= result[0].fname;
+              send_data.lname= result[0].lname;
+              send_data.phone_no= result[0].phone_no;
+              send_data.unique_id= result[0].unique_id;
+              send_data.aadhar_no= result[0].aadhar_no;
+              send_data.age= result[0].age;
+              send_data.pincode= result[0].pincode;
+              send_data.state= result[0].state;
+              send_data.city= result[0].city;
+              send_data.password= result[0].password;
+              console.log(JSON.stringify(send_data));
+              res.send(send_data);
+        }
+    })
+
+}
+)
+
+//read_update_account
+app.get('/read_customer_account/:customer_id', (req, res) => {
+    const customer_id = req.params.customer_id;
+    console.log(customer_id)
+    let send_data = {
+        fname: '', 
+        lname: '', 
+        phone_no: 0, 
+        email: '', 
+        address: '', 
+        state: '', 
+        city: '', 
+        password: ''
+    }
+    const readcustomerQ = 'select * from customer where customer_id =  ' + [customer_id];
+    conn.query(readcustomerQ, (err, result) => {
+        if (err)
+            throw err;
+        else {
+            console.log("here");
+              send_data.customer_id= result[0].customer_id;
+              send_data.fname= result[0].fname;
+              send_data.lname= result[0].lname;
+              send_data.phone_no= result[0].phone_no;
+              send_data.email= result[0].email;
+              send_data.address= result[0].address;
+              send_data.state= result[0].state;
+              send_data.city= result[0].city;
+              send_data.password= result[0].password;
+              console.log(JSON.stringify(send_data));
+              res.send(send_data);
+        }
+    })
+
+}
+)
+
+
 
 app.listen(PORT, function (err) {
     if (err)

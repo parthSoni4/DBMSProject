@@ -65,16 +65,10 @@ export default function Navbar() {
                                 </ul>
                                 {/*<Outlet></Outlet>*/}
                             </li>
-                            <li className="navbar-item">
-                            </li>
-                            <li className="navbar-item">
-                            <Link className="dropdown-item" aria-current="page" to="/Admin_login">
-                                            Admin Login</Link> 
-                            </li>
-
+                          
                             <li className="navbar-item">
                                 <Link className="navbar-brand" aria-current="page" to="/Weather">
-                                Weather
+                                    Weather
                                 </Link>
                             </li>
                             <li className="navbar-item">
@@ -84,7 +78,7 @@ export default function Navbar() {
                     </div>
                     <span><img src="/logo.png" className="img1"></img></span>
                     <h2 className="company-name">FARM MART</h2>
-                </div>                  
+                </div>
             </nav>
         </>
     );

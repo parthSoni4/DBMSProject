@@ -1,17 +1,17 @@
 .container{
     border: 2px solid black !important;
     border-radius: 10px !important;
-    padding:20px !important;
+    padding:50px !important;
 }
 
 .option-button{
     /* border: 2px solid red; */
     margin: 1rem;
-    border-radius: 0px;
+    border-radius: 8px;
     background-color: rgb(57, 215, 57);
     border: 2px solid white;
-    width: 45%;
-    height: 14%;
+    width: 55%;
+    height: 45% !important;
     padding: 0.3rem;
     color: white;
     font-size: 1.3rem;
@@ -26,6 +26,7 @@
 
 .container-option{
     justify-content: center;
+    padding: 50px;
     /* margin: auto; */
 }
 
@@ -42,7 +43,7 @@
 .container-option
 {
     box-shadow: 1px 1px 4px 1px grey;
-    padding: 1.2rem !important;
+    padding: 5rem !important;
 }
 .container-option:hover
 {
@@ -52,7 +53,7 @@
 
 .option-button3{
     border-radius: 6px;
-    padding: 0.5rem;
+    padding: 2rem;
     font-size: 1.2rem;
 }
 .row-option{

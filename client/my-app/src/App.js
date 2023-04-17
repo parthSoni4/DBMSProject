@@ -29,6 +29,8 @@ import ViewPurchase from "./Components/Customer/ViewPurchase";
 import Geolocation from "./Components/Geolocation";
 import Weather from "./Components/Weather";
 import Report from "./Components/Admin/Report";
+import CustomerAccount from "./Components/Customer/CustomerAccount";
+import FarmerAccount from "./Components/Farmer/FarmerAccount";
 
 // import Trying from "./Components/Trying";
 
@@ -64,6 +66,8 @@ function App() {
           <Route path="/Geolocation" element={<Geolocation></Geolocation>}></Route>
           <Route path="/Weather" element={<Weather></Weather>}></Route>
           <Route path="/Report" element={<Report></Report>}></Route>
+          <Route path="/CustomerAccount" element={<CustomerAccount></CustomerAccount>}></Route>
+          <Route path="/FarmerAccount" element={<FarmerAccount></FarmerAccount>}></Route>
           {/* <Route path="/trying" element={<Trying></Trying>}/> */}
         </Routes>
         

@@ -86,7 +86,7 @@ export default function AdminLogin() {
                   {msge}
                 </h3>
               </div>
-              <button className="btn btn-primary option-button" onClick={admin_login}>Submit</button>
+              <button className="btn btn-primary option-button2" onClick={admin_login}>Submit</button>
             </div>
             <div className="col-md-6">
 

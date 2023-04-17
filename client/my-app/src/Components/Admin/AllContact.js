@@ -14,9 +14,14 @@ export default function AllContact() {
     const [showForm, setShowForm]=useState(false);
     const[message, setMessage]=useState([]);
     const [reply, setReply]=useState();
-
+    const[emailId, setEmailId]=useState();
     const sendEmail=(e)=>{
-        console.log();
+        console.log("This is what we need",emailId);
+        axios.post("http://localhost:3001/answered_email",{
+            emailId: emailId
+        }).then((response)=>{
+            console.log(response);
+        })
        
         e.preventDefault();
         console.log(e);
@@ -65,7 +70,7 @@ export default function AllContact() {
                         Message: {item.description}
                     </div>
                     <div>
-                            <button className="btn btn-default btn-primary" onClick={()=>{toggleForm(item.message_id)}}>
+                            <button className="btn btn-default btn-primary option-button2 option-button3" onClick={()=>{toggleForm(item.message_id)}}>
                                 Reply
                             </button>
                             {
@@ -79,7 +84,7 @@ export default function AllContact() {
                         <label>Name</label>
                         <input type="text" name="user_name" />
                         <label>Email</label>
-                    <input type="email" name="user_email" />
+                    <input type="email" name="user_email" onChange={(e)=>{setEmailId(e.target.value)}}/>
       <label>Message</label>
       <textarea name="message" />
       <input type="submit" value="Send" />

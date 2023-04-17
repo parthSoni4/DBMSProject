@@ -10,6 +10,9 @@ export default function Report() {
     const [totalPayment, setTotalPayment]=useState("");
     const [averageSaleperCustomer, setASPC]=useState("");
     const [averageSaleperFarmer, setASPF]=useState("");
+    const[ query, setQuery]=useState("");
+    const [Pquery, setPquery]=useState("");
+    const [Aquery, setAquery]=useState("");
     useEffect(() => {
     
     var tSales;
@@ -27,6 +30,24 @@ export default function Report() {
             console.log("yes",tSales);
         })
 
+        axios.post("http://localhost:3001/query",{
+        }).then((response)=>{
+            
+            console.log(response);
+            setQuery(response.data[0].answer);
+        })
+        axios.post("http://localhost:3001/Pquery",{
+        }).then((response)=>{
+            
+            console.log(response);
+            setPquery(response.data[0].answer);
+        })
+        axios.post("http://localhost:3001/Aquery",{
+        }).then((response)=>{
+            
+            console.log(response);
+            setAquery(response.data[0].answer);
+        })
         axios.post("http://localhost:3001/total_customer",{
 
         }).then((response)=>{
@@ -87,6 +108,15 @@ export default function Report() {
                     </div>
                     <div>
                         Total payment: {totalPayment}
+                    </div>
+                    <div>
+                        Total Query : {query}
+                    </div>
+                    <div>
+                        Total pending query: {Pquery}
+                    </div>
+                    <div>
+                        Total Answered query: {Aquery}
                     </div>
                 </div>
                 <div className="col-md-5">

@@ -67,7 +67,7 @@ body{
 
 }
 .option-button{
-    height: 1.1em;
+    height: 1.3rem !important;
 }
 .col-md-6{
     /* border: 2px solid yellow; */

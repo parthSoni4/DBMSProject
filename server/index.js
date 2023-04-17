@@ -444,7 +444,7 @@ app.post("/customer_delete", function (req, res) {
 // get customer, farmer and viewer messages
 
 app.get("/AllContact", function (req, res) {
-    sql = "select * from contact";
+    sql = "select * from contact where status='pending'";
     conn.query(sql, function (err, result) {
         if (err) 
             throw err;
@@ -616,6 +616,34 @@ app.post("/total_customer", function(req,res){
         res.send(result);
     })
 })
+
+app.post("/query", function(req,res){
+    conn.query("select count(*) AS answer from contact;",function(err,result)
+    {
+        if(err)console.log(err);
+        console.log(result);
+        res.send(result);
+    });
+
+})
+app.post("/Pquery", function(req,res){
+    conn.query("select count(*) AS answer from contact where status='pending';",function(err,result)
+    {
+        if(err)console.log(err);
+        console.log(result);
+        res.send(result);
+    });
+
+})
+app.post("/Aquery", function(req,res){
+    conn.query("select count(*) AS answer from contact where status='answered';",function(err,result)
+    {
+        if(err)console.log(err);
+        console.log(result);
+        res.send(result);
+    });
+
+})
 app.post("/total_product", function(req,res){
     sql="select count(*) AS answer from product";
     conn.query(sql,function(err,result)
@@ -635,7 +663,17 @@ app.post("/total_payment", function(req,res){
     })
 })
 
-
+// changing pending emails
+app.post("/answered_email",function(req,res)
+{
+    const email=req.body.emailId;
+    conn.query(`update contact set status='answered' where email= '${email}'`,function(err,result)
+    {
+        if(err)throw console.log(err);
+        console.log(result);
+        res.send("yes");
+    })
+})
 
 
 app.listen(PORT, function (err) {

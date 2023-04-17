@@ -4,12 +4,16 @@ import "../Product/ProductInsert";
 import { useLocation } from 'react-router-dom';
 import "../Option.css";
 import "./FarmerSales";
+import "./ViewProduct";
 
 export default function FarmerOption() {
 
   const navigate=useNavigate("/root");
   const farmer_sales=()=>{
     navigate("../farmer_sales")
+  }
+  const view_product=()=>{
+    navigate("../view_product")
   }
   const location=useLocation();
   const farmer_id=location.state.farmer_id;
@@ -30,7 +34,7 @@ export default function FarmerOption() {
 
     <button className=" option-button2 option-button3" onClick={farmer_sales}>View all your sales</button>
     <button className=" option-button2 option-button3" onClick={Inserting_product}>Insert product</button>
-    <button className=" option-button2 option-button3" >View your product</button>
+    <button className=" option-button2 option-button3" onClick={view_product}>View your product</button>
     </div>
     </div>
     </>

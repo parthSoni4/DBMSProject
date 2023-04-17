@@ -278,6 +278,37 @@ app.get("/product_display", (req, res) => {
     });
 });
 
+
+app.post("/product_display_farmer", (req, res) => {
+    const farmer_id=req.body.farmer_id;
+    const sql = `Select * from product where farmer_id=${farmer_id};`;
+    conn.query(sql, (error, results, fields) => {
+        if (error) {
+            console.error(error);
+            res.status(500).json({error: "error in fetching"});
+        } else {
+            const imageData = results.map((row) => {
+                const imageBase64 = Buffer.from(row.file).toString("base64");
+                const imageUrl = `data:image/jpeg;base64,${imageBase64}`;
+                return {
+                    id: row.id,
+                    imageData: imageUrl,
+                    textData: row.text,
+                    cost: row.cost,
+                    quantity: row.quantity,
+                    category: row.category,
+                    type: row.type,
+                    description: row.description,
+                    id: row.product_id,
+                    date: row.product_date
+                };
+            });
+            console.log(imageData);
+            res.json(imageData);
+        }
+    });
+});
+
 app.post("/create_admin", function (req, res) {
     conn.query("insert into admin(username, phone_no, email, password) values ('" + req.body.username + "','" + req.body.phone_no + "','" + req.body.email + "','" + req.body.password + "');", function (err, result) {
         if (err) 

@@ -28,7 +28,7 @@ import ViewPurchase from "./Components/Customer/ViewPurchase";
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 import Geolocation from "./Components/Geolocation";
 import Report from "./Components/Admin/Report";
-
+import ViewProduct from "./Components/Farmer/ViewProduct";
 // import Trying from "./Components/Trying";
 
 function App() {
@@ -62,6 +62,7 @@ function App() {
           <Route path="/view_purchase" element={<ViewPurchase></ViewPurchase>}></Route>
           <Route path="/Geolocation" element={<Geolocation></Geolocation>}></Route>
           <Route path="/Report" element={<Report></Report>}></Route>
+          <Route path="/view_product" element={<ViewProduct></ViewProduct>}></Route>
           {/* <Route path="/trying" element={<Trying></Trying>}/> */}
         </Routes>
         

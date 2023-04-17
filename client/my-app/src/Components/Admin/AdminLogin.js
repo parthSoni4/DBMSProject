@@ -4,7 +4,7 @@ import Axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import './AdminOption';
 import "./All.css";
-import image2 from "../HomeImages/count3.png";
+import image2 from "../HomeImages/front3.jpg";
 
 
 export default function AdminLogin() {
@@ -54,12 +54,12 @@ export default function AdminLogin() {
       <main className='main-fl'>
         <div className="container container-fl">
           <div className="row">
+            
+            <div className="col-md-6 col-6-text">
             <div>
               <Link className="dropdown-item" aria-current="page" to="/">
                 Back</Link>
             </div>
-            <div className="col-md-6 col-6-text">
-
               {/* <button onClick={handleClick}>Go to login</button> */}
               <h2>Admin login!</h2>
               <div className="input-group">

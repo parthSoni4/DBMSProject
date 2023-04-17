@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "../Form.css";
 import axios from "axios";
 import { Link , useNavigate } from 'react-router-dom';
-import pic4 from "./FarmerSectionImage/farmer2.png";
+import pic4 from "../HomeImages/front1.jpg";
 
 
 export default function FarmerLoginPage() {

@@ -45,3 +45,35 @@ body{
 .row-report{
     font-size: 1.3rem;
 }
+
+.main-fl{
+    /* border: 2px solid black !important; */
+    padding: 0px !important;
+    height: 70vh;
+    margin-bottom: 14em !important;
+}
+.container-fl{
+    /* border: 2px solid red !important; */
+    margin: 0px !important ;
+    margin-top: 0px !important;
+    height: 100% !important ;
+}
+
+.col-6-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.option-button{
+    height: 1.1em;
+}
+.col-md-6{
+    /* border: 2px solid yellow; */
+    height: 70vh;
+}
+.pic4{
+    height: 100%;
+    width: 100%;
+}

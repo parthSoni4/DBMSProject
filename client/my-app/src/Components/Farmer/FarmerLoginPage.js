@@ -52,9 +52,10 @@ export default function FarmerLoginPage() {
                 <div className="container container-fl">
                     <div className="row">
                         <div className="col-md-6 col-6-text">
-
-
-
+                            <div>
+                                <Link className="dropdown-item" aria-current="page" to="/">
+                                    Back</Link>
+                            </div><br />
                             <h2 className='text-center'>Farmer login!</h2><br />
                             <div>
                                 <span style={message}>{
@@ -79,7 +80,7 @@ export default function FarmerLoginPage() {
 
                             <div class="text-center">
                                 <button className="btn btn-lg btn-primary" onClick={check_farmer}>Submit</button>
-                            </div> <br/>
+                            </div> <br />
 
                             <span>
                                 <h5>Don't have an account?</h5>

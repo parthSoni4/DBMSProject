@@ -29,7 +29,7 @@ export default function CustomerLogin() {
             else {
                 changeStatus("Welcome");
                 console.log(response.data[0].fname);
-                
+
                 const customer_id = response.data[0].customer_id;
                 swal({
                     title: "Welcome",
@@ -59,14 +59,17 @@ export default function CustomerLogin() {
             <div className="container container-fl">
                 <div className="row">
                     <div className="col-md-6 col-6-text">
-
+                        <div>
+                            <Link className="dropdown-item" aria-current="page" to="/">
+                                Back</Link>
+                        </div><br />
                         <h2>Customer login!</h2><br />
                         <div>
                             <span style={message}>{
-                                 <h5>{status}</h5>
+                                <h5>{status}</h5>
                             }</span>
                         </div>
-                       
+
                         <div className="input-group">
                             <input type="text" placeholder="Enter your Username ... (your first name)" className="form-control" onChange={(e) => { changeName(e.target.value); }} />
                         </div>
@@ -83,7 +86,7 @@ export default function CustomerLogin() {
                         </div>
                         <div class="text-center">
                             <button className="btn btn-lg btn-primary" onClick={check_customer}>Submit</button>
-                        </div><br/>
+                        </div><br />
 
 
                         <span>

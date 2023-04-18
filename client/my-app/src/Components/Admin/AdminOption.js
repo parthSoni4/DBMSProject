@@ -43,12 +43,12 @@ export default function AdminOption() {
       </div>
       <div className="row row-option">
 
-    <button className="option-button2 option-button3" onClick={Create_admin}>Create new Admin</button>
-    <button className="option-button2 option-button3" onClick={AllFarmer}>View all farmer</button>
-    <button className="option-button2 option-button3" onClick={AllCustomer}>View all customer</button>
-    <button className="option-button2 option-button3" onClick={AllContact}>View all the messages</button>
-    <button className="option-button2 option-button3" onClick={Allpayment}>View all purchase</button>
-    <button className='option-button2 option-button3' onClick={generate_report}>View Report </button>
+    <button className="option-button" onClick={Create_admin}>Create new Admin</button>
+    <button className="option-button" onClick={AllFarmer}>View all farmer</button>
+    <button className="option-button" onClick={AllCustomer}>View all customer</button>
+    <button className="option-button" onClick={AllContact}>View all the messages</button>
+    <button className="option-button" onClick={Allpayment}>View all purchase</button>
+    <button className='option-button' onClick={generate_report}>View Report </button>
       </div>
     </div>
     </>

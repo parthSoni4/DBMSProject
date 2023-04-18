@@ -3,6 +3,7 @@ import axios from "axios";
 import { useLocation } from 'react-router-dom';
 import "../Farmer/FarmerOption.";
 import { useNavigate } from 'react-router-dom';
+import swal from "sweetalert";
 
 export default function ProductInsert() {
     const navigate=useNavigate("/root");
@@ -44,6 +45,7 @@ export default function ProductInsert() {
 
         axios.post("http://localhost:3001/insertProduct",formdata).then((response)=>{
             console.log("this is the ",response.data.message);
+            swal({title: "Product Inserted successfully!", icon: "success", button: "OK"});
             if(response.data.message==="successful")
             {
                 console.log("we will redirect to the previous page")

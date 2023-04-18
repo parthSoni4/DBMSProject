@@ -8,7 +8,7 @@
     /* border: 2px solid red; */
     margin: 1rem;
     border-radius: 8px;
-    background-color: rgb(57, 215, 57);
+    background-color: rgb(3, 105, 3);
     border: 2px solid white;
     width: 55%;
     height: 45% !important;
@@ -18,9 +18,9 @@
 
 }
 .option-button:hover{
-    color: white;
-    background-color: greenyellow;
-    border: 2px solid greenyellow;
+    color: rgb(3, 105, 3);
+    background-color: white;
+    border: 1px solid rgb(3, 105, 3);
 
 }
 

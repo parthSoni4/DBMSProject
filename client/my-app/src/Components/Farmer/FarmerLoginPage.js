@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import "../Form.css";
 import axios from "axios";
-import { Link , useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import pic4 from "../HomeImages/front1.jpg";
+import swal from "sweetalert";
 
 
 export default function FarmerLoginPage() {
@@ -21,12 +22,18 @@ export default function FarmerLoginPage() {
         }).then((response) => {
             console.log(response);
             if (response.data === "wrong") {
-                changeStatus("wrong username or password");
+                changeStatus("Invalid username or password");
             }
             else {
                 changeStatus("welcome");
                 console.log(response.data[0].fname);
+
                 const farmer_id = response.data[0].farmer_id;
+                swal({
+                    title: "Welcome",
+                    icon: "success",
+                    button: "Ok"
+                });
                 navigate(`../FarmerOption/farmer_id/${farmer_id}`, { state: { farmer_id } });
                 sessionStorage.setItem("farmer_id", farmer_id);
             }
@@ -36,7 +43,9 @@ export default function FarmerLoginPage() {
     const handleToggleShowPassword = () => {
         setShowPassword(!showPassword);
     };
-
+    const message = {
+        color: "red"
+    };
     return (
         <>
             <main className='main-fl'>
@@ -46,9 +55,14 @@ export default function FarmerLoginPage() {
 
 
 
-                            <h2 className='text-center'>Farmer login!</h2>
+                            <h2 className='text-center'>Farmer login!</h2><br />
+                            <div>
+                                <span style={message}>{
+                                    <h5>{status}</h5>
+                                }</span>
+                            </div>
                             <div className="input-group">
-                                <input type="text" className="form-control" placeholder='Enter your Username ...' onChange={(e) => { changeName(e.target.value); }} />
+                                <input type="text" className="form-control" placeholder='Enter your Username ... (your first name)' onChange={(e) => { changeName(e.target.value); }} />
                             </div>
                             <div className="input-group">
                                 <input type={showPassword ? 'text' : 'password'}
@@ -62,19 +76,17 @@ export default function FarmerLoginPage() {
                                 />
                                 Show password
                             </div>
-                            <span className="input-group">
-                                <a href class="login_a" >Forgot password?</a>
-                            </span>
-                            <div className="input-group">
-                                <button className="btn btn-default btn-primary option-button2" onClick={check_farmer}>Submit</button>
-                            </div>
-                            <h3>{status}</h3>
+
+                            <div class="text-center">
+                                <button className="btn btn-lg btn-primary" onClick={check_farmer}>Submit</button>
+                            </div> <br/>
+
                             <span>
-                            <h5>Don't have an account?</h5>
-                            <Link className="dropdown-item" aria-current="page" to="/Form">Click here!</Link>
-                        </span>
+                                <h5>Don't have an account?</h5>
+                                <Link className="dropdown-item" aria-current="page" to="/Form">Click here!</Link>
+                            </span>
                         </div>
-                        
+
                         <div className="col-md-6">
                             <img src={pic4} className="img-fluid pic4" alt="" />
                         </div>
